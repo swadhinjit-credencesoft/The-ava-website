@@ -632,7 +632,7 @@ export default function HomePage() {
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <a href="tel:+917899738550" className="bg-[#111111] text-white px-10 py-4 rounded-full font-medium text-[15px] text-center hover:bg-[#333] transition-colors" data-testid="button-cta-call">Call Now</a>
-              <Link href="/rooms" className="bg-white text-[#111111] px-10 py-4 rounded-full font-medium text-[15px] text-center hover:bg-[#f5f5f5] transition-colors" data-testid="button-cta-book">Book a Room</Link>
+              <a href={hotelData.bookingEngineUrl} target="_blank" rel="noopener noreferrer" className="bg-white text-[#111111] px-10 py-4 rounded-full font-medium text-[15px] text-center hover:bg-[#f5f5f5] transition-colors inline-block" data-testid="button-cta-book">Book a Room</a>
             </div>
           </div>
         </section>

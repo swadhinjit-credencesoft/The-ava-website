@@ -84,9 +84,9 @@ export default function RoomsPage() {
                     ))}
                   </div>
                   <div className="mt-auto pt-4">
-                    <Link href="/contact" className="bg-[#111111] text-white px-8 py-4 rounded-full font-medium text-[15px] hover:bg-[#333] transition-colors inline-block" data-testid={`button-book-${room.id}`}>
-                      Enquire About This Room
-                    </Link>
+                    <a href={hotelData.bookingEngineUrl} target="_blank" rel="noopener noreferrer" className="bg-[#111111] text-white px-8 py-4 rounded-full font-medium text-[15px] hover:bg-[#333] transition-colors inline-block" data-testid={`button-book-${room.id}`}>
+                      Book Now
+                    </a>
                   </div>
                 </div>
               </div>
@@ -119,9 +119,14 @@ export default function RoomsPage() {
               <p className="text-[#C9A84C] text-[12px] uppercase tracking-[0.4em] mb-3">Ready to Book?</p>
               <h2 className="font-display text-[42px] md:text-[56px] text-white uppercase leading-tight">CALL US DIRECTLY</h2>
             </div>
-            <a href="tel:+917899738550" className="bg-[#C9A84C] text-[#111111] px-10 py-4 rounded-full font-medium text-[16px] hover:bg-[#b8943f] transition-colors whitespace-nowrap" data-testid="button-rooms-call">
-              {hotelData.phone}
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a href="tel:+917899738550" className="bg-[#C9A84C] text-[#111111] px-10 py-4 rounded-full font-medium text-[16px] hover:bg-[#b8943f] transition-colors whitespace-nowrap text-center" data-testid="button-rooms-call">
+                {hotelData.phone}
+              </a>
+              <a href={hotelData.bookingEngineUrl} target="_blank" rel="noopener noreferrer" className="bg-white text-[#111111] px-10 py-4 rounded-full font-medium text-[16px] hover:bg-[#f5f5f5] transition-colors whitespace-nowrap text-center" data-testid="button-rooms-book">
+                Book Now
+              </a>
+            </div>
           </div>
         </section>
       </main>

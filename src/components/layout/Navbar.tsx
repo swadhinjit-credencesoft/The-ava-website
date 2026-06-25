@@ -65,9 +65,9 @@ export function Navbar() {
           <a href={`tel:${hotelData.phone.replace(/\s/g, '')}`} className={`hidden lg:flex items-center gap-2 font-medium text-sm hover:opacity-80 transition-opacity ${scrolled ? "text-[#111111]" : "text-white"}`} data-testid="link-phone">
             {hotelData.phone}
           </a>
-          <Link href="/rooms" className="hidden md:flex bg-[#111111] text-white px-8 py-3 rounded-full font-medium text-[16px] hover:bg-[#333333] transition-colors" data-testid="button-book-now">
+          <a href={hotelData.bookingEngineUrl} target="_blank" rel="noopener noreferrer" className="hidden md:flex bg-[#111111] text-white px-8 py-3 rounded-full font-medium text-[16px] hover:bg-[#333333] transition-colors" data-testid="button-book-now">
             Book Now
-          </Link>
+          </a>
           
           <button 
             className={`md:hidden p-2 -mr-2 ${scrolled ? "text-[#111111]" : "text-white"}`}
@@ -98,14 +98,16 @@ export function Navbar() {
               </Link>
             ))}
             <div className="h-px bg-white/10 w-full my-4" />
-            <Link 
-              href="/rooms"
+            <a
+              href={hotelData.bookingEngineUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={handleLinkClick}
-              className="bg-[#C9A84C] text-[#111111] px-8 py-4 rounded-full font-medium text-lg text-center w-full uppercase"
+              className="bg-[#C9A84C] text-[#111111] px-8 py-4 rounded-full font-medium text-lg text-center w-full uppercase block"
               data-testid="button-mobile-book-now"
             >
               Book Now
-            </Link>
+            </a>
           </nav>
         </div>
       )}

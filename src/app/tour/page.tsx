@@ -128,9 +128,9 @@ export default function TourPage() {
               <a href="tel:+917899738550" className="bg-[#C9A84C] text-[#111111] px-10 py-4 rounded-full font-medium text-[16px] hover:bg-[#b8943f] transition-colors" data-testid="button-tour-call">
                 Call Us
               </a>
-              <Link href="/rooms" className="bg-white/10 text-white border border-white/20 px-10 py-4 rounded-full font-medium text-[16px] hover:bg-white/20 transition-colors" data-testid="button-tour-rooms">
+              <a href={hotelData.bookingEngineUrl} target="_blank" rel="noopener noreferrer" className="bg-white/10 text-white border border-white/20 px-10 py-4 rounded-full font-medium text-[16px] hover:bg-white/20 transition-colors" data-testid="button-tour-book">
                 Book a Room
-              </Link>
+              </a>
             </div>
           </div>
         </section>

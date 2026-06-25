@@ -3,7 +3,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "@/store";
 import { setCheckIn, setCheckOut, setGuests } from "@/store/slices/bookingSlice";
-import { useRouter } from "next/navigation";
+import { hotelData } from "@/data/siteData";
 import { Calendar, Users } from "lucide-react";
 
 interface BookingBarProps {
@@ -12,11 +12,14 @@ interface BookingBarProps {
 
 export function BookingBar({ dark }: BookingBarProps) {
   const dispatch = useDispatch();
-  const router = useRouter();
   const { checkIn, checkOut, guests } = useSelector((state: RootState) => state.booking);
 
   const handleSearch = () => {
-    router.push("/rooms");
+    const params = new URLSearchParams({ bookingEngine: "true" });
+    if (checkIn) params.set("checkIn", checkIn);
+    if (checkOut) params.set("checkOut", checkOut);
+    if (guests > 1) params.set("adults", String(guests));
+    window.open(`${hotelData.bookingEngineUrl}&${params.toString()}`, "_blank", "noopener,noreferrer");
   };
 
   const labelColor = dark ? "text-white/40" : "text-[#707072]";

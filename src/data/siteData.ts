@@ -7,6 +7,7 @@ export const hotelData = {
   phoneAlt: "+91 8618141466",
   email: "Info@theroyalshalimar.com",
   website: "www.theroyalshalimar.com",
+  bookingEngineUrl: "https://bookone.io/Hotel-The-Royal-Shalimar-Boutique-Stay?bookingEngine=true",
   description: "Located on NH 173 between Chikkamagaluru and Mudigere. Panoramic view of lush green coffee and pepper plantation and mountain. The hotel provides a peaceful escape for business and leisure travel.",
   
   heroSlides: [
