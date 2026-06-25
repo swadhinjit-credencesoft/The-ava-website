@@ -42,7 +42,7 @@ export default function TourPage() {
         {/* Campaign Hero */}
         <section className="relative w-full h-[70vh] overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=2400&q=90"
+            src="kailash-reddy-ku-UUxOngp3p4w-unsplash.jpg"
             alt="Explore"
             className="absolute inset-0 w-full h-full object-cover"
             style={{ filter: "brightness(0.4)" }}

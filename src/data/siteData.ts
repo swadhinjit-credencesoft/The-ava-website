@@ -81,7 +81,6 @@ export const hotelData = {
     "In-house Restaurant",
     "24 Hrs Hot Water",
     "24 Hrs Checkout",
-    "Laundry Service",
     "Meet at Airport",
     "Complimentary Internet",
     "Air Conditioning",
@@ -90,11 +89,9 @@ export const hotelData = {
 
   features: [
     { name: "Secured Parking", icon: "Car" },
-    { name: "Laundry Service", icon: "Shirt" },
     { name: "24 Hours Checkout", icon: "Clock" },
     { name: "24 Hour Hot Water", icon: "Droplets" },
     { name: "Bonfires", icon: "Flame" },
-    { name: "Mini Bar", icon: "Wine" },
     { name: "Room Service", icon: "Bell" },
     { name: "Travel Desk", icon: "Map" },
     { name: "Vehicle Rental", icon: "Truck" },
@@ -117,7 +114,7 @@ export const hotelData = {
     {
       name: "In-house Restaurant",
       description: "Enjoy authentic Karnataka cuisine and a range of Indian and continental dishes at our in-house restaurant.",
-      image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80"
+      image: "/avadining.jpg"
     },
     {
       name: "Free High-Speed WiFi",
@@ -141,19 +138,19 @@ export const hotelData = {
       name: "Mullayangiri",
       activity: "Trekking",
       description: "The highest peak in Karnataka at 1930m. Breathtaking trails through the Western Ghats.",
-      image: "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1200&q=80"
+      image: "/mulyagiri.jpg"
     },
     {
       name: "Devaramane",
       activity: "Trekking",
       description: "Scenic trekking destination with stunning views of the Chikkamagaluru district.",
-      image: "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1200&q=80"
+      image: "/devarmane.jpg"
     },
     {
       name: "Ballarayanadurga",
       activity: "Trekking",
       description: "Historic fort ruins atop a hill, offering panoramic views and adventure trails.",
-      image: "https://images.unsplash.com/photo-1551632811-561732d1e306?w=1200&q=80"
+      image: "/ballanayan.jpg"
     },
     {
       name: "Etthinabuja",
@@ -171,7 +168,7 @@ export const hotelData = {
       name: "Kudremukh",
       activity: "Trekking & Nature",
       description: "UNESCO World Heritage site with stunning landscape and trekking opportunities.",
-      image: "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1200&q=80"
+      image: "/kudremukh.jpg"
     }
   ],
 

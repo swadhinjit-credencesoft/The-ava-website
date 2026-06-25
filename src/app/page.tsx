@@ -222,7 +222,7 @@ export default function HomePage() {
 
         {/* ── 8. CAMPAIGN — NATURE ── */}
         <section className="relative w-full overflow-hidden" style={{ height: "85vh" }}>
-          <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=2400&q=90" alt="Nature" className="absolute inset-0 w-full h-full object-cover" style={{ filter: "brightness(0.42)" }} />
+          <img src="/tour1.jpg" alt="Nature" className="absolute inset-0 w-full h-full object-cover" style={{ filter: "brightness(0.42)" }} />
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
           <div className="absolute inset-0 flex flex-col justify-center px-8 md:px-20" style={{ zIndex: 10 }}>
             <p className="text-[#C9A84C] text-[11px] uppercase tracking-[0.5em] mb-6">Western Ghats · Karnataka</p>
@@ -298,7 +298,7 @@ export default function HomePage() {
         <section className="py-32 px-4 md:px-8 max-w-screen-2xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
             <div className="relative overflow-hidden aspect-[4/3] lg:aspect-auto lg:min-h-[500px]">
-              <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=85" alt="Restaurant" className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000" loading="lazy" />
+              <img src="/avadining.jpg" alt="Restaurant" className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000" loading="lazy" />
             </div>
             <div className="bg-[#f5f5f5] p-12 md:p-20 flex flex-col justify-center gap-8">
               <div>
@@ -428,10 +428,10 @@ export default function HomePage() {
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
               {[
-                { name: "Dharmastala",    dist: "67 km", img: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=600&q=80" },
-                { name: "Hornadu",        dist: "70 km", img: "https://images.unsplash.com/photo-1548013146-72479768bada?w=600&q=80" },
-                { name: "Shringeri",      dist: "72 km", img: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" },
-                { name: "Belur Temples",  dist: "26 km", img: "https://images.unsplash.com/photo-1577495508326-19a1b3cf65b7?w=600&q=80" },
+                { name: "Dharmastala",    dist: "67 km", img: "/dharmasala.jpg" },
+                { name: "Hornadu",        dist: "70 km", img: "/hornadu.jpg" },
+                { name: "Shringeri",      dist: "72 km", img: "/sringeri.jpg" },
+                { name: "Belur Temples",  dist: "26 km", img: "/belur.jpg" },
               ].map((shrine) => (
                 <div key={shrine.name} className="shrine-card group relative overflow-hidden aspect-[3/4]">
                   <img src={shrine.img} alt={shrine.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />

@@ -63,7 +63,7 @@ export function HeroSlider() {
         playsInline
         preload="auto"
         className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${videoLoaded ? "opacity-100" : "opacity-0"}`}
-        style={{ filter: "brightness(0.38)" }}
+        style={{ filter: "brightness(0.9)" }}
       >
         <source src="https://bookonelocal.in/cdn/Chikmagalur%20Travel%20Film%20_%204k%20Cinematic%20Video%20(online-video-cutter.com).mp4" type="video/mp4" />
       </video>
@@ -79,7 +79,7 @@ export function HeroSlider() {
             className="absolute inset-0 w-full h-full bg-cover bg-center"
             style={{
               backgroundImage: `url(${src})`,
-              filter: "brightness(0.38)",
+              filter: "brightness(0.9)",
               animation: i === activeIdx ? "kenburns 7s ease-out forwards" : "none",
             }}
           />

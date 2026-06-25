@@ -39,7 +39,7 @@ export default function AmenitiesPage() {
         {/* Campaign Hero */}
         <section className="relative w-full h-[70vh] overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=2400&q=90"
+            src="/avadining.jpg"
             alt="Amenities"
             className="absolute inset-0 w-full h-full object-cover"
             style={{ filter: "brightness(0.45)" }}
