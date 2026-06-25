@@ -109,7 +109,7 @@ export const hotelData = {
     {
       name: "Indoor & Outdoor Games",
       description: "Varieties of indoor and outdoor games. Relax yourself. Spend quality time with family and kids.",
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&q=80"
+      image: "/indooroutdoorgames.jpg"
     },
     {
       name: "In-house Restaurant",
@@ -205,7 +205,7 @@ export const hotelData = {
     { label: "Rooms", href: "/rooms" },
     { label: "Amenities", href: "/amenities" },
     { label: "Tour & Nearby", href: "/tour" },
-    { label: "Meetings & Events", href: "/events" },
+    { label: "Meetings & Events", href: "http://www.theroyalshalimar.com/" },
     { label: "Contact", href: "/contact" }
   ]
 };

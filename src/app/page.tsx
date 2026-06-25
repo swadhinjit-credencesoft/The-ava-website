@@ -20,11 +20,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 const galleryImages = [
   { src: "/trekking.webp", span: "row-span-2" },
-  { src: "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800&q=80", span: "" },
+  { src: "/avadining.jpg", span: "" },
   { src: "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=800&q=80", span: "" },
   { src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80", span: "row-span-2" },
   { src: "https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=800&q=80", span: "" },
-  { src: "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&q=80", span: "" },
+  { src: "/indooroutdoorgames.jpg", span: "" },
   { src: "/Royal-Shalimar-boutique-stay-chikmagalur-14-2.webp", span: "" },
   { src: "/quardroom.webp", span: "row-span-2" },
   { src: "/plantation.jpg", span: "" },
@@ -379,14 +379,18 @@ export default function HomePage() {
 
         {/* ── 15. CAMPAIGN — EVENTS ── */}
         <section className="relative w-full overflow-hidden" style={{ height: "75vh" }}>
-          <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=2400&q=90" alt="Events" className="absolute inset-0 w-full h-full object-cover" style={{ filter: "brightness(0.35)" }} />
+          <img src="/wedding.avif" alt="Events" className="absolute inset-0 w-full h-full object-cover" style={{ filter: "brightness(0.35)" }} />
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-8" style={{ zIndex: 10 }}>
             <p className="text-[#C9A84C] text-[11px] uppercase tracking-[0.5em] mb-6">The AVA</p>
             <h2 className="font-display text-[56px] md:text-[96px] text-white uppercase leading-[0.85]">MEETINGS &amp;<br />EVENTS</h2>
             <p className="text-white/70 text-[17px] max-w-lg mt-6 font-medium">2500+ Sq.Ft pillarless ballroom for weddings, corporate meets &amp; celebrations</p>
-            <Link href="/events" className="bg-white text-[#111111] px-10 py-4 rounded-full font-medium text-[15px] mt-10 hover:bg-[#f5f5f5] transition-colors inline-block" data-testid="button-campaign-events">
-              Plan Your Event
-            </Link>
+            <Link
+  href="http://www.theroyalshalimar.com/"
+  className="bg-white text-[#111111] px-10 py-4 rounded-full font-medium text-[15px] mt-10 hover:bg-[#f5f5f5] transition-colors inline-block"
+  data-testid="button-campaign-events"
+>
+  Plan Your Event
+</Link>
           </div>
         </section>
 
