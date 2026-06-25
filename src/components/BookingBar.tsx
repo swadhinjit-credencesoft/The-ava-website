@@ -16,9 +16,32 @@ export function BookingBar({ dark }: BookingBarProps) {
 
   const handleSearch = () => {
     const params = new URLSearchParams({ bookingEngine: "true" });
-    if (checkIn) params.set("checkIn", checkIn);
-    if (checkOut) params.set("checkOut", checkOut);
-    if (guests > 1) params.set("adults", String(guests));
+
+    if (checkIn) {
+      const [y, m, d] = checkIn.split("-");
+      params.set("checkinDay", d);
+      params.set("checkinMonth", m);
+      params.set("checkinYear", y);
+    }
+    if (checkOut) {
+      const [y, m, d] = checkOut.split("-");
+      params.set("checkoutDay", d);
+      params.set("checkoutMonth", m);
+      params.set("checkoutYear", y);
+      params.set("checkOut", checkOut);
+      params.set("toDate", checkOut);
+      params.set("date_to", checkOut);
+    }
+    if (checkIn && checkOut) {
+      const msPerDay = 86400000;
+      const diff = Math.round((new Date(checkOut).getTime() - new Date(checkIn).getTime()) / msPerDay);
+      if (diff > 0) params.set("nights", String(diff));
+    }
+    params.set("numGuests", String(guests));
+    params.set("numAdults", String(guests));
+    params.set("Children", "0");
+    params.set("rooms", "1");
+
     window.open(`${hotelData.bookingEngineUrl}&${params.toString()}`, "_blank", "noopener,noreferrer");
   };
 

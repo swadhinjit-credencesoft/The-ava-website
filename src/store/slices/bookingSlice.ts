@@ -6,9 +6,20 @@ interface BookingState {
   guests: number;
 }
 
+function todayStr(): string {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+
+function tomorrowStr(): string {
+  const d = new Date();
+  d.setDate(d.getDate() + 1);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+
 const initialState: BookingState = {
-  checkIn: '',
-  checkOut: '',
+  checkIn: todayStr(),
+  checkOut: tomorrowStr(),
   guests: 1,
 };
 
