@@ -61,13 +61,11 @@ export function HeroSlider() {
         muted
         loop
         playsInline
-        crossOrigin="anonymous"
         preload="auto"
         className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${videoLoaded ? "opacity-100" : "opacity-0"}`}
         style={{ filter: "brightness(0.38)" }}
       >
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-a-mountain-with-a-river-41090-large.mp4" type="video/mp4" />
-        <source src="https://bookonelocal.in/cdn/Chikmagalur%20Travel%20Film%20_%204k%20Cinematic%20Video%20(online-video-cutter.com).mp4" />
+        <source src="https://bookonelocal.in/cdn/Chikmagalur%20Travel%20Film%20_%204k%20Cinematic%20Video%20(online-video-cutter.com).mp4" type="video/mp4" />
       </video>
 
       {/* Ken Burns image slideshow — always visible, hidden when video plays */}
