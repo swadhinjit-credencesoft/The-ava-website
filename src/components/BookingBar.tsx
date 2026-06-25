@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "@/store";
 import { setCheckIn, setCheckOut, setGuests } from "@/store/slices/bookingSlice";
@@ -10,37 +11,55 @@ interface BookingBarProps {
   dark?: boolean;
 }
 
+function parseYmd(ymd: string) {
+  const [y, m, d] = ymd.split("-");
+  return { year: y, month: String(Number(m)), day: String(Number(d)) };
+}
+
+function dateDiffDays(a: string, b: string) {
+  const ms = 86400000;
+  return Math.round((new Date(b).getTime() - new Date(a).getTime()) / ms);
+}
+
 export function BookingBar({ dark }: BookingBarProps) {
   const dispatch = useDispatch();
   const { checkIn, checkOut, guests } = useSelector((state: RootState) => state.booking);
+  const [error, setError] = useState("");
 
   const handleSearch = () => {
-    const params = new URLSearchParams({ bookingEngine: "true" });
+    setError("");
 
-    if (checkIn) {
-      const [y, m, d] = checkIn.split("-");
-      params.set("checkinDay", d);
-      params.set("checkinMonth", m);
-      params.set("checkinYear", y);
+    if (!checkIn || !checkOut) {
+      setError("Please select both check-in and check-out dates.");
+      return;
     }
-    if (checkOut) {
-      const [y, m, d] = checkOut.split("-");
-      params.set("checkoutDay", d);
-      params.set("checkoutMonth", m);
-      params.set("checkoutYear", y);
-      params.set("checkOut", checkOut);
-      params.set("toDate", checkOut);
-      params.set("date_to", checkOut);
+
+    const diff = dateDiffDays(checkIn, checkOut);
+    if (diff <= 0) {
+      setError("Check-out must be after check-in.");
+      return;
     }
-    if (checkIn && checkOut) {
-      const msPerDay = 86400000;
-      const diff = Math.round((new Date(checkOut).getTime() - new Date(checkIn).getTime()) / msPerDay);
-      if (diff > 0) params.set("nights", String(diff));
-    }
-    params.set("numGuests", String(guests));
-    params.set("numAdults", String(guests));
-    params.set("Children", "0");
-    params.set("rooms", "1");
+
+    const ci = parseYmd(checkIn);
+    const co = parseYmd(checkOut);
+
+    const params = new URLSearchParams({
+      bookingEngine: "true",
+      checkinDay: ci.day,
+      checkinMonth: ci.month,
+      checkinYear: ci.year,
+      checkoutDay: co.day,
+      checkoutMonth: co.month,
+      checkoutYear: co.year,
+      checkOut: checkOut,
+      toDate: checkOut,
+      date_to: checkOut,
+      nights: String(diff),
+      numGuests: String(guests),
+      numAdults: String(guests),
+      Children: "0",
+      rooms: "1",
+    });
 
     window.open(`${hotelData.bookingEngineUrl}&${params.toString()}`, "_blank", "noopener,noreferrer");
   };
@@ -63,8 +82,8 @@ export function BookingBar({ dark }: BookingBarProps) {
               <input
                 type="date"
                 value={checkIn}
-                onChange={(e) => dispatch(setCheckIn(e.target.value))}
-                className={`bg-transparent w-full outline-none text-[16px] font-medium ${inputColor} placeholder:text-[#707072]`}
+                onChange={(e) => { dispatch(setCheckIn(e.target.value)); setError(""); }}
+                className={`bg-transparent w-full outline-none text-[16px] font-medium ${inputColor} [&::-webkit-calendar-picker-indicator]:opacity-0 [&::-webkit-calendar-picker-indicator]:absolute [&::-webkit-calendar-picker-indicator]:w-full [&::-webkit-calendar-picker-indicator]:h-full [&::-webkit-calendar-picker-indicator]:cursor-pointer`}
                 data-testid="input-check-in"
               />
             </div>
@@ -77,8 +96,8 @@ export function BookingBar({ dark }: BookingBarProps) {
               <input
                 type="date"
                 value={checkOut}
-                onChange={(e) => dispatch(setCheckOut(e.target.value))}
-                className={`bg-transparent w-full outline-none text-[16px] font-medium ${inputColor} placeholder:text-[#707072]`}
+                onChange={(e) => { dispatch(setCheckOut(e.target.value)); setError(""); }}
+                className={`bg-transparent w-full outline-none text-[16px] font-medium ${inputColor} [&::-webkit-calendar-picker-indicator]:opacity-0 [&::-webkit-calendar-picker-indicator]:absolute [&::-webkit-calendar-picker-indicator]:w-full [&::-webkit-calendar-picker-indicator]:h-full [&::-webkit-calendar-picker-indicator]:cursor-pointer`}
                 data-testid="input-check-out"
               />
             </div>
@@ -102,13 +121,18 @@ export function BookingBar({ dark }: BookingBarProps) {
           </div>
         </div>
 
-        <button
-          onClick={handleSearch}
-          className="bg-[#C9A84C] text-[#111111] px-10 py-4 rounded-full font-medium text-[16px] hover:bg-[#b8943f] transition-colors whitespace-nowrap w-full md:w-auto"
-          data-testid="button-check-availability"
-        >
-          Check Availability
-        </button>
+        <div className="flex flex-col items-end gap-2">
+          <button
+            onClick={handleSearch}
+            className="bg-[#C9A84C] text-[#111111] px-10 py-4 rounded-full font-medium text-[16px] hover:bg-[#b8943f] transition-colors whitespace-nowrap w-full md:w-auto"
+            data-testid="button-check-availability"
+          >
+            Check Availability
+          </button>
+          {error && (
+            <p className="text-red-500 text-[12px] font-medium text-right" data-testid="text-booking-error">{error}</p>
+          )}
+        </div>
 
       </div>
     </div>
