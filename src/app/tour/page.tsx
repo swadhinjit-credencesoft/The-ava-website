@@ -4,7 +4,8 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { hotelData } from "@/data/siteData";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Breadcrumb } from "@/components/sections/Breadcrumb";
@@ -14,6 +15,7 @@ import { CtaStrip } from "@/components/sections/CtaStrip";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function TourPage() {
+  const hotel = useSelector((state: RootState) => state.data.hotel);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
@@ -32,13 +34,8 @@ export default function TourPage() {
       <Navbar />
 
       <main className="flex-1 pt-20">
-        <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Tour & Nearby" }]} />
-        <PageHero
-          image="kailash-reddy-ku-UUxOngp3p4w-unsplash.jpg"
-          label="Western Ghats"
-          title="EXPLORE NEARBY"
-          subtitle="Discover Karnataka's most treasured landscapes and landmarks"
-        />
+        <Breadcrumb />
+        <PageHero />
 
         <section className="py-32 px-4 md:px-8">
           <div className="max-w-screen-2xl mx-auto">
@@ -47,7 +44,7 @@ export default function TourPage() {
               <h2 className="font-display text-[56px] md:text-[80px] text-[#111111] uppercase leading-[0.9]">TOURIST<br />ATTRACTIONS</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-              {hotelData.touristPlaces.map((place) => (
+              {hotel.touristPlaces.map((place) => (
                 <div key={place.name} className="tour-card flex flex-col group">
                   <div className="relative aspect-[16/10] overflow-hidden bg-[#f5f5f5]">
                     <img src={place.image} alt={place.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
@@ -72,7 +69,7 @@ export default function TourPage() {
                 <p className="text-[#C9A84C] text-[12px] uppercase tracking-[0.4em] mb-4">Getting Around</p>
                 <h2 className="font-display text-[52px] md:text-[68px] text-[#111111] uppercase leading-[0.9] mb-12">DISTANCES<br />FROM HOTEL</h2>
                 <div className="flex flex-col">
-                  {hotelData.distances.map((d, i) => (
+                  {hotel.distances.map((d, i) => (
                     <div key={d.place} className={`distance-row flex items-center justify-between py-4 border-b border-[#cacacb] ${i % 2 === 0 ? "" : "bg-white/50"}`}>
                       <span className="font-medium text-[15px] text-[#111111]">{d.place}</span>
                       <span className="font-display text-[24px] text-[#C9A84C]">{d.distance}</span>
@@ -101,14 +98,7 @@ export default function TourPage() {
           </div>
         </section>
 
-        <CtaStrip
-          label="Start Your Adventure"
-          title="PLAN YOUR VISIT"
-          buttons={[
-            { label: "Call Us", href: "tel:+917899738550", variant: "gold", testId: "button-tour-call" },
-            { label: "Book a Room", href: hotelData.bookingEngineUrl, variant: "outline", testId: "button-tour-book" },
-          ]}
-        />
+        <CtaStrip />
       </main>
 
       <Footer />

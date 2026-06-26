@@ -1,15 +1,8 @@
 "use client";
 
-interface CtaStripProps {
-  label: string;
-  title: string;
-  buttons: {
-    label: string;
-    href: string;
-    variant: "gold" | "white" | "outline" | "dark";
-    testId?: string;
-  }[];
-}
+import { useSelector } from "react-redux";
+import { usePathname } from "next/navigation";
+import { RootState } from "@/store";
 
 const variants = {
   gold: "bg-[#C9A84C] text-[#111111] hover:bg-[#b8943f]",
@@ -18,7 +11,11 @@ const variants = {
   dark: "bg-[#111111] text-white hover:bg-[#333]",
 };
 
-export function CtaStrip({ label, title, buttons }: CtaStripProps) {
+export function CtaStrip() {
+  const pathname = usePathname();
+  const pages = useSelector((state: RootState) => state.data.pages);
+  const page = pages[pathname];
+  const { label, title, buttons } = page?.cta || { label: "", title: "", buttons: [] };
   return (
     <section className="py-20 px-4 md:px-8 bg-[#111111]">
       <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">

@@ -5,7 +5,8 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
-import { hotelData } from "@/data/siteData";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Breadcrumb } from "@/components/sections/Breadcrumb";
@@ -13,6 +14,7 @@ import { Breadcrumb } from "@/components/sections/Breadcrumb";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ContactPage() {
+  const hotel = useSelector((state: RootState) => state.data.hotel);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
@@ -27,7 +29,7 @@ export default function ContactPage() {
       <Navbar />
 
       <main className="flex-1 pt-20">
-        <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Contact" }]} />
+        <Breadcrumb />
 
         <section className="relative py-32 px-4 md:px-8 bg-[#111111] overflow-hidden">
           <img
@@ -48,8 +50,8 @@ export default function ContactPage() {
           <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
               { icon: MapPin, title: "Address", content: "N H 173, K M Road, Haandi\nChikkamagaluru, Karnataka 577111", href: "https://maps.google.com/?q=The+Royal+Shalimar+Haandi+Chikkamagaluru" },
-              { icon: Phone, title: "Phone", content: `${hotelData.phone}\n${hotelData.phoneAlt}`, href: `tel:${hotelData.phone.replace(/\s/g, "")}` },
-              { icon: Mail, title: "Email", content: hotelData.email, href: `mailto:${hotelData.email}` },
+              { icon: Phone, title: "Phone", content: `${hotel.phone}\n${hotel.phoneAlt}`, href: `tel:${hotel.phone.replace(/\s/g, "")}` },
+              { icon: Mail, title: "Email", content: hotel.email, href: `mailto:${hotel.email}` },
               { icon: Clock, title: "Support Hours", content: "24 Hours\n7 Days a Week", href: null },
             ].map((card) => (
               <div key={card.title} className="contact-card bg-white p-8 flex flex-col gap-4 border border-[#e5e5e5]">
@@ -100,7 +102,7 @@ export default function ContactPage() {
               <h2 className="font-display text-[56px] md:text-[72px] text-[#111111] uppercase">LOCATION DISTANCES</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4 max-w-4xl mx-auto">
-              {hotelData.distances.map((d) => (
+              {hotel.distances.map((d) => (
                 <div key={d.place} className="flex items-center justify-between py-4 border-b border-[#cacacb]">
                   <span className="font-medium text-[15px] text-[#111111]">{d.place}</span>
                   <span className="font-display text-[22px] text-[#C9A84C]">{d.distance}</span>

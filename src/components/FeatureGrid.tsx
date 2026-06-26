@@ -2,17 +2,16 @@
 
 import * as Icons from "lucide-react";
 import { useRef } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface FeatureGridProps {
-  features: { name: string; icon: string }[];
-}
-
-export function FeatureGrid({ features }: FeatureGridProps) {
+export function FeatureGrid() {
+  const features = useSelector((state: RootState) => state.data.hotel.features);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {

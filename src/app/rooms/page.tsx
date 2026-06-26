@@ -5,7 +5,8 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { CheckCircle } from "lucide-react";
-import { hotelData } from "@/data/siteData";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Breadcrumb } from "@/components/sections/Breadcrumb";
@@ -15,6 +16,7 @@ import { CtaStrip } from "@/components/sections/CtaStrip";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function RoomsPage() {
+  const hotel = useSelector((state: RootState) => state.data.hotel);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
@@ -33,13 +35,8 @@ export default function RoomsPage() {
       <Navbar />
 
       <main className="flex-1 pt-20">
-        <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Rooms" }]} />
-        <PageHero
-          image="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=2400&q=90"
-          label="Accommodation"
-          title="STAY WITH US"
-          subtitle="Four categories of luxury rooms, each designed for comfort and elegance"
-        />
+        <Breadcrumb />
+        <PageHero />
 
         <section className="py-16 px-4 md:px-8 bg-[#f5f5f5]">
           <div className="max-w-screen-xl mx-auto text-center">
@@ -51,7 +48,7 @@ export default function RoomsPage() {
 
         <section className="py-24 px-4 md:px-8">
           <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-            {hotelData.rooms.map((room) => (
+            {hotel.rooms.map((room) => (
               <div key={room.id} className="room-card flex flex-col">
                 <div className="relative aspect-[4/3] overflow-hidden bg-[#f5f5f5] group">
                   <img src={room.image} alt={room.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
@@ -68,7 +65,7 @@ export default function RoomsPage() {
                     ))}
                   </div>
                   <div className="mt-auto pt-4">
-                    <a href={hotelData.bookingEngineUrl} target="_blank" rel="noopener noreferrer" className="bg-[#111111] text-white px-8 py-4 rounded-full font-medium text-[15px] hover:bg-[#333] transition-colors inline-block" data-testid={`button-book-${room.id}`}>
+                    <a href={hotel.bookingEngineUrl} target="_blank" rel="noopener noreferrer" className="bg-[#111111] text-white px-8 py-4 rounded-full font-medium text-[15px] hover:bg-[#333] transition-colors inline-block" data-testid={`button-book-${room.id}`}>
                       Book Now
                     </a>
                   </div>
@@ -85,7 +82,7 @@ export default function RoomsPage() {
               <h2 className="font-display text-[56px] md:text-[72px] text-[#111111] uppercase leading-[0.9]">WHAT'S INCLUDED</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {hotelData.roomInclusions.map((inc) => (
+              {hotel.roomInclusions.map((inc) => (
                 <div key={inc} className="inclusion-item flex items-center gap-4 p-5 bg-white border border-[#e5e5e5]">
                   <CheckCircle size={18} className="text-[#C9A84C] flex-shrink-0" />
                   <span className="font-medium text-[14px] text-[#111111]">{inc}</span>
@@ -95,14 +92,7 @@ export default function RoomsPage() {
           </div>
         </section>
 
-        <CtaStrip
-          label="Ready to Book?"
-          title="CALL US DIRECTLY"
-          buttons={[
-            { label: hotelData.phone, href: "tel:+917899738550", variant: "gold", testId: "button-rooms-call" },
-            { label: "Book Now", href: hotelData.bookingEngineUrl, variant: "white", testId: "button-rooms-book" },
-          ]}
-        />
+        <CtaStrip />
       </main>
 
       <Footer />

@@ -6,7 +6,6 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { RootState } from "@/store";
 import { setCheckIn, setCheckOut, setGuests } from "@/store/slices/bookingSlice";
-import { hotelData } from "@/data/siteData";
 import { Calendar, Users } from "lucide-react";
 import { format, parse, differenceInDays } from "date-fns";
 
@@ -22,6 +21,7 @@ function parseYmd(ymd: string) {
 export function BookingBar({ dark }: BookingBarProps) {
   const dispatch = useDispatch();
   const { checkIn, checkOut, guests } = useSelector((state: RootState) => state.booking);
+  const hotel = useSelector((state: RootState) => state.data.hotel);
   const [error, setError] = useState("");
 
   const checkInDate = checkIn ? parse(checkIn, "yyyy-MM-dd", new Date()) : null;
@@ -62,7 +62,7 @@ export function BookingBar({ dark }: BookingBarProps) {
       rooms: "1",
     });
 
-    window.open(`${hotelData.bookingEngineUrl}&${params.toString()}`, "_blank", "noopener,noreferrer");
+    window.open(`${hotel.bookingEngineUrl}&${params.toString()}`, "_blank", "noopener,noreferrer");
   };
 
   const handleCheckInChange = (date: Date | null) => {

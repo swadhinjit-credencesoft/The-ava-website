@@ -1,8 +1,12 @@
+"use client";
+
 import Link from "next/link";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
-import { hotelData } from "@/data/siteData";
 
 export function Footer() {
+  const hotel = useSelector((state: RootState) => state.data.hotel);
   return (
     <footer className="bg-[#111111] text-white">
       <div className="max-w-screen-2xl mx-auto px-8 md:px-16 pt-20 pb-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 border-b border-white/10">
@@ -26,7 +30,7 @@ export function Footer() {
 
         <div className="flex flex-col gap-3">
           <h4 className="font-medium text-[13px] uppercase tracking-[0.25em] text-white mb-2">Quick Links</h4>
-          {hotelData.nav.map((item) => (
+          {hotel.nav.map((item) => (
             <Link key={item.href} href={item.href} className="text-white/50 text-[13px] font-medium hover:text-white transition-colors w-fit" data-testid={`footer-link-${item.label.toLowerCase().replace(/[\s&]/g, "-")}`}>
               {item.label}
             </Link>
@@ -49,13 +53,13 @@ export function Footer() {
           <div className="flex items-center gap-3">
             <Phone size={15} className="text-[#C9A84C] flex-shrink-0" />
             <div className="flex flex-col gap-1">
-              <a href="tel:+917899738550" className="text-[#C9A84C] text-[13px] font-medium hover:text-white transition-colors">{hotelData.phone}</a>
-              <a href="tel:+918618141466" className="text-white/50 text-[13px] font-medium hover:text-white transition-colors">{hotelData.phoneAlt}</a>
+              <a href="tel:+917899738550" className="text-[#C9A84C] text-[13px] font-medium hover:text-white transition-colors">{hotel.phone}</a>
+              <a href="tel:+918618141466" className="text-white/50 text-[13px] font-medium hover:text-white transition-colors">{hotel.phoneAlt}</a>
             </div>
           </div>
           <div className="flex items-center gap-3">
             <Mail size={15} className="text-[#C9A84C] flex-shrink-0" />
-            <a href={`mailto:${hotelData.email}`} className="text-white/50 text-[13px] font-medium hover:text-white transition-colors break-all">{hotelData.email}</a>
+            <a href={`mailto:${hotel.email}`} className="text-white/50 text-[13px] font-medium hover:text-white transition-colors break-all">{hotel.email}</a>
           </div>
           <div className="flex items-center gap-3">
             <Clock size={15} className="text-[#C9A84C] flex-shrink-0" />

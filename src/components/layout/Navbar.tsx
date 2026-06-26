@@ -6,13 +6,13 @@ import { usePathname } from "next/navigation";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "@/store";
 import { toggleMobileMenu, setMobileMenuOpen } from "@/store/slices/navigationSlice";
-import { hotelData } from "@/data/siteData";
 import { Menu, X } from "lucide-react";
 
 export function Navbar() {
   const location = usePathname();
   const dispatch = useDispatch();
   const mobileMenuOpen = useSelector((state: RootState) => state.navigation.mobileMenuOpen);
+  const hotel = useSelector((state: RootState) => state.data.hotel);
   const isHome = location === "/";
   const [scrolled, setScrolled] = useState(!isHome);
 
@@ -44,7 +44,7 @@ export function Navbar() {
 
         {/* Desktop Center Nav */}
         <nav className="hidden md:flex items-center gap-8 h-full">
-          {hotelData.nav.map((item) => (
+          {hotel.nav.map((item) => (
             <Link 
               key={item.href} 
               href={item.href}
@@ -62,10 +62,10 @@ export function Navbar() {
 
         {/* Desktop Right Nav / Mobile Right */}
         <div className="flex items-center gap-6">
-          <a href={`tel:${hotelData.phone.replace(/\s/g, '')}`} className={`hidden lg:flex items-center gap-2 font-medium text-sm hover:opacity-80 transition-opacity ${scrolled ? "text-[#111111]" : "text-white"}`} data-testid="link-phone">
-            {hotelData.phone}
+          <a href={`tel:${hotel.phone.replace(/\s/g, '')}`} className={`hidden lg:flex items-center gap-2 font-medium text-sm hover:opacity-80 transition-opacity ${scrolled ? "text-[#111111]" : "text-white"}`} data-testid="link-phone">
+            {hotel.phone}
           </a>
-          <a href={hotelData.bookingEngineUrl} target="_blank" rel="noopener noreferrer" className="hidden md:flex bg-[#111111] text-white px-8 py-3 rounded-full font-medium text-[16px] hover:bg-[#333333] transition-colors" data-testid="button-book-now">
+          <a href={hotel.bookingEngineUrl} target="_blank" rel="noopener noreferrer" className="hidden md:flex bg-[#111111] text-white px-8 py-3 rounded-full font-medium text-[16px] hover:bg-[#333333] transition-colors" data-testid="button-book-now">
             Book Now
           </a>
           
@@ -83,7 +83,7 @@ export function Navbar() {
       {mobileMenuOpen && (
         <div className="md:hidden fixed inset-0 top-[80px] bg-[#111111] z-40 overflow-y-auto">
           <nav className="flex flex-col px-8 py-12 gap-8">
-            {hotelData.nav.map((item, i) => (
+            {hotel.nav.map((item, i) => (
               <Link 
                 key={item.href} 
                 href={item.href}
@@ -99,7 +99,7 @@ export function Navbar() {
             ))}
             <div className="h-px bg-white/10 w-full my-4" />
             <a
-              href={hotelData.bookingEngineUrl}
+              href={hotel.bookingEngineUrl}
               target="_blank"
               rel="noopener noreferrer"
               onClick={handleLinkClick}

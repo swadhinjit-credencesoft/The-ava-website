@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { hotelData } from "@/data/siteData";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store";
 
 export function RoomsSection() {
+  const hotel = useSelector((state: RootState) => state.data.hotel);
   return (
     <section className="py-32 px-4 md:px-8">
       <div className="max-w-screen-2xl mx-auto">
@@ -15,7 +17,7 @@ export function RoomsSection() {
           <Link href="/rooms" className="hidden md:flex bg-[#f5f5f5] text-[#111111] px-8 py-4 rounded-full font-medium text-[14px] hover:bg-[#e5e5e5] transition-colors" data-testid="button-all-rooms">View All</Link>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-          {hotelData.rooms.map((room) => (
+          {hotel.rooms.map((room) => (
             <div key={room.id} className="room-reveal group relative overflow-hidden">
               <div className="aspect-[4/3] overflow-hidden">
                 <img src={room.image} alt={room.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />

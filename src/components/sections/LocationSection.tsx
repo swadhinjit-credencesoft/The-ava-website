@@ -1,9 +1,11 @@
 "use client";
 
 import { MapPin, Phone, Mail } from "lucide-react";
-import { hotelData } from "@/data/siteData";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store";
 
 export function LocationSection() {
+  const hotel = useSelector((state: RootState) => state.data.hotel);
   return (
     <section className="py-32 px-4 md:px-8 bg-white">
       <div className="max-w-screen-xl mx-auto">
@@ -12,7 +14,7 @@ export function LocationSection() {
             <p className="text-[#C9A84C] text-[11px] uppercase tracking-[0.5em] mb-4">How To Reach</p>
             <h2 className="font-display text-[52px] md:text-[68px] text-[#111111] uppercase leading-[0.88] mb-12">LOCATION<br />&amp; DISTANCES</h2>
             <div className="flex flex-col">
-              {hotelData.distances.map((d, i) => (
+              {hotel.distances.map((d, i) => (
                 <div key={d.place} className={`flex items-center justify-between py-5 border-b border-[#e5e5e5] ${i % 2 === 0 ? "" : "bg-[#fafafa] px-4"}`}>
                   <span className="font-medium text-[15px] text-[#111111]">{d.place}</span>
                   <span className="font-display text-[26px] text-[#C9A84C]">{d.distance}</span>
@@ -35,8 +37,8 @@ export function LocationSection() {
                 <a href="tel:+917899738550" className="flex items-center gap-2 text-[#C9A84C] text-[13px] font-medium hover:text-white transition-colors" data-testid="link-map-phone">
                   <Phone size={13} /> +91 7899738550
                 </a>
-                <a href={`mailto:${hotelData.email}`} className="flex items-center gap-2 text-white/40 text-[12px] hover:text-white transition-colors" data-testid="link-map-email">
-                  <Mail size={12} /> {hotelData.email}
+                <a href={`mailto:${hotel.email}`} className="flex items-center gap-2 text-white/40 text-[12px] hover:text-white transition-colors" data-testid="link-map-email">
+                  <Mail size={12} /> {hotel.email}
                 </a>
               </div>
             </div>

@@ -4,7 +4,8 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { hotelData } from "@/data/siteData";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Breadcrumb } from "@/components/sections/Breadcrumb";
@@ -15,6 +16,7 @@ import { FeatureGrid } from "@/components/FeatureGrid";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function AmenitiesPage() {
+  const hotel = useSelector((state: RootState) => state.data.hotel);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
@@ -29,13 +31,8 @@ export default function AmenitiesPage() {
       <Navbar />
 
       <main className="flex-1 pt-20">
-        <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Amenities" }]} />
-        <PageHero
-          image="/avadining.jpg"
-          label="Facilities"
-          title="WHAT WE OFFER"
-          subtitle="Premium facilities designed for an uncompromising luxury stay"
-        />
+        <Breadcrumb />
+        <PageHero />
 
         <section className="py-32 px-4 md:px-8">
           <div className="max-w-screen-2xl mx-auto">
@@ -44,7 +41,7 @@ export default function AmenitiesPage() {
               <h2 className="font-display text-[56px] md:text-[80px] text-[#111111] uppercase leading-[0.9]">PREMIUM<br />AMENITIES</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-              {hotelData.amenities.map((a) => (
+              {hotel.amenities.map((a) => (
                 <div key={a.name} className="amenity-card group relative overflow-hidden aspect-[4/3]">
                   <img src={a.image} alt={a.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
@@ -64,18 +61,11 @@ export default function AmenitiesPage() {
               <p className="text-[#C9A84C] text-[12px] uppercase tracking-[0.4em] mb-4">All Facilities</p>
               <h2 className="font-display text-[56px] md:text-[72px] text-[#111111] uppercase">HOTEL FACILITIES</h2>
             </div>
-            <FeatureGrid features={hotelData.features} />
+            <FeatureGrid />
           </div>
         </section>
 
-        <CtaStrip
-          label="Experience Luxury"
-          title="BOOK YOUR STAY"
-          buttons={[
-            { label: "Book Now", href: hotelData.bookingEngineUrl, variant: "gold", testId: "button-amenities-book" },
-            { label: "View Rooms", href: "/rooms", variant: "outline", testId: "button-amenities-rooms" },
-          ]}
-        />
+        <CtaStrip />
       </main>
 
       <Footer />

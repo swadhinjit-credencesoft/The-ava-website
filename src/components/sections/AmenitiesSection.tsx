@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { hotelData } from "@/data/siteData";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store";
 
 export function AmenitiesSection() {
+  const hotel = useSelector((state: RootState) => state.data.hotel);
   return (
     <section className="py-32 px-4 md:px-8 bg-white">
       <div className="max-w-screen-2xl mx-auto">
@@ -12,7 +14,7 @@ export function AmenitiesSection() {
           <h2 className="font-display text-[56px] md:text-[80px] text-[#111111] uppercase leading-[0.9]">PREMIUM<br />AMENITIES</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-          {hotelData.amenities.map((a) => (
+          {hotel.amenities.map((a) => (
             <div key={a.name} className="amenity-reveal group relative overflow-hidden aspect-[4/3]">
               <img src={a.image} alt={a.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />

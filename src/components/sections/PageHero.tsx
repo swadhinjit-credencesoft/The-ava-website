@@ -1,14 +1,14 @@
 "use client";
 
-interface PageHeroProps {
-  image: string;
-  brightness?: number;
-  label: string;
-  title: string;
-  subtitle: string;
-}
+import { useSelector } from "react-redux";
+import { usePathname } from "next/navigation";
+import { RootState } from "@/store";
 
-export function PageHero({ image, brightness = 0.45, label, title, subtitle }: PageHeroProps) {
+export function PageHero() {
+  const pathname = usePathname();
+  const pages = useSelector((state: RootState) => state.data.pages);
+  const page = pages[pathname];
+  const { image, brightness = 0.45, label, title, subtitle } = page?.hero || { image: "", label: "", title: "", subtitle: "" };
   return (
     <section className="relative w-full h-[70vh] overflow-hidden">
       <img

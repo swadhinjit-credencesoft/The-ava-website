@@ -1,16 +1,17 @@
 "use client";
 
 import { Phone, Mail, Clock } from "lucide-react";
-import { hotelData } from "@/data/siteData";
-
-const contacts = [
-  { icon: Phone, title: "Call Us",     val: hotelData.phone,    href: "tel:+917899738550",        action: "Call" },
-  { icon: Phone, title: "Alternate",   val: hotelData.phoneAlt, href: "tel:+918618141466",        action: "Call" },
-  { icon: Mail,  title: "Email Us",    val: hotelData.email,    href: `mailto:${hotelData.email}`, action: "Email" },
-  { icon: Clock, title: "24/7 Support",val: "Always Available",  href: null,                       action: null },
-];
+import { useSelector } from "react-redux";
+import { RootState } from "@/store";
 
 export function ContactSection() {
+  const hotel = useSelector((state: RootState) => state.data.hotel);
+  const contacts = [
+    { icon: Phone, title: "Call Us",     val: hotel.phone,    href: "tel:+917899738550",        action: "Call" },
+    { icon: Phone, title: "Alternate",   val: hotel.phoneAlt, href: "tel:+918618141466",        action: "Call" },
+    { icon: Mail,  title: "Email Us",    val: hotel.email,    href: `mailto:${hotel.email}`, action: "Email" },
+    { icon: Clock, title: "24/7 Support",val: "Always Available",  href: null,                       action: null },
+  ];
   return (
     <section className="py-24 px-4 md:px-8 bg-white">
       <div className="max-w-screen-xl mx-auto">

@@ -6,7 +6,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useForm } from "react-hook-form";
 import { CheckCircle, Phone, Mail } from "lucide-react";
-import { hotelData } from "@/data/siteData";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Breadcrumb } from "@/components/sections/Breadcrumb";
@@ -25,6 +26,7 @@ interface EventFormData {
 }
 
 export default function EventsPage() {
+  const hotel = useSelector((state: RootState) => state.data.hotel);
   const containerRef = useRef<HTMLDivElement>(null);
   const { register, handleSubmit, reset, formState: { isSubmitSuccessful } } = useForm<EventFormData>();
 
@@ -44,14 +46,8 @@ export default function EventsPage() {
       <Navbar />
 
       <main className="flex-1 pt-20">
-        <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Events" }]} />
-        <PageHero
-          image={hotelData.events.image}
-          brightness={0.4}
-          label="The AVA"
-          title="MEETINGS & EVENTS"
-          subtitle="2500+ Sq.Ft pillarless ballroom for your most memorable occasions"
-        />
+        <Breadcrumb />
+        <PageHero />
 
         <section className="py-16 bg-[#f5f5f5]">
           <div className="max-w-screen-xl mx-auto px-4 md:px-8">
@@ -78,9 +74,9 @@ export default function EventsPage() {
             <div className="flex flex-col gap-10">
               <div>
                 <p className="text-[#C9A84C] text-[12px] uppercase tracking-[0.4em] mb-4">Host With Us</p>
-                <h2 className="font-display text-[52px] md:text-[68px] text-[#111111] uppercase leading-[0.9]">{hotelData.events.heading}</h2>
+                <h2 className="font-display text-[52px] md:text-[68px] text-[#111111] uppercase leading-[0.9]">{hotel.events.heading}</h2>
               </div>
-              <p className="text-[#707072] text-[16px] font-medium leading-relaxed">{hotelData.events.description}</p>
+              <p className="text-[#707072] text-[16px] font-medium leading-relaxed">{hotel.events.description}</p>
 
               <div className="flex flex-col gap-4 mt-4">
                 {[
@@ -104,7 +100,7 @@ export default function EventsPage() {
                   </div>
                   <div>
                     <p className="text-[#707072] text-[11px] uppercase tracking-wider font-medium">Call Sales</p>
-                    <a href="tel:+917899738550" className="text-[#111111] font-medium text-[14px] hover:text-[#C9A84C] transition-colors">{hotelData.phone}</a>
+                    <a href="tel:+917899738550" className="text-[#111111] font-medium text-[14px] hover:text-[#C9A84C] transition-colors">{hotel.phone}</a>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -113,7 +109,7 @@ export default function EventsPage() {
                   </div>
                   <div>
                     <p className="text-[#707072] text-[11px] uppercase tracking-wider font-medium">Email Enquiries</p>
-                    <a href={`mailto:${hotelData.email}`} className="text-[#111111] font-medium text-[14px] hover:text-[#C9A84C] transition-colors">{hotelData.email}</a>
+                    <a href={`mailto:${hotel.email}`} className="text-[#111111] font-medium text-[14px] hover:text-[#C9A84C] transition-colors">{hotel.email}</a>
                   </div>
                 </div>
               </div>
