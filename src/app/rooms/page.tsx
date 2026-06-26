@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef } from "react";
-import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -9,6 +8,9 @@ import { CheckCircle } from "lucide-react";
 import { hotelData } from "@/data/siteData";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { Breadcrumb } from "@/components/sections/Breadcrumb";
+import { PageHero } from "@/components/sections/PageHero";
+import { CtaStrip } from "@/components/sections/CtaStrip";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -31,31 +33,14 @@ export default function RoomsPage() {
       <Navbar />
 
       <main className="flex-1 pt-20">
-        {/* Breadcrumb */}
-        <div className="px-8 py-4 bg-[#f5f5f5] border-b border-[#e5e5e5]">
-          <p className="text-[#707072] text-[13px] font-medium">
-            <Link href="/" className="hover:text-[#111111] transition-colors" data-testid="breadcrumb-home">Home</Link>
-            <span className="mx-2">/</span>
-            <span className="text-[#111111]">Rooms</span>
-          </p>
-        </div>
+        <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Rooms" }]} />
+        <PageHero
+          image="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=2400&q=90"
+          label="Accommodation"
+          title="STAY WITH US"
+          subtitle="Four categories of luxury rooms, each designed for comfort and elegance"
+        />
 
-        {/* Campaign Hero */}
-        <section className="relative w-full h-[70vh] overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=2400&q=90"
-            alt="Rooms Hero"
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ filter: "brightness(0.45)" }}
-          />
-          <div className="absolute inset-0 flex flex-col justify-center items-center text-center z-10 px-8">
-            <p className="text-[#C9A84C] text-[12px] uppercase tracking-[0.4em] mb-6">Accommodation</p>
-            <h1 className="font-display text-[64px] md:text-[100px] text-white uppercase leading-[0.85]">STAY WITH US</h1>
-            <p className="text-white/80 text-[18px] max-w-lg mt-6 font-medium">Four categories of luxury rooms, each designed for comfort and elegance</p>
-          </div>
-        </section>
-
-        {/* Intro */}
         <section className="py-16 px-4 md:px-8 bg-[#f5f5f5]">
           <div className="max-w-screen-xl mx-auto text-center">
             <p className="text-[#707072] text-[16px] leading-relaxed font-medium max-w-3xl mx-auto">
@@ -64,7 +49,6 @@ export default function RoomsPage() {
           </div>
         </section>
 
-        {/* Rooms Grid */}
         <section className="py-24 px-4 md:px-8">
           <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
             {hotelData.rooms.map((room) => (
@@ -94,7 +78,6 @@ export default function RoomsPage() {
           </div>
         </section>
 
-        {/* What's Included */}
         <section className="py-32 px-4 md:px-8 bg-[#f5f5f5]">
           <div className="max-w-screen-xl mx-auto">
             <div className="text-center mb-16">
@@ -112,23 +95,14 @@ export default function RoomsPage() {
           </div>
         </section>
 
-        {/* CTA Strip */}
-        <section className="py-20 px-4 md:px-8 bg-[#111111]">
-          <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
-            <div>
-              <p className="text-[#C9A84C] text-[12px] uppercase tracking-[0.4em] mb-3">Ready to Book?</p>
-              <h2 className="font-display text-[42px] md:text-[56px] text-white uppercase leading-tight">CALL US DIRECTLY</h2>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a href="tel:+917899738550" className="bg-[#C9A84C] text-[#111111] px-10 py-4 rounded-full font-medium text-[16px] hover:bg-[#b8943f] transition-colors whitespace-nowrap text-center" data-testid="button-rooms-call">
-                {hotelData.phone}
-              </a>
-              <a href={hotelData.bookingEngineUrl} target="_blank" rel="noopener noreferrer" className="bg-white text-[#111111] px-10 py-4 rounded-full font-medium text-[16px] hover:bg-[#f5f5f5] transition-colors whitespace-nowrap text-center" data-testid="button-rooms-book">
-                Book Now
-              </a>
-            </div>
-          </div>
-        </section>
+        <CtaStrip
+          label="Ready to Book?"
+          title="CALL US DIRECTLY"
+          buttons={[
+            { label: hotelData.phone, href: "tel:+917899738550", variant: "gold", testId: "button-rooms-call" },
+            { label: "Book Now", href: hotelData.bookingEngineUrl, variant: "white", testId: "button-rooms-book" },
+          ]}
+        />
       </main>
 
       <Footer />

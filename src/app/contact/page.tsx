@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef } from "react";
-import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -9,6 +8,7 @@ import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { hotelData } from "@/data/siteData";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { Breadcrumb } from "@/components/sections/Breadcrumb";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -27,16 +27,8 @@ export default function ContactPage() {
       <Navbar />
 
       <main className="flex-1 pt-20">
-        {/* Breadcrumb */}
-        <div className="px-8 py-4 bg-[#f5f5f5] border-b border-[#e5e5e5]">
-          <p className="text-[#707072] text-[13px] font-medium">
-            <Link href="/" className="hover:text-[#111111] transition-colors" data-testid="breadcrumb-home">Home</Link>
-            <span className="mx-2">/</span>
-            <span className="text-[#111111]">Contact</span>
-          </p>
-        </div>
+        <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Contact" }]} />
 
-        {/* Campaign Hero */}
         <section className="relative py-32 px-4 md:px-8 bg-[#111111] overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=2400&q=80"
@@ -52,7 +44,6 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* Contact Cards */}
         <section className="py-20 px-4 md:px-8 bg-[#f5f5f5]">
           <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
@@ -80,7 +71,6 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* Map */}
         <section className="py-24 px-4 md:px-8">
           <div className="max-w-screen-xl mx-auto">
             <div className="flex flex-col gap-6">
@@ -103,7 +93,6 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* Distances Table */}
         <section className="py-24 px-4 md:px-8 bg-[#f5f5f5]">
           <div className="max-w-screen-xl mx-auto">
             <div className="text-center mb-16">
@@ -120,7 +109,6 @@ export default function ContactPage() {
             </div>
           </div>
         </section>
-
       </main>
 
       <Footer />

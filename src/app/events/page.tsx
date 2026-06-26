@@ -1,15 +1,16 @@
 "use client";
 
 import { useRef } from "react";
-import Link from "next/link";
-import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useForm } from "react-hook-form";
-import { CheckCircle, Phone, Mail, Clock } from "lucide-react";
+import { CheckCircle, Phone, Mail } from "lucide-react";
 import { hotelData } from "@/data/siteData";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { Breadcrumb } from "@/components/sections/Breadcrumb";
+import { PageHero } from "@/components/sections/PageHero";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -43,31 +44,15 @@ export default function EventsPage() {
       <Navbar />
 
       <main className="flex-1 pt-20">
-        {/* Breadcrumb */}
-        <div className="px-8 py-4 bg-[#f5f5f5] border-b border-[#e5e5e5]">
-          <p className="text-[#707072] text-[13px] font-medium">
-            <Link href="/" className="hover:text-[#111111] transition-colors" data-testid="breadcrumb-home">Home</Link>
-            <span className="mx-2">/</span>
-            <span className="text-[#111111]">Events</span>
-          </p>
-        </div>
+        <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Events" }]} />
+        <PageHero
+          image={hotelData.events.image}
+          brightness={0.4}
+          label="The AVA"
+          title="MEETINGS & EVENTS"
+          subtitle="2500+ Sq.Ft pillarless ballroom for your most memorable occasions"
+        />
 
-        {/* Campaign Hero */}
-        <section className="relative w-full h-[70vh] overflow-hidden">
-          <img
-            src={hotelData.events.image}
-            alt="Events"
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ filter: "brightness(0.4)" }}
-          />
-          <div className="absolute inset-0 flex flex-col justify-center items-center text-center z-10 px-8">
-            <p className="text-[#C9A84C] text-[12px] uppercase tracking-[0.4em] mb-6">The AVA</p>
-            <h1 className="font-display text-[56px] md:text-[96px] text-white uppercase leading-[0.85]">MEETINGS &amp;<br />EVENTS</h1>
-            <p className="text-white/80 text-[18px] max-w-lg mt-6 font-medium">2500+ Sq.Ft pillarless ballroom for your most memorable occasions</p>
-          </div>
-        </section>
-
-        {/* Stats Row */}
         <section className="py-16 bg-[#f5f5f5]">
           <div className="max-w-screen-xl mx-auto px-4 md:px-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
@@ -88,11 +73,8 @@ export default function EventsPage() {
           </div>
         </section>
 
-        {/* Info + Form */}
         <section className="py-24 px-4 md:px-8">
           <div className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
-
-            {/* Info */}
             <div className="flex flex-col gap-10">
               <div>
                 <p className="text-[#C9A84C] text-[12px] uppercase tracking-[0.4em] mb-4">Host With Us</p>
@@ -115,7 +97,6 @@ export default function EventsPage() {
                 ))}
               </div>
 
-              {/* Quick Contacts */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8 pt-8 border-t border-[#e5e5e5]">
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 bg-[#f5f5f5] flex items-center justify-center">
@@ -138,7 +119,6 @@ export default function EventsPage() {
               </div>
             </div>
 
-            {/* Form */}
             <div className="bg-[#f5f5f5] p-8 md:p-12 border border-[#e5e5e5]">
               <h3 className="font-display text-[32px] text-[#111111] uppercase mb-8">EVENT ENQUIRY</h3>
               

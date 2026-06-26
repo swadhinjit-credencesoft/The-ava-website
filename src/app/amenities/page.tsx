@@ -1,13 +1,15 @@
 "use client";
 
 import { useRef } from "react";
-import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { hotelData } from "@/data/siteData";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { Breadcrumb } from "@/components/sections/Breadcrumb";
+import { PageHero } from "@/components/sections/PageHero";
+import { CtaStrip } from "@/components/sections/CtaStrip";
 import { FeatureGrid } from "@/components/FeatureGrid";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -27,31 +29,14 @@ export default function AmenitiesPage() {
       <Navbar />
 
       <main className="flex-1 pt-20">
-        {/* Breadcrumb */}
-        <div className="px-8 py-4 bg-[#f5f5f5] border-b border-[#e5e5e5]">
-          <p className="text-[#707072] text-[13px] font-medium">
-            <Link href="/" className="hover:text-[#111111] transition-colors" data-testid="breadcrumb-home">Home</Link>
-            <span className="mx-2">/</span>
-            <span className="text-[#111111]">Amenities</span>
-          </p>
-        </div>
+        <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Amenities" }]} />
+        <PageHero
+          image="/avadining.jpg"
+          label="Facilities"
+          title="WHAT WE OFFER"
+          subtitle="Premium facilities designed for an uncompromising luxury stay"
+        />
 
-        {/* Campaign Hero */}
-        <section className="relative w-full h-[70vh] overflow-hidden">
-          <img
-            src="/avadining.jpg"
-            alt="Amenities"
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ filter: "brightness(0.45)" }}
-          />
-          <div className="absolute inset-0 flex flex-col justify-center items-center text-center z-10 px-8">
-            <p className="text-[#C9A84C] text-[12px] uppercase tracking-[0.4em] mb-6">Facilities</p>
-            <h1 className="font-display text-[64px] md:text-[100px] text-white uppercase leading-[0.85]">WHAT WE OFFER</h1>
-            <p className="text-white/80 text-[18px] max-w-lg mt-6 font-medium">Premium facilities designed for an uncompromising luxury stay</p>
-          </div>
-        </section>
-
-        {/* Amenities Grid */}
         <section className="py-32 px-4 md:px-8">
           <div className="max-w-screen-2xl mx-auto">
             <div className="text-center mb-20">
@@ -73,7 +58,6 @@ export default function AmenitiesPage() {
           </div>
         </section>
 
-        {/* Feature Icons */}
         <section className="py-24 px-4 md:px-8 bg-[#f5f5f5]">
           <div className="max-w-screen-xl mx-auto">
             <div className="text-center mb-16">
@@ -84,23 +68,14 @@ export default function AmenitiesPage() {
           </div>
         </section>
 
-        {/* CTA Strip */}
-        <section className="py-20 px-4 md:px-8 bg-[#111111]">
-          <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
-            <div>
-              <p className="text-[#C9A84C] text-[12px] uppercase tracking-[0.4em] mb-3">Experience Luxury</p>
-              <h2 className="font-display text-[42px] md:text-[56px] text-white uppercase leading-tight">BOOK YOUR STAY</h2>
-            </div>
-            <div className="flex gap-4">
-              <a href={hotelData.bookingEngineUrl} target="_blank" rel="noopener noreferrer" className="bg-[#C9A84C] text-[#111111] px-10 py-4 rounded-full font-medium text-[16px] hover:bg-[#b8943f] transition-colors" data-testid="button-amenities-book">
-                Book Now
-              </a>
-              <Link href="/rooms" className="bg-white/10 text-white border border-white/20 px-10 py-4 rounded-full font-medium text-[16px] hover:bg-white/20 transition-colors" data-testid="button-amenities-rooms">
-                View Rooms
-              </Link>
-            </div>
-          </div>
-        </section>
+        <CtaStrip
+          label="Experience Luxury"
+          title="BOOK YOUR STAY"
+          buttons={[
+            { label: "Book Now", href: hotelData.bookingEngineUrl, variant: "gold", testId: "button-amenities-book" },
+            { label: "View Rooms", href: "/rooms", variant: "outline", testId: "button-amenities-rooms" },
+          ]}
+        />
       </main>
 
       <Footer />

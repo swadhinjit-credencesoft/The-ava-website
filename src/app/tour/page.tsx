@@ -1,13 +1,15 @@
 "use client";
 
 import { useRef } from "react";
-import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { hotelData } from "@/data/siteData";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { Breadcrumb } from "@/components/sections/Breadcrumb";
+import { PageHero } from "@/components/sections/PageHero";
+import { CtaStrip } from "@/components/sections/CtaStrip";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -30,31 +32,14 @@ export default function TourPage() {
       <Navbar />
 
       <main className="flex-1 pt-20">
-        {/* Breadcrumb */}
-        <div className="px-8 py-4 bg-[#f5f5f5] border-b border-[#e5e5e5]">
-          <p className="text-[#707072] text-[13px] font-medium">
-            <Link href="/" className="hover:text-[#111111] transition-colors" data-testid="breadcrumb-home">Home</Link>
-            <span className="mx-2">/</span>
-            <span className="text-[#111111]">Tour &amp; Nearby</span>
-          </p>
-        </div>
+        <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Tour & Nearby" }]} />
+        <PageHero
+          image="kailash-reddy-ku-UUxOngp3p4w-unsplash.jpg"
+          label="Western Ghats"
+          title="EXPLORE NEARBY"
+          subtitle="Discover Karnataka's most treasured landscapes and landmarks"
+        />
 
-        {/* Campaign Hero */}
-        <section className="relative w-full h-[70vh] overflow-hidden">
-          <img
-            src="kailash-reddy-ku-UUxOngp3p4w-unsplash.jpg"
-            alt="Explore"
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ filter: "brightness(0.4)" }}
-          />
-          <div className="absolute inset-0 flex flex-col justify-center items-center text-center z-10 px-8">
-            <p className="text-[#C9A84C] text-[12px] uppercase tracking-[0.4em] mb-6">Western Ghats</p>
-            <h1 className="font-display text-[64px] md:text-[100px] text-white uppercase leading-[0.85]">EXPLORE NEARBY</h1>
-            <p className="text-white/80 text-[18px] max-w-lg mt-6 font-medium">Discover Karnataka's most treasured landscapes and landmarks</p>
-          </div>
-        </section>
-
-        {/* Tourist Places */}
         <section className="py-32 px-4 md:px-8">
           <div className="max-w-screen-2xl mx-auto">
             <div className="text-center mb-20">
@@ -80,7 +65,6 @@ export default function TourPage() {
           </div>
         </section>
 
-        {/* Distances Table */}
         <section className="py-32 px-4 md:px-8 bg-[#f5f5f5]">
           <div className="max-w-screen-xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
@@ -117,23 +101,14 @@ export default function TourPage() {
           </div>
         </section>
 
-        {/* CTA Strip */}
-        <section className="py-20 px-4 md:px-8 bg-[#111111]">
-          <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
-            <div>
-              <p className="text-[#C9A84C] text-[12px] uppercase tracking-[0.4em] mb-3">Start Your Adventure</p>
-              <h2 className="font-display text-[42px] md:text-[56px] text-white uppercase leading-tight">PLAN YOUR VISIT</h2>
-            </div>
-            <div className="flex gap-4">
-              <a href="tel:+917899738550" className="bg-[#C9A84C] text-[#111111] px-10 py-4 rounded-full font-medium text-[16px] hover:bg-[#b8943f] transition-colors" data-testid="button-tour-call">
-                Call Us
-              </a>
-              <a href={hotelData.bookingEngineUrl} target="_blank" rel="noopener noreferrer" className="bg-white/10 text-white border border-white/20 px-10 py-4 rounded-full font-medium text-[16px] hover:bg-white/20 transition-colors" data-testid="button-tour-book">
-                Book a Room
-              </a>
-            </div>
-          </div>
-        </section>
+        <CtaStrip
+          label="Start Your Adventure"
+          title="PLAN YOUR VISIT"
+          buttons={[
+            { label: "Call Us", href: "tel:+917899738550", variant: "gold", testId: "button-tour-call" },
+            { label: "Book a Room", href: hotelData.bookingEngineUrl, variant: "outline", testId: "button-tour-book" },
+          ]}
+        />
       </main>
 
       <Footer />
