@@ -88,7 +88,7 @@ export function Navbar() {
                 key={item.href} 
                 href={item.href}
                 onClick={handleLinkClick}
-                className={`font-display text-[56px] leading-none uppercase tracking-wider ${
+                className={`font-display text-[32px] leading-none uppercase tracking-wider ${
                   location === item.href ? "text-[#C9A84C]" : "text-white hover:text-[#C9A84C]"
                 }`}
                 style={{ animationDelay: `${i * 0.1}s` }}
