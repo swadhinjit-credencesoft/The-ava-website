@@ -1,12 +1,12 @@
 "use client";
 
-import { Award, Star, Shield, Heart } from "lucide-react";
+import { Star, Shield, Heart, ThumbsUp } from "lucide-react";
 
 const awards = [
-  { icon: Award,  label: "TripAdvisor Certificate", sub: "of Excellence" },
-  { icon: Star,   label: "Top Rated Resort",        sub: "Chikkamagaluru" },
-  { icon: Shield, label: "Trusted By",              sub: "5000+ Guests" },
-  { icon: Heart,  label: "Best Hospitality",        sub: "Karnataka Tourism" },
+  { icon: Star,     label: "Top Rated Resort",        sub: "Chikkamagaluru" },
+  { icon: Shield,   label: "Trusted By",              sub: "5000+ Guests" },
+  { icon: Heart,    label: "Best Hospitality",        sub: "Karnataka Tourism" },
+  { icon: ThumbsUp, label: "Recommended",             sub: "By Travelers" },
 ];
 
 export function AwardsSection() {

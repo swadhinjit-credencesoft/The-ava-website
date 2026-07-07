@@ -28,9 +28,12 @@ export function RoomsSection() {
                   <p className="text-white/50 text-[10px] uppercase tracking-widest">{room.type}</p>
                   <h3 className="font-display text-[36px] text-white uppercase leading-tight mt-1">{room.name}</h3>
                 </div>
-                <Link href="/rooms" className="bg-white text-[#111111] px-6 py-3 rounded-full font-medium text-[12px] opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300" data-testid={`button-room-${room.id}`}>
-                  View Room
-                </Link>
+                <div className="flex items-center gap-3">
+                  {room.price && <span className="bg-[#C9A84C] text-[#111111] px-3 py-1 rounded-full text-[11px] font-bold">{room.price}<span className="font-medium">/night</span></span>}
+                  <Link href={`/rooms/${room.id}-room`} className="bg-white text-[#111111] px-6 py-3 rounded-full font-medium text-[12px] opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300" data-testid={`button-room-${room.id}`}>
+                    View Room
+                  </Link>
+                </div>
               </div>
             </div>
           ))}

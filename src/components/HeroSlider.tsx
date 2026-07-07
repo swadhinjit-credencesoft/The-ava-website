@@ -135,21 +135,8 @@ export function HeroSlider() {
           </div>
         </div>
 
-        {/* Feature bar — bottom */}
-        <div className="hero-bar pb-10 hidden md:flex items-center gap-10 border-t border-white/10 pt-6">
-          {[
-            { label: "Check-in", value: "12:00 PM" },
-            { label: "Check-out", value: "24 Hours" },
-            { label: "Location", value: "NH 173, Haandi" },
-            { label: "Phone", value: "+91 7899738550" },
-          ].map((item) => (
-            <div key={item.label} className="flex flex-col">
-              <span className="text-white/40 text-[10px] uppercase tracking-[0.3em]">{item.label}</span>
-              <span className="text-white text-[13px] font-medium mt-1">{item.value}</span>
-            </div>
-          ))}
-          {/* Slide dots */}
-          <div className="ml-auto flex gap-2">
+        <div className="pb-10 hidden md:flex items-center justify-end border-t border-white/10 pt-6">
+          <div className="flex gap-2">
             {BG_IMAGES.map((_, i) => (
               <button
                 key={i}

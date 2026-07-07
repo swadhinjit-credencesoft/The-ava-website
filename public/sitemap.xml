@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://theavahotel.in/</loc><priority>1.0</priority></url>
+  <url><loc>https://theavahotel.in/rooms</loc><priority>0.9</priority></url>
+  <url><loc>https://theavahotel.in/rooms/quad-room</loc><priority>0.8</priority></url>
+  <url><loc>https://theavahotel.in/rooms/premium-room</loc><priority>0.8</priority></url>
+  <url><loc>https://theavahotel.in/rooms/estateview-room</loc><priority>0.8</priority></url>
+  <url><loc>https://theavahotel.in/rooms/executive-room</loc><priority>0.8</priority></url>
+  <url><loc>https://theavahotel.in/amenities</loc><priority>0.7</priority></url>
+  <url><loc>https://theavahotel.in/tour</loc><priority>0.7</priority></url>
+  <url><loc>https://theavahotel.in/contact</loc><priority>0.6</priority></url>
+  <url><loc>https://theavahotel.in/events</loc><priority>0.5</priority></url>
+</urlset>

@@ -7,7 +7,7 @@ const galleryImages = [
   { src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80", span: "row-span-2" },
   { src: "https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=800&q=80", span: "" },
   { src: "/indooroutdoorgames.jpg", span: "" },
-  { src: "/Royal-Shalimar-boutique-stay-chikmagalur-14-2.webp", span: "" },
+  { src: "/avadining.jpg", span: "" },
   { src: "/quardroom.webp", span: "row-span-2" },
   { src: "/plantation.jpg", span: "" },
   { src: "/executiveroom1.jpeg", span: "" },

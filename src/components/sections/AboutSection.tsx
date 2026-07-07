@@ -8,7 +8,7 @@ export function AboutSection() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div className="relative">
           <div className="aspect-[3/4] overflow-hidden">
-            <img src="/Royal-Shalimar-boutique-stay-chikmagalur-14-2.webp" alt="Coffee Plantation" className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000" loading="lazy" />
+            <img src="/shalimarhomeimg.png" alt="Coffee Plantation" className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000" loading="lazy" />
           </div>
           <div className="absolute -bottom-6 -right-6 w-44 h-44 bg-[#C9A84C] hidden md:flex flex-col items-center justify-center text-[#111111]">
             <span className="font-display text-[52px] leading-none">10+</span>

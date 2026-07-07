@@ -33,7 +33,7 @@ export default function ContactPage() {
 
         <section className="relative py-32 px-4 md:px-8 bg-[#111111] overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=2400&q=80"
+            src="/shalimarhomeimg.png"
             alt="Contact"
             className="absolute inset-0 w-full h-full object-cover opacity-20"
           />
@@ -49,7 +49,7 @@ export default function ContactPage() {
         <section className="py-20 px-4 md:px-8 bg-[#f5f5f5]">
           <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
-              { icon: MapPin, title: "Address", content: "N H 173, K M Road, Haandi\nChikkamagaluru, Karnataka 577111", href: "https://maps.google.com/?q=The+Royal+Shalimar+Haandi+Chikkamagaluru" },
+              { icon: MapPin, title: "Address", content: "N H 173, K M Road, Haandi\nChikkamagaluru, Karnataka 577111", href: "https://maps.google.com/?q=The+AVA+Hotel+Haandi+Chikkamagaluru&ll=13.1654,75.7856" },
               { icon: Phone, title: "Phone", content: `${hotel.phone}\n${hotel.phoneAlt}`, href: `tel:${hotel.phone.replace(/\s/g, "")}` },
               { icon: Mail, title: "Email", content: hotel.email, href: `mailto:${hotel.email}` },
               { icon: Clock, title: "Support Hours", content: "24 Hours\n7 Days a Week", href: null },
@@ -78,15 +78,22 @@ export default function ContactPage() {
             <div className="flex flex-col gap-6">
               <p className="text-[#C9A84C] text-[12px] uppercase tracking-[0.4em] mb-2">Our Location</p>
               <h3 className="font-display text-[42px] text-[#111111] uppercase leading-tight">FIND US</h3>
-              <div className="relative bg-[#111111] overflow-hidden flex flex-col items-center justify-center text-center p-16" style={{ minHeight: 400 }}>
-                <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=1200&q=80" alt="Map" className="absolute inset-0 w-full h-full object-cover opacity-20" />
-                <div className="relative z-10 flex flex-col items-center gap-6">
+              <div className="relative bg-[#111111] overflow-hidden" style={{ minHeight: 400 }}>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31010.789!2d75.7856!3d13.1654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sNH%20173%2C%20Haandi%2C%20Chikkamagaluru%2C%20Karnataka%20577111!5e0!3m2!1sen!2sin!4v1"
+                  className="absolute inset-0 w-full h-full"
+                  style={{ filter: "invert(0.9) hue-rotate(180deg)" }}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="The AVA Hotel Location"
+                />
+                <div className="relative z-10 flex flex-col items-center justify-center text-center p-16 w-full h-full bg-[#111111]/60 backdrop-blur-sm">
                   <MapPin size={40} className="text-[#C9A84C]" />
                   <div>
                     <h4 className="font-display text-[36px] text-white uppercase leading-tight">NH 173, HAANDI</h4>
                     <p className="text-white/50 text-[13px] font-medium mt-2">Chikkamagaluru, Karnataka 577111</p>
                   </div>
-                  <a href="https://maps.google.com/?q=The+Royal+Shalimar+Haandi+Chikkamagaluru" target="_blank" rel="noopener noreferrer" className="bg-white text-[#111111] px-8 py-3 rounded-full font-medium text-[13px] hover:bg-[#f5f5f5] transition-colors mt-2" data-testid="link-google-maps-contact">
+                  <a href="https://maps.google.com/?q=The+AVA+Hotel+Haandi+Chikkamagaluru&ll=13.1654,75.7856" target="_blank" rel="noopener noreferrer" className="bg-white text-[#111111] px-8 py-3 rounded-full font-medium text-[13px] hover:bg-[#f5f5f5] transition-colors mt-2" data-testid="link-google-maps-contact">
                     Open in Google Maps
                   </a>
                 </div>

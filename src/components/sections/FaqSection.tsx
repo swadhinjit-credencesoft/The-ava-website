@@ -31,9 +31,20 @@ function FaqItem({ q, a }: { q: string; a: string }) {
   );
 }
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
 export function FaqSection() {
   return (
     <section className="py-32 px-4 md:px-8 bg-[#f5f5f5]">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <div className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
         <div className="lg:sticky" style={{ top: "120px" }}>
           <p className="text-[#C9A84C] text-[11px] uppercase tracking-[0.5em] mb-4">Got Questions?</p>

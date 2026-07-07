@@ -3,6 +3,6 @@ export const nav = [
   { label: "Rooms", href: "/rooms" },
   { label: "Amenities", href: "/amenities" },
   { label: "Tour & Nearby", href: "/tour" },
-  { label: "Meetings & Events", href: "http://www.theroyalshalimar.com/" },
+  { label: "Meetings & Events", href: "https://theroyalshalimar2.netlify.app/" },
   { label: "Contact", href: "/contact" }
 ];

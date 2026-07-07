@@ -6,9 +6,10 @@ import { store } from "@/store";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/toaster";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { StickyBookingBar } from "@/components/StickyBookingBar";
 
 export function Providers({ children }: { children: React.ReactNode }) {
-  // Use state to ensure each request gets its own QueryClient in Next.js SSR
   const [queryClient] = useState(() => new QueryClient());
 
   return (
@@ -16,6 +17,8 @@ export function Providers({ children }: { children: React.ReactNode }) {
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
           {children}
+          <WhatsAppButton />
+          <StickyBookingBar />
           <Toaster />
         </TooltipProvider>
       </QueryClientProvider>

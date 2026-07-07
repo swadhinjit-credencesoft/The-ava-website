@@ -30,11 +30,20 @@ export function Footer() {
 
         <div className="flex flex-col gap-3">
           <h4 className="font-medium text-[13px] uppercase tracking-[0.25em] text-white mb-2">Quick Links</h4>
-          {hotel.nav.map((item) => (
-            <Link key={item.href} href={item.href} className="text-white/50 text-[13px] font-medium hover:text-white transition-colors w-fit" data-testid={`footer-link-${item.label.toLowerCase().replace(/[\s&]/g, "-")}`}>
-              {item.label}
-            </Link>
-          ))}
+          {hotel.nav.map((item) => {
+            const isExternal = item.href.startsWith("http");
+            const footerLinkClass = "text-white/50 text-[13px] font-medium hover:text-white transition-colors w-fit";
+            const footerTestId = `footer-link-${item.label.toLowerCase().replace(/[\s&]/g, "-")}`;
+            return isExternal ? (
+              <a key={item.href} href={item.href} target="_blank" rel="noopener noreferrer" className={footerLinkClass} data-testid={footerTestId}>
+                {item.label}
+              </a>
+            ) : (
+              <Link key={item.href} href={item.href} className={footerLinkClass} data-testid={footerTestId}>
+                {item.label}
+              </Link>
+            );
+          })}
         </div>
 
         <div className="flex flex-col gap-3">

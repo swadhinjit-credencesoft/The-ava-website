@@ -44,20 +44,24 @@ export function Navbar() {
 
         {/* Desktop Center Nav */}
         <nav className="hidden md:flex items-center gap-8 h-full">
-          {hotel.nav.map((item) => (
-            <Link 
-              key={item.href} 
-              href={item.href}
-              className={`h-full flex items-center text-[16px] font-medium transition-colors border-b-2 ${
-                location === item.href 
-                  ? "border-[#C9A84C]" 
-                  : "border-transparent hover:border-[#C9A84C]/50"
-              } ${scrolled ? "text-[#111] hover:text-[#C9A84C]" : "text-white hover:text-[#C9A84C]"}`}
-              data-testid={`link-nav-${item.label.toLowerCase().replace(/[\s&]/g, '-')}`}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {hotel.nav.map((item) => {
+            const isExternal = item.href.startsWith("http");
+            const linkClass = `h-full flex items-center text-[16px] font-medium transition-colors border-b-2 ${
+              location === item.href 
+                ? "border-[#C9A84C]" 
+                : "border-transparent hover:border-[#C9A84C]/50"
+            } ${scrolled ? "text-[#111] hover:text-[#C9A84C]" : "text-white hover:text-[#C9A84C]"}`;
+            const testId = `link-nav-${item.label.toLowerCase().replace(/[\s&]/g, '-')}`;
+            return isExternal ? (
+              <a key={item.href} href={item.href} target="_blank" rel="noopener noreferrer" className={linkClass} data-testid={testId}>
+                {item.label}
+              </a>
+            ) : (
+              <Link key={item.href} href={item.href} className={linkClass} data-testid={testId}>
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Desktop Right Nav / Mobile Right */}
@@ -83,20 +87,22 @@ export function Navbar() {
       {mobileMenuOpen && (
         <div className="md:hidden fixed inset-0 top-[80px] bg-[#111111] z-40 overflow-y-auto">
           <nav className="flex flex-col px-8 py-12 gap-8">
-            {hotel.nav.map((item, i) => (
-              <Link 
-                key={item.href} 
-                href={item.href}
-                onClick={handleLinkClick}
-                className={`font-display text-[32px] leading-none uppercase tracking-wider ${
-                  location === item.href ? "text-[#C9A84C]" : "text-white hover:text-[#C9A84C]"
-                }`}
-                style={{ animationDelay: `${i * 0.1}s` }}
-                data-testid={`link-mobile-nav-${item.label.toLowerCase().replace(/[\s&]/g, '-')}`}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {hotel.nav.map((item, i) => {
+              const isExternal = item.href.startsWith("http");
+              const linkClass = `font-display text-[32px] leading-none uppercase tracking-wider ${
+                location === item.href ? "text-[#C9A84C]" : "text-white hover:text-[#C9A84C]"
+              }`;
+              const testId = `link-mobile-nav-${item.label.toLowerCase().replace(/[\s&]/g, '-')}`;
+              return isExternal ? (
+                <a key={item.href} href={item.href} target="_blank" rel="noopener noreferrer" onClick={handleLinkClick} className={linkClass} style={{ animationDelay: `${i * 0.1}s` }} data-testid={testId}>
+                  {item.label}
+                </a>
+              ) : (
+                <Link key={item.href} href={item.href} onClick={handleLinkClick} className={linkClass} style={{ animationDelay: `${i * 0.1}s` }} data-testid={testId}>
+                  {item.label}
+                </Link>
+              );
+            })}
             <div className="h-px bg-white/10 w-full my-4" />
             <a
               href={hotel.bookingEngineUrl}

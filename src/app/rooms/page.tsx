@@ -52,8 +52,9 @@ export default function RoomsPage() {
               <div key={room.id} className="room-card flex flex-col">
                 <div className="relative aspect-[4/3] overflow-hidden bg-[#f5f5f5] group">
                   <img src={room.image} alt={room.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
-                  <div className="absolute top-4 left-4">
+                  <div className="absolute top-4 left-4 flex gap-2">
                     <span className="bg-[#C9A84C] text-[#111111] px-4 py-1 rounded-full text-[11px] font-medium uppercase tracking-wider">{room.type}</span>
+                    {room.price && <span className="bg-white text-[#111111] px-4 py-1 rounded-full text-[11px] font-bold">{room.price}</span>}
                   </div>
                 </div>
                 <div className="pt-8 flex flex-col gap-5 flex-1">
@@ -64,7 +65,10 @@ export default function RoomsPage() {
                       <span key={f} className="border border-[#cacacb] text-[#111111] px-4 py-1.5 rounded-full text-[12px] font-medium">{f}</span>
                     ))}
                   </div>
-                  <div className="mt-auto pt-4">
+                  <div className="mt-auto pt-4 flex gap-3 flex-wrap">
+                    <a href={`/rooms/${room.id}-room`} className="border border-[#cacacb] text-[#111111] px-8 py-4 rounded-full font-medium text-[15px] hover:border-[#111111] transition-colors inline-block" data-testid={`button-view-${room.id}`}>
+                      View Details
+                    </a>
                     <a href={hotel.bookingEngineUrl} target="_blank" rel="noopener noreferrer" className="bg-[#111111] text-white px-8 py-4 rounded-full font-medium text-[15px] hover:bg-[#333] transition-colors inline-block" data-testid={`button-book-${room.id}`}>
                       Book Now
                     </a>
