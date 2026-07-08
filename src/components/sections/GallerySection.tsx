@@ -1,11 +1,12 @@
 "use client";
 
+// Replace the Unsplash URLs below with real property photos as they become available
 const galleryImages = [
   { src: "/trekking.webp", span: "row-span-2" },
   { src: "/avadining.jpg", span: "" },
-  { src: "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=800&q=80", span: "" },
-  { src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80", span: "row-span-2" },
-  { src: "https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=800&q=80", span: "" },
+  { src: "/plantation.jpg", span: "" },         // was Unsplash — replaced with local
+  { src: "/bon-fire-in-chilling.jpg", span: "row-span-2" }, // was Unsplash — replaced with local
+  { src: "/estateview.jpeg", span: "" },         // was Unsplash — replaced with local
   { src: "/indooroutdoorgames.jpg", span: "" },
   { src: "/avadining.jpg", span: "" },
   { src: "/quardroom.webp", span: "row-span-2" },

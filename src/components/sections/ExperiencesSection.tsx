@@ -3,7 +3,7 @@
 const experiences = [
   { title: "BONFIRE NIGHTS",  desc: "Gather under the stars around a warm bonfire amidst Karnataka's finest coffee plantations.", img: "/bon-fire-in-chilling.jpg", badge: "Evening" },
   { title: "WILDLIFE SAFARI", desc: "Explore Bhadra Wildlife Sanctuary and encounter magnificent wildlife in their natural habitat.", img: "/bhadra-wildlife-sanctuary.webp", badge: "Adventure" },
-  { title: "MOUNTAIN TREKS", desc: "Trek to Mullayangiri — the highest peak in Karnataka — through pristine Western Ghats trails.", img: "https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80", badge: "Trekking" },
+  { title: "MOUNTAIN TREKS", desc: "Trek to Mullayangiri — the highest peak in Karnataka — through pristine Western Ghats trails.", img: "PLACEHOLDER", badge: "Trekking" },
 ];
 
 export function ExperiencesSection() {
@@ -16,8 +16,14 @@ export function ExperiencesSection() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
           {experiences.map((exp) => (
-            <div key={exp.title} className="exp-card group relative overflow-hidden" style={{ aspectRatio: "3/4" }}>
-              <img src={exp.img} alt={exp.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" loading="lazy" />
+            <div key={exp.title} className="exp-card group relative overflow-hidden bg-[#111111]" style={{ aspectRatio: "3/4" }}>
+              {exp.img === "PLACEHOLDER" ? (
+                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#C9A84C]/10 to-[#111111]">
+                  <span className="font-display text-[36px] text-white/20 uppercase text-center px-8 leading-tight">{exp.title}</span>
+                </div>
+              ) : (
+                <img src={exp.img} alt={exp.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" loading="lazy" />
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
               <div className="absolute top-6 left-6">
                 <span className="bg-[#C9A84C] text-[#111111] px-4 py-1 rounded-full text-[10px] font-medium uppercase tracking-wider">{exp.badge}</span>

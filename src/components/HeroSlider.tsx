@@ -1,45 +1,13 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
-const BG_IMAGES = [
-  "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=2400&q=90",
-  "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=2400&q=90",
-  "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=2400&q=90",
-];
-
 export function HeroSlider() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [activeIdx, setActiveIdx] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [videoLoaded, setVideoLoaded] = useState(false);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveIdx((i) => (i + 1) % BG_IMAGES.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, []);
-
-  useEffect(() => {
-    const v = videoRef.current;
-    if (!v) return;
-    // Show video as soon as first frame is decoded (faster than canplaythrough)
-    const onLoaded = () => setVideoLoaded(true);
-    // If the video errors (CORS, slow network, blocked), keep image fallback visible
-    const onError = () => setVideoLoaded(false);
-    v.addEventListener("loadeddata", onLoaded);
-    v.addEventListener("error", onError);
-    // Force load in case the browser deferred it
-    v.load();
-    return () => {
-      v.removeEventListener("loadeddata", onLoaded);
-      v.removeEventListener("error", onError);
-    };
-  }, []);
 
   useGSAP(() => {
     const tl = gsap.timeline({ delay: 0.3 });
@@ -54,7 +22,7 @@ export function HeroSlider() {
   return (
     <div ref={containerRef} className="relative w-full h-[100dvh] min-h-[700px] overflow-hidden bg-[#111111]">
 
-      {/* Background — video preferred, image fallback with Ken Burns */}
+      {/* Background video */}
       <video
         ref={videoRef}
         autoPlay
@@ -62,29 +30,11 @@ export function HeroSlider() {
         loop
         playsInline
         preload="auto"
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${videoLoaded ? "opacity-100" : "opacity-0"}`}
+        className="absolute inset-0 w-full h-full object-cover"
         style={{ filter: "brightness(0.9)" }}
       >
         <source src="https://bookonelocal.in/cdn/Chikmagalur%20Travel%20Film%20_%204k%20Cinematic%20Video%20(online-video-cutter.com).mp4" type="video/mp4" />
       </video>
-
-      {/* Ken Burns image slideshow — always visible, hidden when video plays */}
-      {BG_IMAGES.map((src, i) => (
-        <div
-          key={src}
-          className={`absolute inset-0 transition-opacity duration-2000 ${!videoLoaded && i === activeIdx ? "opacity-100" : "opacity-0"}`}
-          style={{ zIndex: 1 }}
-        >
-          <div
-            className="absolute inset-0 w-full h-full bg-cover bg-center"
-            style={{
-              backgroundImage: `url(${src})`,
-              filter: "brightness(0.9)",
-              animation: i === activeIdx ? "kenburns 7s ease-out forwards" : "none",
-            }}
-          />
-        </div>
-      ))}
 
       {/* Gradient overlays */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" style={{ zIndex: 2 }} />
@@ -135,18 +85,7 @@ export function HeroSlider() {
           </div>
         </div>
 
-        <div className="pb-10 hidden md:flex items-center justify-end border-t border-white/10 pt-6">
-          <div className="flex gap-2">
-            {BG_IMAGES.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setActiveIdx(i)}
-                className={`rounded-full transition-all duration-300 ${activeIdx === i ? "w-6 h-2 bg-[#C9A84C]" : "w-2 h-2 bg-white/30 hover:bg-white/60"}`}
-                data-testid={`button-hero-slide-${i}`}
-              />
-            ))}
-          </div>
-        </div>
+        <div className="pb-10 hidden md:flex items-center justify-end border-t border-white/10 pt-6" />
       </div>
 
       {/* Right side: gold badge */}

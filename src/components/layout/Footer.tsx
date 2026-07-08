@@ -20,11 +20,8 @@ export function Footer() {
             NH 173 Mangalore–Kadur Highway, between Chikkamagaluru and Mudigere. A peaceful luxury resort amidst Karnataka's finest coffee highlands.
           </p>
           <div className="flex gap-3">
-            {["Fb", "Ig", "Tw"].map((s) => (
-              <div key={s} className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 text-[11px] font-bold hover:border-[#C9A84C] hover:text-[#C9A84C] cursor-pointer transition-colors">
-                {s}
-              </div>
-            ))}
+            <a href="https://facebook.com/PLACEHOLDER" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 text-[11px] font-bold hover:border-[#C9A84C] hover:text-[#C9A84C] transition-colors" aria-label="Facebook">Fb</a>
+            <a href="https://instagram.com/PLACEHOLDER" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 text-[11px] font-bold hover:border-[#C9A84C] hover:text-[#C9A84C] transition-colors" aria-label="Instagram">Ig</a>
           </div>
         </div>
 

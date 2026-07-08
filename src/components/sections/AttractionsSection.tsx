@@ -19,8 +19,15 @@ export function AttractionsSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {hotel.touristPlaces.map((place) => (
             <div key={place.name} className="attraction-card flex flex-col group">
-              <div className="relative aspect-[16/10] overflow-hidden">
-                <img src={place.image} alt={place.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+              <div className="relative aspect-[16/10] overflow-hidden bg-[#111111]">
+                {place.image === "PLACEHOLDER" ? (
+                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#C9A84C]/20 to-[#111111]">
+                    <span className="font-display text-[28px] text-white/30 uppercase text-center px-4">{place.name}</span>
+                    {/* Replace PLACEHOLDER with a real image path: place.image = "/path/to/etthinabuja.jpg" */}
+                  </div>
+                ) : (
+                  <img src={place.image} alt={place.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+                )}
                 <div className="absolute top-4 left-4">
                   <span className="bg-[#C9A84C] text-[#111111] px-4 py-1 rounded-full text-[10px] font-medium uppercase tracking-wider">{place.activity}</span>
                 </div>

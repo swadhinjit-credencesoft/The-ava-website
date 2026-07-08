@@ -11,13 +11,20 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   if (!room) {
     return { title: "Room Not Found — The AVA" };
   }
+  const desc = `${room.description} From ${room.price}/night. ${room.size}, ${room.occupancy}. Book direct on NH 173, Chikkamagaluru.`;
   return {
     title: `${room.name} — ${room.type} at The AVA Chikkamagaluru`,
-    description: `${room.description} From ${room.price}/night. ${room.size}, ${room.occupancy}. Book direct on NH 173, Chikkamagaluru.`,
+    description: desc,
     openGraph: {
       title: `${room.name} — The AVA Hotel Chikkamagaluru`,
-      description: `${room.description.slice(0, 120)} From ${room.price}/night.`,
+      description: desc.slice(0, 120),
       images: [{ url: room.image }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${room.name} — The AVA Hotel Chikkamagaluru`,
+      description: desc.slice(0, 120),
+      images: [room.image],
     },
   };
 }

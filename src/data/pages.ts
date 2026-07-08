@@ -31,7 +31,7 @@ export const pages: Record<string, PageContent> = {
   "/rooms": {
     breadcrumb: [{ label: "Home", href: "/" }, { label: "Rooms" }],
     hero: {
-      image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=2400&q=90",
+      image: "/quardroom.webp",
       label: "Accommodation",
       title: "STAY WITH US",
       subtitle: "Four categories of luxury rooms, each designed for comfort and elegance",
@@ -82,11 +82,26 @@ export const pages: Record<string, PageContent> = {
   "/contact": {
     breadcrumb: [{ label: "Home", href: "/" }, { label: "Contact" }],
     hero: {
-      image: "https://images.unsplash.com/photo-1524661135-423995f22d0b?w=2400&q=80",
+      image: "/shalimarhomeimg.png",
       brightness: 0.5,
       label: "The AVA",
       title: "CONTACT US",
       subtitle: "We look forward to welcoming you. Reach out for reservations, events, or any enquiries.",
+    },
+    cta: {
+      label: "",
+      title: "",
+      buttons: [],
+    },
+  },
+  "/explore": {
+    breadcrumb: [{ label: "Home", href: "/" }, { label: "Explore" }],
+    hero: {
+      image: "/tour.jpg",
+      brightness: 0.4,
+      label: "Western Ghats",
+      title: "EXPLORE",
+      subtitle: "Curated travel guides to help you discover the best of Chikkamagaluru",
     },
     cta: {
       label: "",

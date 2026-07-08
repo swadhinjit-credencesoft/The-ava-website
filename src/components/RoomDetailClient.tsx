@@ -47,6 +47,25 @@ export function RoomDetailClient() {
     <div className="flex flex-col min-h-screen bg-white" ref={containerRef}>
       <Navbar />
       <main className="flex-1 pt-20">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Product",
+              name: room.name,
+              description: room.description,
+              image: room.image,
+              offers: {
+                "@type": "Offer",
+                price: room.price.replace(/[^0-9.]/g, ""),
+                priceCurrency: "INR",
+                availability: "https://schema.org/InStock",
+                url: hotel.bookingEngineUrl,
+              },
+            }),
+          }}
+        />
         <Breadcrumb />
 
         <section className="relative w-full h-[60vh] overflow-hidden">
@@ -120,27 +139,22 @@ export function RoomDetailClient() {
           <div className="max-w-screen-xl mx-auto">
             <p className="text-[#C9A84C] text-[12px] uppercase tracking-[0.4em] mb-4">Gallery</p>
             <h2 className="font-display text-[52px] md:text-[68px] text-[#111111] uppercase leading-[0.9] mb-12">PHOTOS</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-              <div className="aspect-[4/3] overflow-hidden bg-[#e5e5e5]">
-                <img src={room.image} alt={room.name} className="w-full h-full object-cover" />
-              </div>
-              <div className="aspect-[4/3] overflow-hidden bg-[#e5e5e5]">
-                <img src={room.image} alt={room.name} className="w-full h-full object-cover" />
-              </div>
-              <div className="aspect-[4/3] overflow-hidden bg-[#e5e5e5]">
-                <img src={room.image} alt={room.name} className="w-full h-full object-cover" />
-              </div>
-              <div className="aspect-[4/3] overflow-hidden bg-[#e5e5e5]">
-                <img src={room.image} alt={room.name} className="w-full h-full object-cover" />
-              </div>
-              <div className="aspect-[4/3] overflow-hidden bg-[#e5e5e5]">
-                <img src={room.image} alt={room.name} className="w-full h-full object-cover" />
-              </div>
-              <div className="aspect-[4/3] overflow-hidden bg-[#e5e5e5]">
-                <img src={room.image} alt={room.name} className="w-full h-full object-cover" />
-              </div>
+            <div className="aspect-[16/9] overflow-hidden bg-[#e5e5e5] mb-4">
+              <img src={room.image} alt={room.name} className="w-full h-full object-cover" />
             </div>
-            <p className="text-[#707072] text-[13px] mt-4 font-medium italic">Actual photos — more images coming soon. Contact us for a video walkthrough.</p>
+            <p className="text-[#707072] text-[13px] font-medium italic">More photos coming soon. Contact us for a video walkthrough.</p>
+            {/*
+              Full gallery grid — drop in real image paths here:
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+                <div className="aspect-[4/3] overflow-hidden bg-[#e5e5e5]">
+                  <img src="/rooms/ROOMID-photo-1.jpg" alt="" className="w-full h-full object-cover" />
+                </div>
+                <div className="aspect-[4/3] overflow-hidden bg-[#e5e5e5]">
+                  <img src="/rooms/ROOMID-photo-2.jpg" alt="" className="w-full h-full object-cover" />
+                </div>
+                ...
+              </div>
+            */}
           </div>
         </section>
       </main>
