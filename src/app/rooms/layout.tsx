@@ -7,6 +7,12 @@ export const metadata: Metadata = {
     title: "Rooms & Suites — The AVA Hotel Chikkamagaluru",
     description: "Quad, Premium, Estate View & Executive rooms. King beds, AC, breakfast included. Book direct for best rates.",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Rooms & Suites — The AVA Hotel Chikkamagaluru",
+    description: "Quad, Premium, Estate View & Executive rooms. King beds, AC, breakfast included. Book direct for best rates.",
+    images: ["/premiumroom.webp"],
+  },
 };
 
 export default function RoomsLayout({ children }: { children: React.ReactNode }) {

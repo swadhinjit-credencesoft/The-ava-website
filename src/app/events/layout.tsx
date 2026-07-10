@@ -7,6 +7,12 @@ export const metadata: Metadata = {
     title: "Events — The AVA Hotel Chikkamagaluru",
     description: "2500+ sq.ft pillarless ballroom for weddings, corporate meets & celebrations.",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Events — The AVA Hotel Chikkamagaluru",
+    description: "2500+ sq.ft pillarless ballroom for weddings, corporate meets & celebrations.",
+    images: ["/wedding.avif"],
+  },
 };
 
 export default function EventsLayout({ children }: { children: React.ReactNode }) {

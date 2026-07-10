@@ -21,7 +21,7 @@ export const touristPlaces = [
     name: "Etthinabuja",
     activity: "Trekking",
     description: "A challenging and rewarding trek through pristine Western Ghats wilderness.",
-    image: "PLACEHOLDER"
+    image: "/trekking.webp"
   },
   {
     name: "Bhadra Wildlife Sanctuary",

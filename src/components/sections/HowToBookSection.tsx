@@ -6,6 +6,8 @@ const steps = [
   { num: "03", title: "Call or Enquire", desc: "Call us directly or send an enquiry. We confirm within minutes and tailor your stay." },
 ];
 
+const seasonNote = "Rates vary by season — September to February is peak (best weather). Monsoon months (June–August) offer the lowest rates. Call us for current pricing and special deals.";
+
 export function HowToBookSection() {
   return (
     <section className="py-24 px-4 md:px-8 bg-white">
@@ -26,6 +28,9 @@ export function HowToBookSection() {
                 </div>
               </div>
             ))}
+            <div className="mt-4 p-5 bg-[#faf8f3] border border-[#C9A84C]/30 rounded-lg">
+              <p className="text-[#111111] text-[13px] font-medium leading-relaxed">{seasonNote}</p>
+            </div>
           </div>
         </div>
       </div>

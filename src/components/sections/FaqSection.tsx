@@ -13,7 +13,7 @@ const faqs = [
 ];
 
 function FaqItem({ q, a }: { q: string; a: string }) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   return (
     <div className="border-b border-[#e5e5e5]">
       <button
@@ -24,9 +24,9 @@ function FaqItem({ q, a }: { q: string; a: string }) {
         <span className="font-medium text-[16px] text-[#111111]">{q}</span>
         {open ? <ChevronUp size={18} className="text-[#C9A84C] flex-shrink-0" /> : <ChevronDown size={18} className="text-[#707072] flex-shrink-0" />}
       </button>
-      {open && (
-        <p className="text-[#707072] text-[15px] font-medium leading-relaxed pb-6 pr-8">{a}</p>
-      )}
+      <div className={`overflow-hidden transition-all duration-300 ${open ? "max-h-96 pb-6" : "max-h-0"}`}>
+        <p className="text-[#707072] text-[15px] font-medium leading-relaxed pr-8">{a}</p>
+      </div>
     </div>
   );
 }

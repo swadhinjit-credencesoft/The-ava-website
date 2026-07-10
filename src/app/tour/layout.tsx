@@ -7,6 +7,12 @@ export const metadata: Metadata = {
     title: "Tour & Nearby — The AVA Hotel Chikkamagaluru",
     description: "Mullayanagiri, Bhadra Sanctuary, Sringeri temple circuit & more — all accessible from The AVA on NH 173.",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tour & Nearby — The AVA Hotel Chikkamagaluru",
+    description: "Mullayanagiri, Bhadra Sanctuary, Sringeri temple circuit & more — all accessible from The AVA on NH 173.",
+    images: ["/tour.jpg"],
+  },
 };
 
 export default function TourLayout({ children }: { children: React.ReactNode }) {

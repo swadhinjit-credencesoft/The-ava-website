@@ -7,6 +7,12 @@ export const metadata: Metadata = {
     title: "Explore Chikkamagaluru — Travel Guides | The AVA Hotel",
     description: "Mullayanagiri trek, Sringeri temples, Bhadra safari, Belur-Halebidu — expert travel guides for your Chikkamagaluru stay.",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Explore Chikkamagaluru — Travel Guides | The AVA Hotel",
+    description: "Mullayanagiri trek, Sringeri temples, Bhadra safari, Belur-Halebidu — expert travel guides for your Chikkamagaluru stay.",
+    images: ["/tour.jpg"],
+  },
 };
 
 export default function ExploreLayout({ children }: { children: React.ReactNode }) {

@@ -67,11 +67,7 @@ export default function HomePage() {
 
       <main className="flex-1">
         <HeroSlider />
-        <section className="bg-[#111111]">
-          <div className="max-w-screen-xl mx-auto">
-            <BookingBar dark />
-          </div>
-        </section>
+        <BookingBar />
         <AboutSection />
         <StatsSection />
         <RoomsSection />

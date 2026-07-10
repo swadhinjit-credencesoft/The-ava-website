@@ -17,16 +17,16 @@ export const amenities = [
   {
     name: "Free High-Speed WiFi",
     description: "High speed unlimited internet access. We provide WiFi details at check-in.",
-    image: "ICON"
+    image: "/homeimg3.png"
   },
   {
     name: "Car Rental Service",
     description: "We provide car rental. Customers can book with us for a rental car and comfortable travel.",
-    image: "ICON"
+    image: "/tour.jpg"
   },
   {
     name: "King Size Beds",
     description: "Different types of rooms with King size beds to make your stay comfortable and memorable.",
-    image: "ICON"
+    image: "/premiumroom.webp"
   }
 ];

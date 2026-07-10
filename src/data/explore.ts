@@ -141,4 +141,30 @@ A morning at Belur-Halebidu pairs perfectly with an afternoon at <a href="/tour"
 <h2>Plan Your Heritage Visit</h2>
 Step back into Karnataka's golden age with a visit to Belur and Halebidu. <a href="/contact">Contact us</a> to plan your itinerary and book your stay at The AVA.`,
   },
+  {
+    id: "chikmagalur-in-monsoon",
+    title: "Chikkamagaluru in Monsoon — Waterfalls, Rafting & Misty Trails",
+    excerpt: "Why June to August is the best-kept secret for visiting Chikkamagaluru — waterfalls at full flow, white-water rafting on the Bhadra, and empty trails.",
+    category: "Seasonal",
+    image: "/plantation.jpg",
+    content: `Most hill stations go quiet when the monsoon arrives, but Chikkamagaluru comes alive. From June to August, the Western Ghats transform into a lush green landscape dotted with waterfalls, mist-covered peaks, and rivers swollen with the season's first rains. While other travellers postpone their plans, those in the know book their stay at The AVA for a completely different kind of Chikkamagaluru experience.
+
+<h2>Why Visit in Monsoon</h2>
+The rain brings a dramatic transformation. Coffee plantations turn electric green, waterfalls that trickle in summer become roaring cascades, and the trekking trails are empty of crowds. Temperatures range from 18°C to 25°C — cool enough for a hot cup of coffee at our in-house restaurant, warm enough for a day out.
+
+<h2>Waterfalls Near Chikkamagaluru</h2>
+Monsoon is the prime season for waterfalls. <b>Manikyadhara Falls</b> near Mullayanagiri, usually a thin stream in summer, becomes a powerful cascade. <b>Hebbe Falls</b> (45 km from The AVA) has two tiers of water plunging through a dense forest canopy. <b>Kallathigiri Falls</b> near Kemmannugundi is another spectacular sight during the rains. All are within a 90-minute drive from The AVA.
+
+<h2>Bhadra River Rafting</h2>
+The Bhadra River, which feeds the Bhadra Wildlife Sanctuary, offers white-water rafting during the monsoon months. Operators run stretches of Grade II and III rapids between June and September. The rafting point is just 50 km from The AVA — we can arrange your permits and transport. Combine it with a sanctuary visit for a full-day adventure.
+
+<h2>What to Pack</h2>
+A lightweight rain jacket, quick-dry clothing, waterproof footwear, and insect repellent. An umbrella is useful for short walks. Most of our attractions — Mullayanagiri, Sringeri temple, Belur-Halebidu — are accessible year-round, but carry spare clothes for the drive back.
+
+<h2>Things to Do on Rainy Days</h2>
+Not every day will be outdoors. Our in-house restaurant serves authentic Karnataka cuisine and continental dishes. The bonfire evenings go ahead under covered spaces. For the adventurers, the plantation walks around The AVA are especially atmospheric during the rains — the smell of wet earth and coffee blossom is unforgettable.
+
+<h2>Best Rates of the Year</h2>
+Monsoon is our off-peak season, which means lower rates and more availability. September to February is peak season with premium pricing. Book your monsoon escape for the best value and the most dramatic landscapes. <a href="/rooms">Check our room options</a> or <a href="/contact">call us</a> for current monsoon deals.`,
+  },
 ];
