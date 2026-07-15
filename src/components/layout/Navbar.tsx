@@ -38,8 +38,8 @@ export function Navbar() {
     >
       <div className="flex-1 flex items-center justify-between px-4 md:px-8">
         {/* Logo */}
-        <Link href="/" className={`font-display text-[24px] tracking-tight hover:opacity-80 transition-opacity flex items-center gap-1 ${scrolled ? "text-[#111111]" : "text-white"}`} data-testid="link-home-logo">
-          THE AVA <span className="text-[#C9A84C]">♔</span>
+        <Link href="/" className="hover:opacity-80 transition-opacity flex items-center" data-testid="link-home-logo">
+          <img src="/avalogo111.png" alt="The AVA" className="h-12 md:h-14 w-auto" />
         </Link>
 
         {/* Desktop Center Nav */}

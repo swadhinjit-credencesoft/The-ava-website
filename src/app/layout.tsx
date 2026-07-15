@@ -34,7 +34,8 @@ export const metadata: Metadata = {
     images: ["/estateview.jpeg"],
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "/avalogo111.png",
+    apple: "/avalogo111.png",
   },
 };
 
