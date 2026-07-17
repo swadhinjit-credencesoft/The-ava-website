@@ -39,7 +39,7 @@ export function Navbar() {
       <div className="flex-1 flex items-center justify-between px-4 md:px-8">
         {/* Logo */}
         <Link href="/" className="hover:opacity-80 transition-opacity flex items-center" data-testid="link-home-logo">
-          <img src="/avalogo111.png" alt="The AVA" className="h-12 md:h-14 w-auto" />
+          <img src="/avalogo111.png" alt="The AVA" className="h-14 md:h-16 w-auto" />
         </Link>
 
         {/* Desktop Center Nav */}
