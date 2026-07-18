@@ -3,9 +3,9 @@
 import { MapPin, Star, Shield, Heart, Wifi, Car, Coffee, Zap } from "lucide-react";
 
 const reasons = [
-  { icon: MapPin,   title: "Prime Location",   desc: "On NH 173 — 5 minutes to major treks, shrines, and scenic drives through the Ghats." },
+  { icon: MapPin,   title: "Prime Location",   desc: " NH 173 along K M Road in the Haandi area of Chikkamagaluru, Karnataka." },
   { icon: Star,     title: "Luxury Comfort",   desc: "King-size beds, AC rooms, 24-hr hot water, and a dedicated in-house restaurant." },
-  { icon: Shield,   title: "Safe & Secured",   desc: "CCTV surveillance, secured parking, and a doctor on call for your peace of mind." },
+  { icon: Shield,   title: "Safe & Secured",   desc: "24/7 CCTV surveillance, secure on-site parking, and a dedicated front desk ensure a safe and comfortable stay." },
   { icon: Heart,    title: "Warm Hospitality", desc: "Our staff goes above and beyond to make every guest feel at home in the highlands." },
   { icon: Wifi,     title: "Stay Connected",   desc: "High-speed unlimited WiFi throughout the property, with credentials at check-in." },
   { icon: Car,      title: "Travel Desk",      desc: "Car rental, airport pickup, safari bookings — all arranged through our in-house desk." },

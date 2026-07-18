@@ -1,7 +1,7 @@
 "use client";
 
 const steps = [
-  { num: "01", title: "Choose Your Dates", desc: "Check-in from 12:00 PM. Pick your preferred dates — 24-hr checkout gives you flexibility on departure." },
+  { num: "01", title: "Choose Your Dates", desc: "Check-in from 2:00 PM. Pick your preferred dates — 12:00 pm checkout gives you flexibility on departure." },
   { num: "02", title: "Select Your Room", desc: "Browse our 4 room categories — from Quad to Executive — and find your perfect match." },
   { num: "03", title: "Call or Enquire", desc: "Call us directly or send an enquiry. We confirm within minutes and tailor your stay." },
 ];

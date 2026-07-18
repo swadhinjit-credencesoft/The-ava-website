@@ -1,6 +1,6 @@
 export const distances = [
   { place: "Chikkamagaluru", distance: "20 km" },
-  { place: "Mudigere", distance: "30 km" },
+  { place: "Mudigere", distance: "8 km" },
   { place: "Sringeri", distance: "72 km" },
   { place: "Hornadu", distance: "70 km" },
   { place: "Dharmastala", distance: "67 km" },
