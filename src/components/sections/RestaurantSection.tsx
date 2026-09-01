@@ -17,7 +17,7 @@ export function RestaurantSection() {
         <div className="bg-[#f5f5f5] p-12 md:p-20 flex flex-col justify-center gap-8">
           <div>
             <p className="text-[#C9A84C] text-[11px] uppercase tracking-[0.5em] mb-4">Dining</p>
-            <h2 className="font-display text-[52px] md:text-[68px] text-[#111111] uppercase leading-[0.88]">IN-HOUSE<br />RESTAURANT</h2>
+            <h2 className="sec-title font-display text-[52px] md:text-[68px] text-[#111111] uppercase leading-[0.88]">IN-HOUSE<br />RESTAURANT</h2>
           </div>
           <p className="text-[#707072] text-[15px] leading-relaxed font-medium">
             Savour authentic flavours of Karnataka cuisine alongside continental favourites. Fresh ingredients, warm hospitality, and breathtaking plantation views make every meal a memory.

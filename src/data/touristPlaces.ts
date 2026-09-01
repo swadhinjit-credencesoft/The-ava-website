@@ -1,38 +1,50 @@
 export const touristPlaces = [
   {
-    name: "Mullayangiri",
+    name: "Mullayanagiri",
     activity: "Trekking",
-    description: "The highest peak in Karnataka at 1930m. Breathtaking trails through the Western Ghats.",
+    description: "Experience Karnataka's highest peak and enjoy spectacular mountain views.",
     image: "/mulyagiri.jpg"
   },
   {
-    name: "Devaramane",
-    activity: "Trekking",
-    description: "Scenic trekking destination with stunning views of the Chikkamagaluru district.",
-    image: "/devarmane.jpg"
-  },
-  {
-    name: "Ballarayanadurga",
-    activity: "Trekking",
-    description: "Historic fort ruins atop a hill, offering panoramic views and adventure trails.",
-    image: "/ballanayan.jpg"
-  },
-  {
-    name: "Etthinabuja",
-    activity: "Trekking",
-    description: "A challenging and rewarding trek through pristine Western Ghats wilderness.",
-    image: "/trekking.webp"
+    name: "Coffee Plantations",
+    activity: "Nature",
+    description: "Discover the landscape that makes Chikkamagaluru one of India's best-known coffee-growing regions.",
+    image: "/plantation.jpg"
   },
   {
     name: "Bhadra Wildlife Sanctuary",
-    activity: "Safari",
-    description: "Experience wildlife safaris and spot elephants, leopards, and rare birds in their natural habitat.",
+    activity: "Wildlife",
+    description: "Explore the forests and wildlife of the Western Ghats.",
     image: "/bhadra-wildlife-sanctuary.webp"
+  },
+  {
+    name: "Belur",
+    activity: "Heritage",
+    description: "Step into Karnataka's remarkable Hoysala heritage and admire the intricate architecture of Belur.",
+    image: "/belur.jpg"
+  },
+  {
+    name: "Sringeri",
+    activity: "Temples",
+    description: "Experience one of Karnataka's most important spiritual centres.",
+    image: "/sringeri.jpg"
   },
   {
     name: "Kudremukh",
     activity: "Trekking & Nature",
-    description: "UNESCO World Heritage site with stunning landscape and trekking opportunities.",
+    description: "Discover dramatic mountain landscapes, forests and trekking routes.",
     image: "/kudremukh.jpg"
+  },
+  {
+    name: "Hornadu",
+    activity: "Temples",
+    description: "Experience the spiritual atmosphere of the famous Sri Annapoorneshwari Temple.",
+    image: "/hornadu.jpg"
+  },
+  {
+    name: "Dharmasthala",
+    activity: "Temples",
+    description: "Combine your Chikkamagaluru holiday with a visit to this renowned pilgrimage destination.",
+    image: "/dharmasala.jpg"
   }
 ];

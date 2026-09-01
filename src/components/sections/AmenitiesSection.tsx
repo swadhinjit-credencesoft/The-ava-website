@@ -9,14 +9,17 @@ export function AmenitiesSection() {
   return (
     <section className="py-32 px-4 md:px-8 bg-white">
       <div className="max-w-screen-2xl mx-auto">
-        <div className="text-center mb-20">
-          <p className="text-[#C9A84C] text-[11px] uppercase tracking-[0.5em] mb-4">Facilities</p>
-          <h2 className="font-display text-[56px] md:text-[80px] text-[#111111] uppercase leading-[0.9]">PREMIUM<br />AMENITIES</h2>
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <p className="sec-label text-[#C9A84C] text-[11px] uppercase tracking-[0.5em] mb-4">Our Facilities</p>
+          <h2 className="sec-title font-display text-[48px] sm:text-[60px] md:text-[72px] text-[#111111] uppercase leading-[0.9]">Everything You Need for a Comfortable Stay</h2>
+          <p className="mt-6 text-[#707072] text-[16px] font-medium leading-relaxed">
+            At The AVA, we believe a memorable stay is built around the details. From essential modern conveniences to relaxing experiences, our facilities are designed to make your visit to Chikkamagaluru comfortable, convenient and enjoyable.
+          </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
           {hotel.amenities.map((a) => (
             <div key={a.name} className="amenity-reveal group relative overflow-hidden aspect-[4/3]">
-              <img src={a.image} alt={a.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
+              <img src={a.image} alt={a.name} className="parallax-img w-full h-[120%] object-cover" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-7">
                 <h3 className="font-display text-[28px] text-white uppercase leading-tight">{a.name}</h3>

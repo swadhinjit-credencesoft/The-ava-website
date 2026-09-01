@@ -1,32 +1,47 @@
 export const amenities = [
   {
-    name: "Bonfire Experience",
-    description: "Gather around a warm bonfire under the star-lit Karnataka sky. Perfect for evenings with family and friends.",
-    image: "/bon-fire-in-chilling.jpg"
-  },
-  {
-    name: "Indoor & Outdoor Games",
-    description: "Varieties of indoor and outdoor games. Relax yourself. Spend quality time with family and kids.",
-    image: "/indooroutdoorgames.jpg"
-  },
-  {
-    name: "In-house Restaurant",
-    description: "Enjoy authentic Karnataka cuisine and a range of Indian and continental dishes at our in-house restaurant.",
-    image: "/avadining.jpg"
-  },
-  {
-    name: "Free High-Speed WiFi",
-    description: "High speed unlimited internet access. We provide WiFi details at check-in.",
+    name: "Complimentary Wi-Fi",
+    description: "Stay connected with reliable Wi-Fi during your visit.",
     image: "/homeimg3.png"
   },
   {
-    name: "Car Rental Service",
-    description: "We provide car rental. Customers can book with us for a rental car and comfortable travel.",
+    name: "Air-Conditioned Rooms",
+    description: "Enjoy a comfortable indoor environment throughout your stay.",
+    image: "/premiumroom.webp"
+  },
+  {
+    name: "Hot Water",
+    description: "Hot water facilities are available for your everyday convenience.",
+    image: "/homeimg4.png"
+  },
+  {
+    name: "In-House Restaurant",
+    description: "Enjoy a selection of Indian, Karnataka and continental cuisine.",
+    image: "/avadining.jpg"
+  },
+  {
+    name: "Parking",
+    description: "Convenient parking facilities for guests travelling by car.",
     image: "/tour.jpg"
   },
   {
-    name: "King Size Beds",
-    description: "Different types of rooms with King size beds to make your stay comfortable and memorable.",
-    image: "/premiumroom.webp"
+    name: "Room Service",
+    description: "Enjoy the convenience of dining and essential services without leaving your room, subject to operating hours.",
+    image: "/Royal-Shalimar-boutique-stay-chikmagalur-14-2.webp"
+  },
+  {
+    name: "Travel Assistance",
+    description: "Our team can help you plan local sightseeing and transportation.",
+    image: "/trekking.webp"
+  },
+  {
+    name: "Indoor & Outdoor Activities",
+    description: "Enjoy leisure time with family and friends during your stay.",
+    image: "/indooroutdoorgames.jpg"
+  },
+  {
+    name: "Bonfire Experience",
+    description: "Relax outdoors and enjoy an evening around the bonfire, subject to weather conditions and availability.",
+    image: "/bon-fire-in-chilling.jpg"
   }
 ];

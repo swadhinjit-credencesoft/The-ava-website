@@ -22,7 +22,7 @@ export function GallerySection() {
       <div className="max-w-screen-2xl mx-auto">
         <div className="text-center mb-20">
           <p className="text-[#C9A84C] text-[11px] uppercase tracking-[0.5em] font-medium mb-4">Visual Story</p>
-          <h2 className="font-display text-[56px] md:text-[80px] text-white uppercase leading-[0.9]">OUR GALLERY</h2>
+          <h2 className="sec-title font-display text-[clamp(38px,8vw,80px)] text-white uppercase leading-[0.9]">OUR <span className="bg-gradient-to-r from-[#C9A84C] to-[#e6cd7a] bg-clip-text text-transparent">GALLERY</span></h2>
         </div>
         <div className="columns-2 md:columns-3 lg:columns-4 gap-2 space-y-2">
           {galleryImages.map((img, i) => (

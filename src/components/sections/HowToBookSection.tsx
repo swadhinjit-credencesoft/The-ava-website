@@ -15,7 +15,7 @@ export function HowToBookSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div>
             <p className="text-[#C9A84C] text-[11px] uppercase tracking-[0.5em] mb-4">Simple Process</p>
-            <h2 className="font-display text-[52px] md:text-[68px] text-[#111111] uppercase leading-[0.88] mb-6">HOW TO<br />BOOK WITH US</h2>
+            <h2 className="sec-title font-display text-[52px] md:text-[68px] text-[#111111] uppercase leading-[0.88] mb-6">HOW TO<br />BOOK WITH US</h2>
             <p className="text-[#707072] text-[15px] leading-relaxed font-medium">No complicated systems — just reach out and our team personally handles your reservation within minutes.</p>
           </div>
           <div className="flex flex-col gap-0">

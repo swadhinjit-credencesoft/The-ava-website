@@ -15,7 +15,7 @@ export function TestimonialsSection() {
       <div className="max-w-screen-xl mx-auto">
         <div className="text-center mb-20">
           <p className="text-[#C9A84C] text-[11px] uppercase tracking-[0.5em] mb-4">Guest Reviews</p>
-          <h2 className="font-display text-[56px] md:text-[80px] text-[#111111] uppercase leading-[0.9]">GUEST<br />STORIES</h2>
+          <h2 className="sec-title font-display text-[clamp(38px,8vw,80px)] text-[#111111] uppercase leading-[0.9]">GUEST <span className="bg-gradient-to-r from-[#C9A84C] to-[#d9bd6a] bg-clip-text text-transparent">STORIES</span></h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {testimonials.map((t, i) => (

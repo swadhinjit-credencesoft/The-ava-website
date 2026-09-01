@@ -12,7 +12,7 @@ export function RoomsSection() {
         <div className="flex items-end justify-between mb-16">
           <div>
             <p className="text-[#C9A84C] text-[11px] uppercase tracking-[0.5em] font-medium mb-4">Accommodation</p>
-            <h2 className="font-display text-[56px] md:text-[80px] text-[#111111] uppercase leading-[0.88]">ROOMS<br />&amp; SUITES</h2>
+            <h2 className="sec-title font-display text-[56px] md:text-[80px] text-[#111111] uppercase leading-[0.88]">ROOMS<br />&amp; SUITES</h2>
           </div>
           <Link href="/rooms" className="hidden md:flex bg-[#f5f5f5] text-[#111111] px-8 py-4 rounded-full font-medium text-[14px] hover:bg-[#e5e5e5] transition-colors" data-testid="button-all-rooms">View All</Link>
         </div>

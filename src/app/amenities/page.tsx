@@ -36,9 +36,12 @@ export default function AmenitiesPage() {
 
         <section className="py-32 px-4 md:px-8">
           <div className="max-w-screen-2xl mx-auto">
-            <div className="text-center mb-20">
+            <div className="text-center max-w-3xl mx-auto mb-20">
               <p className="text-[#C9A84C] text-[12px] uppercase tracking-[0.4em] mb-4">Our Facilities</p>
-              <h2 className="font-display text-[56px] md:text-[80px] text-[#111111] uppercase leading-[0.9]">PREMIUM<br />AMENITIES</h2>
+              <h2 className="font-display text-[56px] md:text-[80px] text-[#111111] uppercase leading-[0.9]">Everything You Need for a Comfortable Stay</h2>
+              <p className="mt-6 text-[#707072] text-[16px] font-medium leading-relaxed">
+                At The AVA, we believe a memorable stay is built around the details. From essential modern conveniences to relaxing experiences, our facilities are designed to make your visit to Chikkamagaluru comfortable, convenient and enjoyable.
+              </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
               {hotel.amenities.map((a) => (

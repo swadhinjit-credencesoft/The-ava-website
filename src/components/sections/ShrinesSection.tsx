@@ -12,8 +12,8 @@ export function ShrinesSection() {
     <section className="py-24 px-4 md:px-8 bg-[#111111]">
       <div className="max-w-screen-2xl mx-auto">
         <div className="text-center mb-16">
-          <p className="text-[#C9A84C] text-[11px] uppercase tracking-[0.5em] mb-4">Spiritual Journey</p>
-          <h2 className="font-display text-[56px] md:text-[72px] text-white uppercase leading-[0.9]">SACRED SHRINES<br />&amp; TEMPLES</h2>
+          <p className="sec-label text-[#C9A84C] text-[11px] uppercase tracking-[0.5em] mb-4">Spiritual Journey</p>
+          <h2 className="sec-title font-display text-[clamp(34px,7vw,72px)] text-white uppercase leading-[0.9]">SACRED SHRINES<br /><span className="bg-gradient-to-r from-[#C9A84C] to-[#e6cd7a] bg-clip-text text-transparent">&amp; TEMPLES</span></h2>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
           {shrines.map((shrine) => (

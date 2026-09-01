@@ -3,7 +3,10 @@
 import { useRef } from "react";
 import Link from "next/link";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export function HeroSlider() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -17,6 +20,30 @@ export function HeroSlider() {
       .fromTo(".hero-ctas",   { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, "-=0.5")
       .fromTo(".hero-badge",  { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.7, ease: "back.out(1.5)" }, "-=0.4")
       .fromTo(".hero-bar",    { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, "-=0.3");
+
+    gsap.to(".hero-inner", {
+      yPercent: -18,
+      opacity: 0,
+      ease: "none",
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+      },
+    });
+
+    gsap.fromTo(".hero-video", { yPercent: 0, scale: 1 }, {
+      yPercent: 12,
+      scale: 1.08,
+      ease: "none",
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+      },
+    });
   }, { scope: containerRef });
 
   return (
@@ -30,18 +57,18 @@ export function HeroSlider() {
         loop
         playsInline
         preload="auto"
-        className="absolute inset-0 w-full h-full object-cover"
-        style={{ filter: "brightness(0.9)" }}
+        className="hero-video absolute inset-0 w-full h-[120%] object-cover"
+        style={{ filter: "brightness(0.95) saturate(1.05)" }}
       >
         <source src="https://bookonelocal.in/cdn/Chikmagalur%20Travel%20Film%20_%204k%20Cinematic%20Video%20(online-video-cutter.com).mp4" type="video/mp4" />
       </video>
 
-      {/* Gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" style={{ zIndex: 2 }} />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" style={{ zIndex: 2 }} />
+      {/* Gradient overlays — lighter for a brighter, premium look */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-transparent" style={{ zIndex: 2 }} />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10" style={{ zIndex: 2 }} />
 
       {/* Main content */}
-      <div className="relative flex flex-col h-full max-w-screen-2xl mx-auto px-8 md:px-16" style={{ zIndex: 10 }}>
+      <div className="hero-inner relative flex flex-col h-full max-w-screen-2xl mx-auto px-8 md:px-16" style={{ zIndex: 10 }}>
         <div className="flex-1 flex flex-col justify-center pt-20 pb-32">
           {/* Gold label */}
           <div className="hero-label flex items-center gap-3 mb-8">
@@ -53,7 +80,7 @@ export function HeroSlider() {
 
           {/* Headline */}
           <div className="overflow-hidden mb-2">
-            <h1 className="hero-title font-display text-[clamp(34px,9vw,120px)] text-white uppercase leading-[0.9] tracking-tight whitespace-nowrap">
+            <h1 className="hero-title font-display text-[clamp(34px,9vw,120px)] leading-[0.9] tracking-tight whitespace-nowrap bg-gradient-to-b from-white via-white to-[#C9A84C] bg-clip-text text-transparent">
               THE AVA HOTEL
             </h1>
           </div>

@@ -11,8 +11,8 @@ export function AttractionsSection() {
       <div className="max-w-screen-2xl mx-auto">
         <div className="flex items-end justify-between mb-20">
           <div>
-            <p className="text-[#C9A84C] text-[11px] uppercase tracking-[0.5em] mb-4">Explore</p>
-            <h2 className="font-display text-[56px] md:text-[80px] text-[#111111] uppercase leading-[0.88]">NEARBY<br />ATTRACTIONS</h2>
+            <p className="sec-label text-[#C9A84C] text-[11px] uppercase tracking-[0.5em] mb-4">Things to Do</p>
+            <h2 className="sec-title font-display text-[clamp(32px,6vw,72px)] text-[#111111] uppercase leading-[0.9]">Your Chikkamagaluru<br />Adventure Starts Here</h2>
           </div>
           <Link href="/tour" className="hidden md:flex bg-[#f5f5f5] text-[#111111] px-8 py-4 rounded-full font-medium text-[14px] hover:bg-[#e5e5e5] transition-colors" data-testid="button-tour-guide">Tour Guide</Link>
         </div>
@@ -20,7 +20,7 @@ export function AttractionsSection() {
           {hotel.touristPlaces.map((place) => (
             <div key={place.name} className="attraction-card flex flex-col group">
               <div className="relative aspect-[16/10] overflow-hidden bg-[#f5f5f5]">
-                <img src={place.image} alt={place.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+                <img src={place.image} alt={place.name} className="parallax-img w-full h-[120%] object-cover" loading="lazy" />
                 <div className="absolute top-4 left-4">
                   <span className="bg-[#C9A84C] text-[#111111] px-4 py-1 rounded-full text-[10px] font-medium uppercase tracking-wider">{place.activity}</span>
                 </div>
