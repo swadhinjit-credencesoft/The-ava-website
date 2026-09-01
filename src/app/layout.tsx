@@ -13,18 +13,30 @@ export const metadata: Metadata = {
     template: "%s | The AVA Hotel Chikkamagaluru",
   },
   description: siteDescription,
-  keywords: ["Chikkamagaluru hotel", "NH 173 resort", "The AVA", "Mudigere accommodation", "coffee plantation stay", "Chikmagalur luxury rooms"],
+  applicationName: "The AVA Hotel",
+  category: "hotel",
+  keywords: ["Chikkamagaluru hotel", "NH 173 resort", "The AVA", "Mudigere accommodation", "coffee plantation stay", "Chikmagalur luxury rooms", "The AVA Hotel Chikkamagaluru"],
+  alternates: {
+    canonical: "/",
+  },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
   openGraph: {
     title: siteTitle,
     description: siteDescription,
+    url: siteUrl,
     type: "website",
     locale: "en_IN",
     siteName: "The AVA Hotel",
-    url: siteUrl,
     images: [{ url: "/estateview.jpeg", width: 1200, height: 900, alt: "The AVA Hotel Chikkamagaluru" }],
   },
   twitter: {
@@ -49,9 +61,15 @@ const hotelSchema = {
   "@context": "https://schema.org",
   "@type": "Hotel",
   name: "The AVA",
+  alternateName: "The AVA Hotel Chikkamagaluru",
   description: siteDescription,
   url: siteUrl,
   telephone: "+917899738550",
+  email: "bookings@theavahotel.com",
+  priceRange: "₹2,499 – ₹3,999",
+  checkinTime: "12:00",
+  checkoutTime: "11:00",
+  acceptsReservations: "True",
   address: {
     "@type": "PostalAddress",
     streetAddress: "N H 173, K M Road, Haandi",
@@ -65,7 +83,6 @@ const hotelSchema = {
     latitude: 13.1654,
     longitude: 75.7856,
   },
-  priceRange: "₹2,499 – ₹3,999",
   amenityFeature: [
     { "@type": "LocationFeatureSpecification", name: "Free WiFi" },
     { "@type": "LocationFeatureSpecification", name: "Free Parking" },
@@ -73,7 +90,24 @@ const hotelSchema = {
     { "@type": "LocationFeatureSpecification", name: "24-hour Front Desk" },
     { "@type": "LocationFeatureSpecification", name: "Room Service" },
   ],
-  image: "/estateview.jpeg",
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+917899738550",
+    contactType: "reservations",
+    email: "bookings@theavahotel.com",
+    availableLanguage: ["English", "Kannada", "Hindi"],
+  },
+  image: `${siteUrl}/estateview.jpeg`,
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "The AVA Hotel",
+  alternateName: "The AVA Hotel Chikkamagaluru",
+  url: siteUrl,
+  description: siteDescription,
+  inLanguage: "en-IN",
 };
 
 export default function RootLayout({
@@ -90,6 +124,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(hotelSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
       <body suppressHydrationWarning>
