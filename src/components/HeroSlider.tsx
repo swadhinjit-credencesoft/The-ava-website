@@ -53,34 +53,39 @@ export function HeroSlider() {
 
           {/* Headline */}
           <div className="overflow-hidden mb-2">
-            <h1 className="hero-title font-display text-[72px] sm:text-[96px] md:text-[130px] lg:text-[152px] text-white uppercase leading-[0.82] tracking-tight">
-              THE      AVA       </h1>
+            <h1 className="hero-title font-display text-[clamp(34px,9vw,120px)] text-white uppercase leading-[0.9] tracking-tight whitespace-nowrap">
+              THE AVA HOTEL
+            </h1>
           </div>
-          {/* <div className="overflow-hidden mb-8">
-            <h1 className="hero-title font-display text-[72px] sm:text-[96px] md:text-[130px] lg:text-[152px] text-white uppercase leading-[0.82] tracking-tight">
-              AVA            </h1>
-          </div> */}
 
           {/* Subtitle */}
-          <p className="hero-sub text-white/70 text-[16px] md:text-[20px] font-medium max-w-xl leading-relaxed mb-10">
-            A cinematic luxury escape on NH&nbsp;173 — where the Western Ghats meet your finest hour.
+          <p className="hero-sub text-white/90 text-[clamp(13px,3.2vw,28px)] font-medium leading-snug mb-6 whitespace-nowrap">
+            A Peaceful Luxury Stay in the Heart of Chikkamagaluru
+          </p>
+
+          {/* Description */}
+          <p className="hero-sub text-white/70 text-[15px] md:text-[17px] max-w-xl leading-relaxed mb-10">
+            Experience comfortable accommodation surrounded by the coffee plantations and scenic
+            landscapes of Karnataka&rsquo;s Western Ghats. Located on NH&nbsp;173 near Haandi,
+            The&nbsp;AVA Hotel is an ideal base for exploring Chikkamagaluru, Mullayanagiri, Belur,
+            Sringeri and other popular destinations.
           </p>
 
           {/* CTAs */}
           <div className="hero-ctas flex flex-wrap gap-4">
             <Link
-              href="/rooms"
+              href="https://bookone.io/Hotel-The-Royal-Shalimar-Boutique-Stay?bookingEngine=true"
               className="bg-[#C9A84C] text-[#111111] px-10 py-4 rounded-full font-medium text-[15px] hover:bg-[#b8943f] transition-all hover:scale-[1.02] active:scale-95"
+              data-testid="button-hero-check-availability"
+            >
+              Check Availability
+            </Link>
+            <Link
+              href="/rooms"
+              className="border border-white/40 text-white px-10 py-4 rounded-full font-medium text-[15px] backdrop-blur-sm hover:bg-white/10 transition-all"
               data-testid="button-hero-explore"
             >
               Explore Rooms
-            </Link>
-            <Link
-              href="/tour"
-              className="border border-white/40 text-white px-10 py-4 rounded-full font-medium text-[15px] backdrop-blur-sm hover:bg-white/10 transition-all"
-              data-testid="button-hero-discover"
-            >
-              Discover Nearby
             </Link>
           </div>
         </div>
