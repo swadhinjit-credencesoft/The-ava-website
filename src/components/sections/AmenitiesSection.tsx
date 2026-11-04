@@ -13,7 +13,7 @@ export function AmenitiesSection() {
           <p className="sec-label text-[#C9A84C] text-[11px] uppercase tracking-[0.5em] mb-4">Our Facilities</p>
           <h2 className="sec-title font-display text-[48px] sm:text-[60px] md:text-[72px] text-[#111111] uppercase leading-[0.9]">Everything You Need for a Comfortable Stay</h2>
           <p className="mt-6 text-[#707072] text-[16px] font-medium leading-relaxed">
-            At The AVA, we believe a memorable stay is built around the details. From essential modern conveniences to relaxing experiences, our facilities are designed to make your visit to Chikkamagaluru comfortable, convenient and enjoyable.
+            At The Mountain Resort, we believe a memorable stay is built around the details. From essential modern conveniences to relaxing experiences, our facilities are designed to make your visit to Karjat comfortable, convenient and enjoyable.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">

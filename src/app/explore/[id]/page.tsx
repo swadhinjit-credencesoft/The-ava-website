@@ -72,7 +72,7 @@ export default function ExploreArticlePage() {
             <div className="mt-16 pt-12 border-t border-[#e5e5e5] text-center">
               <h2 className="font-display text-[32px] text-[#111111] uppercase mb-4">Ready to Visit?</h2>
               <p className="text-[#707072] text-[15px] font-medium max-w-lg mx-auto leading-relaxed mb-8">
-                Book your stay at The AVA and experience the best of Chikkamagaluru.
+                Book your stay at The Mountain Resort and experience the best of Karjat.
               </p>
               <div className="flex gap-4 justify-center">
                 <Link href="/rooms" className="bg-[#111111] text-white px-8 py-3 rounded-full text-[14px] font-medium hover:bg-[#333] transition-colors">View Rooms</Link>

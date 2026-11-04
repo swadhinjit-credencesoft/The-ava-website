@@ -53,10 +53,10 @@ export default function EventsPage() {
           <div className="max-w-screen-xl mx-auto px-4 md:px-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
               {[
-                { number: "2500", suffix: "+", label: "Sq.Ft Event Hall" },
-                { number: "500", suffix: "+", label: "Guest Capacity" },
-                { number: "24", suffix: "/7", label: "Event Support" },
-                { number: "100", suffix: "%", label: "Pillarless Hall" },
+                { number: "7", suffix: "", label: "Acres of Private Estate" },
+                { number: "500", suffix: "", label: "Maximum Venue Capacity" },
+                { number: "4", suffix: "", label: "Distinct Event Spaces" },
+                { number: "4", suffix: "", label: "Stay Options for Guests" },
               ].map((s) => (
                 <div key={s.label} className="event-stat flex flex-col items-center justify-center py-10 px-4 bg-white border border-[#e5e5e5] text-center">
                   <span className="font-display text-[48px] md:text-[64px] text-[#111111] leading-none">
@@ -80,11 +80,11 @@ export default function EventsPage() {
 
               <div className="flex flex-col gap-4 mt-4">
                 {[
-                  "2500+ Sq.Ft pillarless ballroom layout",
-                  "Elegant state-of-the-art lighting & sound options",
-                  "Custom catering menus (Veg & Non-veg options)",
-                  "Dedicated event coordinator for flawless execution",
-                  "Convenient highway location on NH 173 with secured parking",
+                  "Mountain-view destination, wedding lawns and poolside spaces",
+                  "Dedicated private spaces for intimate functions and meetings",
+                  "In-house dining and curated celebration meal plans",
+                  "Accommodation for couples, families and larger groups",
+                  "Private 7-acre estate in Wavarle, Karjat",
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-4">
                     <CheckCircle size={18} className="text-[#C9A84C] flex-shrink-0" />
@@ -100,7 +100,7 @@ export default function EventsPage() {
                   </div>
                   <div>
                     <p className="text-[#707072] text-[11px] uppercase tracking-wider font-medium">Call Sales</p>
-                    <a href="tel:+917899738550" className="text-[#111111] font-medium text-[14px] hover:text-[#C9A84C] transition-colors">{hotel.phone}</a>
+                    <a href="tel:+919833866655" className="text-[#111111] font-medium text-[14px] hover:text-[#C9A84C] transition-colors">{hotel.phone}</a>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -197,7 +197,7 @@ export default function EventsPage() {
                       type="number"
                       required
                       min="10"
-                      max="1000"
+                      max="500"
                       {...register("guests")}
                       placeholder="e.g. 150"
                       className="bg-white border border-[#cacacb] w-full px-4 py-3 outline-none text-[14px] font-medium text-[#111111]"

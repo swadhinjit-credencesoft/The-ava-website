@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://theavahotel.in/sitemap.xml
+Sitemap: https://themountainresorts.com/sitemap.xml

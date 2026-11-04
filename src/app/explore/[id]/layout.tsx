@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { exploreArticles } from "@/data/explore";
 
-const siteUrl = "https://theavahotel.in";
+const siteUrl = "https://themountainresorts.com";
 
 export async function generateStaticParams() {
   return exploreArticles.map((article) => ({ id: article.id }));
@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   const { id } = await params;
   const article = exploreArticles.find((a) => a.id === id);
   if (!article) {
-    return { title: "Article Not Found — The AVA" };
+    return { title: "Article Not Found — The Mountain Resort" };
   }
   const path = `/explore/${id}`;
   return {
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
       description: article.excerpt,
       url: `${siteUrl}${path}`,
       type: "article",
-      siteName: "The AVA Hotel",
+      siteName: "The Mountain Resort",
       images: [{ url: article.image, width: 1200, height: 900, alt: article.title }],
     },
     twitter: {
@@ -49,14 +49,14 @@ export default async function ExploreArticleLayout({ children, params }: { child
         image: `${siteUrl}${article.image}`,
         url: articleUrl,
         inLanguage: "en-IN",
-        about: "Chikkamagaluru travel",
-        author: { "@type": "Organization", name: "The AVA Hotel Chikkamagaluru", url: siteUrl },
+        about: "Karjat travel",
+        author: { "@type": "Organization", name: "The Mountain Resort Karjat", url: siteUrl },
         publisher: {
           "@type": "Organization",
-          name: "The AVA Hotel Chikkamagaluru",
+          name: "The Mountain Resort Karjat",
           logo: { "@type": "ImageObject", url: `${siteUrl}/avalogo111.png` },
         },
-        isPartOf: { "@type": "WebSite", name: "The AVA Hotel", url: siteUrl },
+        isPartOf: { "@type": "WebSite", name: "The Mountain Resort", url: siteUrl },
       }
     : null;
 

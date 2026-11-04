@@ -12,7 +12,7 @@ export function AttractionsSection() {
         <div className="flex items-end justify-between mb-20">
           <div>
             <p className="sec-label text-[#C9A84C] text-[11px] uppercase tracking-[0.5em] mb-4">Things to Do</p>
-            <h2 className="sec-title font-display text-[clamp(32px,6vw,72px)] text-[#111111] uppercase leading-[0.9]">Your Chikkamagaluru<br />Adventure Starts Here</h2>
+            <h2 className="sec-title font-display text-[clamp(32px,6vw,72px)] text-[#111111] uppercase leading-[0.9]">Your Karjat<br />Escape Starts Here</h2>
           </div>
           <Link href="/tour" className="hidden md:flex bg-[#f5f5f5] text-[#111111] px-8 py-4 rounded-full font-medium text-[14px] hover:bg-[#e5e5e5] transition-colors" data-testid="button-tour-guide">Tour Guide</Link>
         </div>

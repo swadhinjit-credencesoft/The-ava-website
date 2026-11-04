@@ -82,9 +82,9 @@ export default function TourPage() {
                 <p className="text-[#C9A84C] text-[12px] uppercase tracking-[0.4em] mb-2">Travel Info</p>
                 <h3 className="font-display text-[42px] text-[#111111] uppercase leading-tight">HOW TO REACH</h3>
                 {[
-                  { title: "By Air", items: ["Mangalore International Airport — 130 km", "Bangalore International Airport — 240 km"] },
-                  { title: "By Train", items: ["Chikkamagaluru Railway Station — 21 km", "Hassan Railway Station — 67 km"] },
-                  { title: "By Road", items: ["NH 173, Mangalore–Kadur Highway", "Well-connected by state highways and KSRTC buses"] },
+                  { title: "By Air", items: ["Plan your route from Mumbai or Pune airports", "Check current flight and onward transfer options"] },
+                  { title: "By Train", items: ["Karjat Junction Railway Station - approximately 4 to 7 km", "Arrange onward transport to the resort"] },
+                  { title: "By Road", items: ["Karjat is approximately 75 km from Mumbai", "Karjat is approximately 100 km from Pune; check live route conditions"] },
                 ].map((section) => (
                   <div key={section.title} className="bg-white p-6 border border-[#cacacb]">
                     <h4 className="font-display text-[24px] text-[#111111] uppercase mb-4">{section.title}</h4>

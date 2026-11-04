@@ -41,7 +41,7 @@ export default function RoomsPage() {
         <section className="py-16 px-4 md:px-8 bg-[#f5f5f5]">
           <div className="max-w-screen-xl mx-auto text-center">
             <p className="text-[#707072] text-[16px] leading-relaxed font-medium max-w-3xl mx-auto">
-              Every room at The AVA comes with complimentary breakfast, free WiFi, air conditioning, 24-hour hot water, and access to our in-house restaurant and travel desk.
+              Choose from Cliff View, Family and Glass Jacuzzi Rooms or a private three-bedroom Bungalow Villa. Room features and package inclusions vary, so contact the resort to confirm what is included with your dates.
             </p>
           </div>
         </section>
@@ -54,7 +54,7 @@ export default function RoomsPage() {
                   <img src={room.image} alt={room.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
                   <div className="absolute top-4 left-4 flex gap-2">
                     <span className="bg-[#C9A84C] text-[#111111] px-4 py-1 rounded-full text-[11px] font-medium uppercase tracking-wider">{room.type}</span>
-                    {room.price && <span className="bg-white text-[#111111] px-4 py-1 rounded-full text-[11px] font-bold">{room.price}</span>}
+                    {room.price && <span className="bg-white text-[#111111] px-4 py-1 rounded-full text-[11px] font-bold">{room.price}{room.price.startsWith("₹") ? "/ night" : ""}</span>}
                   </div>
                 </div>
                 <div className="pt-8 flex flex-col gap-5 flex-1">

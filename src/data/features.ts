@@ -1,12 +1,12 @@
 export const features = [
-  { name: "Secured Parking", icon: "Car" },
-  { name: "24 Hours Checkout", icon: "Clock" },
-  { name: "24 Hour Hot Water", icon: "Droplets" },
-  { name: "Bonfires", icon: "Flame" },
+  { name: "7-Acre Private Estate", icon: "Trees" },
+  { name: "Mountain Views", icon: "Mountain" },
+  { name: "Outdoor Swimming Pool", icon: "Waves" },
+  { name: "Glass Jacuzzi Room", icon: "Bath" },
+  { name: "Free Wi-Fi", icon: "Wifi" },
+  { name: "Free Parking", icon: "Car" },
+  { name: "In-House Dining", icon: "UtensilsCrossed" },
   { name: "Room Service", icon: "Bell" },
-  { name: "Travel Desk", icon: "Map" },
-  { name: "Vehicle Rental", icon: "Truck" },
-  { name: "Play Area Indoor & Outdoor", icon: "Gamepad2" },
-  { name: "Free WiFi Access", icon: "Wifi" },
-  { name: "In-house Restaurant", icon: "UtensilsCrossed" }
+  { name: "Wedding & Event Lawns", icon: "PartyPopper" },
+  { name: "Private Bungalow Villa", icon: "House" }
 ];

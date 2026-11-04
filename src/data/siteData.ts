@@ -7,18 +7,17 @@ import { events } from "./events";
 import { nav } from "./nav";
 import { roomInclusions } from "./roomInclusions";
 
-
 export const hotelData = {
-  name: "The AVA",
-  tagline: "Unique & Luxury Experience",
-  location: "N H 173, K M Road, Haandi, Chikkamagaluru, Karnataka 577111",
-  highway: "NH 173 Mangalore–Kadur Highway, between Chikkamagaluru and Mudigere",
-  phone: "+91 7899738550",
-  phoneAlt: "+91 8618141466",
-  email: "bookings@theavahotel.com",
-  website: "www.theavahotel.in",
-  bookingEngineUrl: "https://bookone.io/Hotel-The-Royal-Shalimar-Boutique-Stay?bookingEngine=true",
-  description: "A boutique stay on NH 173 between Chikkamagaluru and Mudigere, surrounded by coffee and pepper plantations in the heart of Karnataka's Western Ghats. The AVA offers premium rooms, estate views, an in-house restaurant serving Karnataka and continental cuisine, and a convenient base for exploring Mullayangiri, Bhadra Wildlife Sanctuary, Dharmastala, and more.",
+  name: "The Mountain Resort Karjat",
+  tagline: "A Private Mountain Estate by Redwings",
+  location: "Survey No. 120, 144 & 145, Wavarle, Vadvihir, Khalapur, Karjat, Maharashtra 410201",
+  highway: "A private 7-acre mountain estate in Karjat, near Mumbai and Pune",
+  phone: "+91 9833866655",
+  phoneAlt: "+91 9152111737",
+  email: "reservation@themountainresorts.com",
+  website: "www.themountainresorts.com",
+  bookingEngineUrl: "https://bookone.io/the-mountain-by-redwings?bookingEngine=true",
+  description: "A private 7-acre mountain estate in Karjat for destination weddings, celebration weekends, and luxury stays. The Mountain Resort by Redwings brings together mountain views, open lawns, comfortable accommodation, poolside experiences and in-house dining.",
   rooms,
   roomInclusions,
   features,

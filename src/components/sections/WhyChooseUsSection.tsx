@@ -3,14 +3,14 @@
 import { MapPin, BedDouble, Leaf, UtensilsCrossed, Mountain, Heart, Car, PartyPopper } from "lucide-react";
 
 const reasons = [
-  { icon: MapPin,         title: "Prime Location",         desc: "Located on NH 173 in Haandi, The AVA offers convenient access to Chikkamagaluru, Mudigere and several of the region's most popular attractions." },
-  { icon: BedDouble,      title: "Comfortable Accommodation", desc: "Our rooms are thoughtfully designed to provide a relaxing environment after a day of sightseeing, trekking or travelling." },
-  { icon: Leaf,           title: "A Peaceful Surrounding", desc: "Enjoy the natural beauty of Karnataka's coffee country while staying away from the noise and congestion of busy city centres." },
-  { icon: UtensilsCrossed,title: "Dining at The AVA",      desc: "Enjoy convenient on-site dining with a selection of Indian, Karnataka and continental favourites." },
-  { icon: Mountain,       title: "Easy Access to Attractions", desc: "From Mullayanagiri and Kudremukh to Belur, Sringeri and Bhadra Wildlife Sanctuary, many of the region's highlights are within convenient driving distance." },
-  { icon: Heart,          title: "Warm Hospitality",       desc: "Our team is here to make your stay comfortable, from helping with local information to assisting with your travel requirements." },
-  { icon: Car,            title: "Parking & Connectivity", desc: "Enjoy convenient parking and Wi-Fi connectivity during your stay." },
-  { icon: PartyPopper,    title: "Events & Gatherings",    desc: "Our associated event facilities provide an ideal setting for weddings, conferences, celebrations and corporate gatherings." },
+  { icon: MapPin, title: "A Karjat Estate", desc: "Stay in Wavarle, Karjat, at a private mountain estate within reach of Mumbai and Pune." },
+  { icon: BedDouble, title: "Four Distinct Stays", desc: "Choose from Cliff View Rooms, Family Rooms, Glass Jacuzzi Rooms and a private Bungalow Villa." },
+  { icon: Leaf, title: "Seven Acres of Greenery", desc: "Enjoy mountain views, open lawns and room to slow down across a private estate." },
+  { icon: UtensilsCrossed, title: "Dining & Hospitality", desc: "Enjoy in-house dining and curated meal plans for celebration weekends." },
+  { icon: Mountain, title: "Scenic Mountain Setting", desc: "Take in the Karjat landscape from the estate and plan outdoor experiences with local guidance." },
+  { icon: Heart, title: "Stay Together", desc: "Bring family and friends together with accommodation options for couples, families and groups." },
+  { icon: Car, title: "Easy Arrival", desc: "The resort is approximately 4–7 km from Karjat Junction Railway Station. Free parking is available." },
+  { icon: PartyPopper, title: "Celebrations at the Estate", desc: "Choose from mountain-view lawns, poolside celebrations and private event spaces for 20 to 500 guests." },
 ];
 
 export function WhyChooseUsSection() {
@@ -19,7 +19,7 @@ export function WhyChooseUsSection() {
       <div className="max-w-screen-xl mx-auto">
         <div className="text-center mb-16">
           <p className="sec-label text-[#C9A84C] text-[11px] uppercase tracking-[0.5em] mb-4">Our Promise</p>
-          <h2 className="sec-title font-display text-[clamp(32px,6.5vw,64px)] text-[#111111] uppercase leading-[0.9] max-w-4xl mx-auto">Comfort, Convenience &amp; the Spirit of Chikkamagaluru</h2>
+          <h2 className="sec-title font-display text-[clamp(32px,6.5vw,64px)] text-[#111111] uppercase leading-[0.9] max-w-4xl mx-auto">A Mountain Escape Made for Togetherness</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
           {reasons.map((w, i) => (

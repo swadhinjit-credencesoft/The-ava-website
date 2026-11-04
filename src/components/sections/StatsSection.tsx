@@ -1,10 +1,10 @@
 "use client";
 
 const stats = [
-  { n: "4",    s: "",   l: "Room Categories" },
-  { n: "2500", s: "+",  l: "Sq.Ft Event Space" },
-  { n: "24",   s: "/7", l: "Hour Service" },
-  { n: "100",  s: "%",  l: "Guest Satisfaction" },
+  { n: "7",    s: "",   l: "Acres of Private Estate" },
+  { n: "500",  s: "+",  l: "Event Guest Capacity" },
+  { n: "4",    s: "",   l: "Distinct Stay Options" },
+  { n: "2",    s: "",   l: "Cities Within Reach" },
 ];
 
 export function StatsSection() {

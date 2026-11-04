@@ -39,7 +39,10 @@ export function Navbar() {
       <div className="flex-1 flex items-center justify-between px-4 md:px-8">
         {/* Logo */}
         <Link href="/" className="hover:opacity-80 transition-opacity flex items-center" data-testid="link-home-logo">
-          <img src="/avalogo111.png" alt="The AVA" className="h-14 md:h-16 w-auto" />
+          <span className={`flex flex-col leading-none ${scrolled ? "text-[#111111]" : "text-white"}`}>
+            <span className="font-display text-[21px] md:text-[25px] tracking-[0.06em]">THE MOUNTAIN</span>
+            <span className="text-[9px] md:text-[10px] tracking-[0.28em] mt-1 text-[#C9A84C]">KARJAT · BY REDWINGS</span>
+          </span>
         </Link>
 
         {/* Desktop Center Nav */}

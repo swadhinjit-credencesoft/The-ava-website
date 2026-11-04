@@ -1,14 +1,15 @@
+const cdn = "https://bookonelocal.in/cdn";
+
 export const events = {
-  heading: "Meetings & Events",
-  description: "The AVA offers personalized services and amenities to host meetings, conferences, seminars and other business gatherings, birthday parties, sangeets, mehendi, baby showers, etc. With more than 2500 Sqft of event spaces including a pillarless ballroom.",
+  heading: "Weddings & Events",
+  description: "Bring your celebrations together in one private mountain estate. The Mountain Resort offers open lawns, poolside settings and dedicated spaces for weddings, family functions, private dining and corporate offsites, with event options for gatherings from 20 to 500 guests.",
   features: [
-    "2500+ Sqft Pillarless Ballroom",
-    "Conference Room",
-    "Meeting Facilities",
-    "Birthday Parties",
-    "Sangeet & Mehendi Events",
-    "Baby Showers",
-    "24 Hours Support"
+    "Mountain-view destination for up to 500 guests",
+    "Wedding lawns for ceremonies and multi-day celebrations",
+    "Poolside celebrations and cocktail evenings",
+    "Private spaces for intimate functions and meetings",
+    "In-house dining and dedicated event coordination",
+    "Stay, dine and celebrate across one private estate"
   ],
-  image: "/wedding.avif"
+  image: `${cdn}/DSC08758.avif`
 };

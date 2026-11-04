@@ -1,9 +1,9 @@
 export const nav = [
   { label: "Home", href: "/" },
-  { label: "Rooms", href: "/rooms" },
-  { label: "Amenities", href: "/amenities" },
-  { label: "Tour & Nearby", href: "/tour" },
+  { label: "Stay", href: "/rooms" },
+  { label: "Experiences", href: "/amenities" },
+  { label: "Nearby", href: "/tour" },
   { label: "Explore", href: "/explore" },
-  { label: "Meetings & Events", href: "https://theroyalshalimar2.netlify.app/" },
+  { label: "Weddings & Events", href: "/events" },
   { label: "Contact", href: "/contact" }
 ];

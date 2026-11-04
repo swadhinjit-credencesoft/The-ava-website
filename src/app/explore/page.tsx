@@ -21,9 +21,9 @@ export default function ExplorePage() {
           <div className="max-w-screen-2xl mx-auto">
             <div className="text-center mb-20">
               <p className="text-[#C9A84C] text-[12px] uppercase tracking-[0.4em] mb-4">Discover</p>
-              <h2 className="font-display text-[56px] md:text-[80px] text-[#111111] uppercase leading-[0.9]">EXPLORE<br />CHIKKAMAGALURU</h2>
+              <h2 className="font-display text-[56px] md:text-[80px] text-[#111111] uppercase leading-[0.9]">EXPLORE<br />KARJAT</h2>
               <p className="text-[#707072] text-[15px] font-medium mt-6 max-w-2xl mx-auto leading-relaxed">
-                Curated guides to help you make the most of your stay — from treks and temples to road trips and wildlife safaris.
+                Ideas for getting here, choosing your stay and making the most of a mountain escape or celebration weekend.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">

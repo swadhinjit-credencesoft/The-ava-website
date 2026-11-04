@@ -1,12 +1,10 @@
 export const distances = [
-  { place: "Chikkamagaluru", distance: "20 km" },
-  { place: "Mudigere", distance: "8 km" },
-  { place: "Sringeri", distance: "72 km" },
-  { place: "Hornadu", distance: "70 km" },
-  { place: "Dharmastala", distance: "67 km" },
-  { place: "Belur", distance: "26 km" },
-  { place: "Bangalore Airport", distance: "270 km" },
-  { place: "Mangalore Airport", distance: "130 km" },
-  { place: "Chikkamagaluru Railway Station", distance: "23 km" },
-  { place: "Kadur Railway Station", distance: "60 km" }
+  { place: "Karjat Junction Railway Station", distance: "Approx. 4-7 km" },
+  { place: "Imagicaa Theme Park", distance: "12 km" },
+  { place: "Kondana Caves", distance: "16 km" },
+  { place: "Bhivpuri Waterfalls", distance: "18 km" },
+  { place: "Peth Fort / Kothaligad", distance: "24 km" },
+  { place: "Matheran Hill Station", distance: "28 km" },
+  { place: "Mumbai", distance: "Approx. 75 km" },
+  { place: "Pune", distance: "Approx. 100 km" },
 ];

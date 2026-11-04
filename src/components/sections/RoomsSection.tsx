@@ -12,7 +12,7 @@ export function RoomsSection() {
         <div className="flex items-end justify-between mb-16">
           <div>
             <p className="text-[#C9A84C] text-[11px] uppercase tracking-[0.5em] font-medium mb-4">Accommodation</p>
-            <h2 className="sec-title font-display text-[56px] md:text-[80px] text-[#111111] uppercase leading-[0.88]">ROOMS<br />&amp; SUITES</h2>
+          <h2 className="sec-title font-display text-[56px] md:text-[80px] text-[#111111] uppercase leading-[0.88]">STAYS<br />&amp; VILLAS</h2>
           </div>
           <Link href="/rooms" className="hidden md:flex bg-[#f5f5f5] text-[#111111] px-8 py-4 rounded-full font-medium text-[14px] hover:bg-[#e5e5e5] transition-colors" data-testid="button-all-rooms">View All</Link>
         </div>
@@ -29,7 +29,7 @@ export function RoomsSection() {
                   <h3 className="font-display text-[36px] text-white uppercase leading-tight mt-1">{room.name}</h3>
                 </div>
                 <div className="flex items-center gap-3">
-                  {room.price && <span className="bg-[#C9A84C] text-[#111111] px-3 py-1 rounded-full text-[11px] font-bold">{room.price}<span className="font-medium">/night</span></span>}
+                  {room.price && <span className="bg-[#C9A84C] text-[#111111] px-3 py-1 rounded-full text-[11px] font-bold">{room.price}{room.price.startsWith("₹") && <span className="font-medium">/night</span>}</span>}
                   <Link href={`/rooms/${room.id}-room`} className="bg-white text-[#111111] px-6 py-3 rounded-full font-medium text-[12px] opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300" data-testid={`button-room-${room.id}`}>
                     View Room
                   </Link>

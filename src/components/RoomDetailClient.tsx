@@ -73,7 +73,7 @@ export function RoomDetailClient() {
           <div className="absolute inset-0 flex flex-col justify-center items-center text-center z-10 px-8">
             <p className="text-[#C9A84C] text-[12px] uppercase tracking-[0.4em] mb-6">{room.type}</p>
             <h1 className="font-display text-[64px] md:text-[100px] text-white uppercase leading-[0.85]">{room.name}</h1>
-            <p className="text-white/80 text-[18px] max-w-lg mt-6 font-medium">From {room.price} / night</p>
+            <p className="text-white/80 text-[18px] max-w-lg mt-6 font-medium">{room.price.startsWith("₹") ? `From ${room.price} / night` : "Rates available on enquiry"}</p>
           </div>
         </section>
 
@@ -83,8 +83,8 @@ export function RoomDetailClient() {
               <div className="detail-item flex items-center gap-4 p-6 bg-white border border-[#e5e5e5]">
                 <IndianRupee size={24} className="text-[#C9A84C] flex-shrink-0" />
                 <div>
-                  <p className="text-[#707072] text-[11px] uppercase tracking-wider font-medium">From</p>
-                  <p className="text-[#111111] font-display text-[24px]">{room.price}<span className="text-[#707072] text-[13px] font-medium">/night</span></p>
+                  <p className="text-[#707072] text-[11px] uppercase tracking-wider font-medium">{room.price.startsWith("₹") ? "From" : "Rates"}</p>
+                  <p className="text-[#111111] font-display text-[24px]">{room.price}{room.price.startsWith("₹") && <span className="text-[#707072] text-[13px] font-medium">/night</span>}</p>
                 </div>
               </div>
               <div className="detail-item flex items-center gap-4 p-6 bg-white border border-[#e5e5e5]">

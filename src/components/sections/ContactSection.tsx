@@ -7,8 +7,8 @@ import { RootState } from "@/store";
 export function ContactSection() {
   const hotel = useSelector((state: RootState) => state.data.hotel);
   const contacts = [
-    { icon: Phone, title: "Call Us",     val: hotel.phone,    href: "tel:+917899738550",        action: "Call" },
-    { icon: Phone, title: "Alternate",   val: hotel.phoneAlt, href: "tel:+918618141466",        action: "Call" },
+    { icon: Phone, title: "Call Us",     val: hotel.phone,    href: "tel:+919833866655",        action: "Call" },
+    { icon: Phone, title: "Alternate",   val: hotel.phoneAlt, href: "tel:+919152111737",        action: "Call" },
     { icon: Mail,  title: "Email Us",    val: hotel.email,    href: `mailto:${hotel.email}`, action: "Email" },
     { icon: Clock, title: "24/7 Support",val: "Always Available",  href: null,                       action: null },
   ];

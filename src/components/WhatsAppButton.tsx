@@ -2,8 +2,8 @@
 
 import { MessageCircle } from "lucide-react";
 
-const WHATSAPP_NUMBER = "917899738550";
-const PREFILLED_MESSAGE = encodeURIComponent("Hi, I'd like to enquire about rooms at The AVA.");
+const WHATSAPP_NUMBER = "919833866655";
+const PREFILLED_MESSAGE = encodeURIComponent("Hi, I would like to enquire about a stay or event at The Mountain Resort in Karjat.");
 
 export function WhatsAppButton() {
   return (
