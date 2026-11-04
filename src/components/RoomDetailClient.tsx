@@ -90,7 +90,7 @@ export function RoomDetailClient() {
               <div className="detail-item flex items-center gap-4 p-6 bg-white border border-[#e5e5e5]">
                 <Maximize size={24} className="text-[#C9A84C] flex-shrink-0" />
                 <div>
-                  <p className="text-[#707072] text-[11px] uppercase tracking-wider font-medium">Room Size</p>
+                  <p className="text-[#707072] text-[11px] uppercase tracking-wider font-medium">Stay Details</p>
                   <p className="text-[#111111] font-display text-[24px]">{room.size}</p>
                 </div>
               </div>

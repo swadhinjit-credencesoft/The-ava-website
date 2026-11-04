@@ -42,7 +42,7 @@ export const rooms = [
     image: `${cdn}/2026-04-02-073125239-DSC08769.jpg`,
     price: "On Enquiry",
     size: "3 bedrooms · 2 bathrooms",
-    occupancy: "6+ Guests",
+    occupancy: "6-15 Guests",
     features: ["Private Villa Layout", "3 Bedrooms", "2 Bathrooms", "Living Area"]
   }
 ];
