@@ -4,6 +4,8 @@ import { roomRouteSlugs } from "@/data/roomRoutes";
 
 const siteUrl = "https://themountainresorts.com";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [
     { path: "/", priority: 1.0 },
