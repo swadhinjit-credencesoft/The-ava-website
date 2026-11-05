@@ -1,6 +1,6 @@
 "use client";
 
-const items = ["Buffet dining", "Curated menus for celebrations", "Multi-meal wedding packages", "Room service available"];
+const items = ["Buffet dining", "Curated menus for celebrations", "Wedding meal arrangements", "Room service available"];
 
 export function RestaurantSection() {
   return (

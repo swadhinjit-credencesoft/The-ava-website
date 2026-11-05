@@ -1,11 +1,6 @@
 "use client";
 
-const spaces = [
-  { name: "Mountain View Destination", capacity: "Up to 500 guests", image: "https://bookonelocal.in/cdn/DSC08846.avif" },
-  { name: "Wedding Lawns", capacity: "100–400 guests", image: "https://bookonelocal.in/cdn/DSC08849.avif" },
-  { name: "Poolside Celebrations", capacity: "50–150 guests", image: "https://bookonelocal.in/cdn/DSC08837.avif" },
-  { name: "Private Event Spaces", capacity: "20–100 guests", image: "https://bookonelocal.in/cdn/DSC08831.avif" },
-];
+import { eventVenues } from "@/data/eventVenues";
 
 export function ShrinesSection() {
   return (
@@ -16,7 +11,7 @@ export function ShrinesSection() {
           <h2 className="sec-title font-display text-[clamp(34px,7vw,72px)] text-white uppercase leading-[0.9]">SPACES FOR EVERY<br /><span className="bg-gradient-to-r from-[#C9A84C] to-[#e6cd7a] bg-clip-text text-transparent">CELEBRATION</span></h2>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-          {spaces.map((space) => (
+          {eventVenues.map((space) => (
             <div key={space.name} className="shrine-card group relative overflow-hidden aspect-[3/4]">
               <img src={space.image} alt={space.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />

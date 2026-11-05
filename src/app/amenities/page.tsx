@@ -40,7 +40,7 @@ export default function AmenitiesPage() {
               <p className="text-[#C9A84C] text-[12px] uppercase tracking-[0.4em] mb-4">Our Facilities</p>
               <h2 className="font-display text-[56px] md:text-[80px] text-[#111111] uppercase leading-[0.9]">Everything You Need for a Comfortable Stay</h2>
               <p className="mt-6 text-[#707072] text-[16px] font-medium leading-relaxed">
-                Enjoy mountain views, an outdoor pool, free Wi-Fi and parking, in-house dining, and dedicated spaces for weddings and events. Access and package inclusions can vary by booking.
+                Enjoy mountain views, an outdoor pool, free Wi-Fi and parking, in-house dining, and dedicated spaces for weddings and events. Access and services can vary by booking.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">

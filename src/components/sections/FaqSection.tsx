@@ -2,14 +2,18 @@
 
 import { useState } from "react";
 import { Phone, ChevronDown, ChevronUp } from "lucide-react";
+import { eventVenues } from "@/data/eventVenues";
+
+const venueCapacityAnswer = eventVenues.map((venue) => `${venue.name}: ${venue.capacity}`).join("; ");
 
 const faqs = [
   { q: "What are the check-in and check-out times?", a: "Check-in is from 1:00 PM and check-out is by 11:00 AM. Please confirm any requested flexibility with the resort." },
   { q: "What types of accommodation are available?", a: "Choose from Cliff View Rooms, Family Rooms, Glass Jacuzzi Rooms and a three-bedroom Bungalow Villa." },
   { q: "How far is the resort from Karjat Junction?", a: "The resort is approximately 4–7 km from Karjat Junction Railway Station. Travel time depends on your route and traffic." },
   { q: "How far is the resort from Mumbai and Pune?", a: "The resort's official information lists Karjat at approximately 75 km from Mumbai and 100 km from Pune. Check live directions for your starting point and travel date." },
-  { q: "Does the resort have a swimming pool?", a: "Yes. Pool access hours vary by booking: 24-hour access is listed for certain estate packages and 7:00 AM to 9:00 PM for standard leisure guests." },
-  { q: "Can we host a wedding or private event?", a: "Yes. Event spaces include mountain-view grounds, wedding lawns, poolside celebrations and private spaces, with capacities varying by venue. Contact the team for availability and a quotation." },
+  { q: "Does the resort have a swimming pool?", a: "Yes. Pool access hours vary by booking: 24-hour access is available for some event stays, and 7:00 AM to 9:00 PM for standard leisure stays." },
+  { q: "What are the capacities of the event spaces?", a: venueCapacityAnswer },
+  { q: "Can we host a wedding or private event?", a: "Yes. The estate has mountain-view grounds, wedding lawns, poolside celebrations and private spaces for weddings, anniversaries, engagements, corporate meetings and other gatherings. Contact the team to confirm date-specific availability and capacity." },
 ];
 
 function FaqItem({ q, a }: { q: string; a: string }) {
@@ -41,7 +45,7 @@ export function FaqSection() {
         <div className="lg:sticky" style={{ top: "120px" }}>
           <p className="text-[#C9A84C] text-[11px] uppercase tracking-[0.5em] mb-4">Got Questions?</p>
           <h2 className="font-display text-[52px] md:text-[68px] text-[#111111] uppercase leading-[0.88] mb-6">FREQUENTLY<br />ASKED</h2>
-          <p className="text-[#707072] text-[15px] leading-relaxed font-medium mb-10">Contact us for the latest availability, package inclusions and travel details.</p>
+          <p className="text-[#707072] text-[15px] leading-relaxed font-medium mb-10">Contact us for the latest availability, event details and travel information.</p>
           <a href="tel:+919833866655" className="bg-[#111111] text-white px-8 py-4 rounded-full font-medium text-[14px] hover:bg-[#333] transition-colors inline-flex items-center gap-2" data-testid="button-faq-call">
             <Phone size={14} /> +91 98338 66655
           </a>

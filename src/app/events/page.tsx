@@ -12,6 +12,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Breadcrumb } from "@/components/sections/Breadcrumb";
 import { PageHero } from "@/components/sections/PageHero";
+import { eventVenues } from "@/data/eventVenues";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -69,6 +70,30 @@ export default function EventsPage() {
           </div>
         </section>
 
+        <section className="py-24 px-4 md:px-8 bg-white">
+          <div className="max-w-screen-xl mx-auto">
+            <div className="text-center max-w-2xl mx-auto mb-14">
+              <p className="text-[#C9A84C] text-[12px] uppercase tracking-[0.4em] mb-4">Choose Your Setting</p>
+              <h2 className="font-display text-[48px] md:text-[64px] text-[#111111] uppercase leading-[0.9]">VENUES FOR<br />EVERY FUNCTION</h2>
+              <p className="text-[#707072] text-[15px] font-medium leading-relaxed mt-5">Host ceremonies, family gatherings, corporate meetings, and celebrations across dedicated spaces on the estate.</p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {eventVenues.map((venue) => (
+                <article key={venue.name} className="bg-[#f5f5f5] border border-[#e5e5e5] overflow-hidden">
+                  <div className="aspect-[16/10] overflow-hidden bg-[#e5e5e5]">
+                    <img src={venue.image} alt={venue.name} className="w-full h-full object-cover" loading="lazy" />
+                  </div>
+                  <div className="p-5">
+                    <p className="text-[#C9A84C] text-[12px] font-semibold uppercase tracking-wider">{venue.capacity}</p>
+                    <h3 className="font-display text-[23px] text-[#111111] uppercase leading-tight mt-2">{venue.name}</h3>
+                    <p className="text-[#707072] text-[13px] font-medium leading-relaxed mt-3">{venue.description}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="py-24 px-4 md:px-8">
           <div className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div className="flex flex-col gap-10">
@@ -93,6 +118,21 @@ export default function EventsPage() {
                 ))}
               </div>
 
+              <figure className="mt-2 overflow-hidden bg-[#f5f5f5]">
+                <img
+                  src="/meeting-optimized.jpg"
+                  alt="Indoor lounge space at The Mountain Resort in Karjat"
+                  className="w-full aspect-[3/2] object-cover"
+                  width={1800}
+                  height={1200}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption className="px-4 py-3 text-[#707072] text-[12px] font-medium">
+                  An inviting indoor lounge for meetings and group gatherings.
+                </figcaption>
+              </figure>
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8 pt-8 border-t border-[#e5e5e5]">
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 bg-[#f5f5f5] flex items-center justify-center">
@@ -115,7 +155,7 @@ export default function EventsPage() {
               </div>
             </div>
 
-            <div className="bg-[#f5f5f5] p-8 md:p-12 border border-[#e5e5e5]">
+            <div id="event-enquiry" className="bg-[#f5f5f5] p-8 md:p-12 border border-[#e5e5e5] scroll-mt-24">
               <h3 className="font-display text-[32px] text-[#111111] uppercase mb-8">EVENT ENQUIRY</h3>
               
               {isSubmitSuccessful ? (

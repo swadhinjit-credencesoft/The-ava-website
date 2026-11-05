@@ -1,15 +1,14 @@
+import { eventVenues } from "./eventVenues";
+
 const cdn = "https://bookonelocal.in/cdn";
 
 export const events = {
   heading: "Weddings & Events",
-  description: "Bring your celebrations together in one private mountain estate. The Mountain Resort offers open lawns, poolside settings and dedicated spaces for weddings, family functions, private dining and corporate offsites, with event options for gatherings from 20 to 500 guests.",
+  description: "Bring weddings, anniversaries, engagements, corporate offsites and private celebrations together across a 7-acre mountain estate. Four dedicated event spaces host groups from 20 to 500 guests, with stays, dining and event coordination on site.",
   features: [
-    "Mountain-view destination for up to 500 guests",
-    "Wedding lawns for ceremonies and multi-day celebrations",
-    "Poolside celebrations and cocktail evenings",
-    "Private spaces for intimate functions and meetings",
+    ...eventVenues.map((venue) => `${venue.name}: ${venue.capacity}`),
     "In-house dining and dedicated event coordination",
-    "Stay, dine and celebrate across one private estate"
+    "Stay, dine and celebrate across one private estate",
   ],
   image: `${cdn}/DSC08758.avif`
 };

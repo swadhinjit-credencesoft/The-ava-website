@@ -1,7 +1,7 @@
 const cdn = "https://bookonelocal.in/cdn";
 
 export const amenities = [
-  { name: "Outdoor Swimming Pool", description: "Enjoy the resort pool during your stay. Access hours depend on your stay or event package.", image: `${cdn}/DSC08837.avif` },
+  { name: "Outdoor Swimming Pool", description: "Enjoy the resort pool during your stay. Access hours depend on your stay or event booking.", image: `${cdn}/DSC08837.avif` },
   { name: "Private Jacuzzi", description: "Unwind in the private jacuzzi in the distinctive Glass Jacuzzi Room.", image: `${cdn}/2026-04-02-082005702-DSC08852.jpg` },
   { name: "Mountain Views", description: "Take in the surrounding mountain scenery from the private estate.", image: `${cdn}/DSC08846.avif` },
   { name: "Open Event Lawns", description: "Host ceremonies and celebrations across manicured lawns and dedicated function zones.", image: `${cdn}/DSC08849.avif` },
