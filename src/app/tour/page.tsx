@@ -47,7 +47,7 @@ export default function TourPage() {
               {hotel.touristPlaces.map((place) => (
                 <div key={place.name} className="tour-card flex flex-col group">
                   <div className="relative aspect-[16/10] overflow-hidden bg-[#f5f5f5]">
-                    <img src={place.image} alt={place.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+                    <img src={place.image} alt={place.imageAlt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
                     <div className="absolute top-4 left-4">
                       <span className="bg-[#C9A84C] text-[#111111] px-4 py-1 rounded-full text-[11px] font-medium uppercase tracking-wider">{place.activity}</span>
                     </div>

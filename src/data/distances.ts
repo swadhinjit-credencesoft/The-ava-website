@@ -1,4 +1,5 @@
 export const distances = [
+  { place: "ND’s Film World", distance: "3.5 km" },
   { place: "Karjat Junction Railway Station", distance: "Approx. 4-7 km" },
   { place: "Imagicaa Theme Park", distance: "12 km" },
   { place: "Kondana Caves", distance: "16 km" },

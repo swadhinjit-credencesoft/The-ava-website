@@ -8,7 +8,17 @@ export function AboutSection() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div className="relative">
           <div className="aspect-[3/4] overflow-hidden">
-            <img src="https://bookonelocal.in/cdn/DSC08846.avif" alt="Mountain views across The Mountain Resort estate in Karjat" className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000" loading="lazy" />
+            <video
+              src="https://bookonelocal.in/cdn/homehero.MP4"
+              poster="https://bookonelocal.in/cdn/DSC08846.avif"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-hidden="true"
+              className="w-full h-full object-cover"
+            />
           </div>
           <div className="absolute -bottom-6 -right-6 w-44 h-44 bg-[#C9A84C] hidden md:flex flex-col items-center justify-center text-[#111111]">
             <span className="font-display text-[52px] leading-none">7</span>

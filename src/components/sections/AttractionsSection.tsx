@@ -20,7 +20,7 @@ export function AttractionsSection() {
           {hotel.touristPlaces.map((place) => (
             <div key={place.name} className="attraction-card flex flex-col group">
               <div className="relative aspect-[16/10] overflow-hidden bg-[#f5f5f5]">
-                <img src={place.image} alt={place.name} className="parallax-img w-full h-[120%] object-cover" loading="lazy" />
+                <img src={place.image} alt={place.imageAlt} className="parallax-img w-full h-[120%] object-cover" loading="lazy" />
                 <div className="absolute top-4 left-4">
                   <span className="bg-[#C9A84C] text-[#111111] px-4 py-1 rounded-full text-[10px] font-medium uppercase tracking-wider">{place.activity}</span>
                 </div>

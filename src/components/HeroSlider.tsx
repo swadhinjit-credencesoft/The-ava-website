@@ -48,10 +48,16 @@ export function HeroSlider() {
   return (
     <div ref={containerRef} className="relative w-full h-[100dvh] min-h-[700px] overflow-hidden bg-[#111111]">
 
-      {/* Resort photography */}
-      <img
-        src="https://bookonelocal.in/cdn/DSC08846.avif"
-        alt="Mountain landscape at The Mountain Resort in Karjat"
+      {/* Resort hero video with a still image available while it loads */}
+      <video
+        src="https://bookonelocal.in/cdn/homehero.MP4"
+        poster="https://bookonelocal.in/cdn/DSC08846.avif"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-hidden="true"
         className="hero-video absolute inset-0 w-full h-[120%] object-cover"
         style={{ filter: "brightness(0.95) saturate(1.05)" }}
       />
