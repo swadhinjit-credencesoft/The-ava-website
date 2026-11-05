@@ -67,7 +67,7 @@ export function HeroSlider() {
 
       {/* Main content */}
       <div className="hero-inner relative flex flex-col h-full max-w-screen-2xl mx-auto px-8 md:px-16" style={{ zIndex: 10 }}>
-        <div className="flex-1 flex flex-col justify-center pt-20 pb-32">
+        <div className="flex-1 flex flex-col justify-end pt-12 pb-24">
           {/* Gold label */}
           <div className="hero-label flex items-center gap-3 mb-8">
             <div className="w-8 h-px bg-[#C9A84C]" />
@@ -78,7 +78,7 @@ export function HeroSlider() {
 
           {/* Headline */}
           <div className="overflow-hidden mb-2">
-            <h1 className="hero-title font-display text-[clamp(29px,8vw,120px)] leading-[0.9] tracking-tight whitespace-nowrap bg-gradient-to-b from-white via-white to-[#C9A84C] bg-clip-text text-transparent">
+            <h1 className="hero-title font-display text-[clamp(29px,8vw,120px)] leading-[0.9] tracking-tight whitespace-nowrap text-white">
               THE MOUNTAIN RESORT
             </h1>
           </div>
@@ -89,7 +89,7 @@ export function HeroSlider() {
           </p>
 
           {/* Description */}
-          <p className="hero-sub text-white/70 text-[15px] md:text-[17px] max-w-xl leading-relaxed mb-10">
+          <p className="hero-sub text-white/85 text-[15px] md:text-[17px] max-w-xl leading-relaxed mb-10">
             Escape to a private 7-acre mountain estate with open lawns, thoughtfully designed stays,
             poolside experiences and celebration spaces near Mumbai and Pune.
           </p>
