@@ -6,6 +6,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { RootState } from "@/store";
 import { setCheckIn, setCheckOut, setGuests } from "@/store/slices/bookingSlice";
+import { fetchHotelMateAvailability } from "@/lib/hotelmate";
 import { Calendar, Users } from "lucide-react";
 import { format, parse, differenceInDays } from "date-fns";
 
@@ -23,11 +24,13 @@ export function BookingBar({ dark }: BookingBarProps) {
   const { checkIn, checkOut, guests } = useSelector((state: RootState) => state.booking);
   const hotel = useSelector((state: RootState) => state.data.hotel);
   const [error, setError] = useState("");
+  const [isChecking, setIsChecking] = useState(false);
 
   const checkInDate = checkIn ? parse(checkIn, "yyyy-MM-dd", new Date()) : null;
   const checkOutDate = checkOut ? parse(checkOut, "yyyy-MM-dd", new Date()) : null;
 
-  const handleSearch = () => {
+  const handleSearch = async () => {
+    if (isChecking) return;
     setError("");
 
     if (!checkIn || !checkOut) {
@@ -44,25 +47,54 @@ export function BookingBar({ dark }: BookingBarProps) {
     const ci = parseYmd(checkIn);
     const co = parseYmd(checkOut);
 
-    const params = new URLSearchParams({
-      bookingEngine: "true",
-      checkinDay: ci.day,
-      checkinMonth: ci.month,
-      checkinYear: ci.year,
-      checkoutDay: co.day,
-      checkoutMonth: co.month,
-      checkoutYear: co.year,
-      checkOut: checkOut,
-      toDate: checkOut,
-      date_to: checkOut,
-      nights: String(diff),
-      numGuests: String(guests),
-      numAdults: String(guests),
-      Children: "0",
-      rooms: "1",
-    });
+    const bookingTab = window.open("about:blank", "_blank");
+    if (!bookingTab) {
+      setError("Allow pop-ups to continue to booking.");
+      return;
+    }
+    bookingTab.opener = null;
+    bookingTab.document.title = "Checking availability";
+    bookingTab.document.body.textContent = "Checking live availability for your stay…";
+    setIsChecking(true);
 
-    window.open(`${hotel.bookingEngineUrl}&${params.toString()}`, "_blank", "noopener,noreferrer");
+    try {
+      const availability = await fetchHotelMateAvailability({
+        fromDate: checkIn,
+        toDate: checkOut,
+        noOfRooms: 1,
+        noOfPersons: guests,
+      });
+
+      if (!availability.rooms.some((room) => room.isAvailable !== false && (room.availableRooms === null || room.availableRooms >= 1))) {
+        bookingTab.close();
+        setError("No rooms are available for these dates. Try different dates.");
+        return;
+      }
+
+      const bookingUrl = new URL(hotel.bookingEngineUrl);
+      const bookingParams = bookingUrl.searchParams;
+      bookingParams.set("bookingEngine", "true");
+      bookingParams.set("checkinDay", ci.day);
+      bookingParams.set("checkinMonth", ci.month);
+      bookingParams.set("checkinYear", ci.year);
+      bookingParams.set("checkoutDay", co.day);
+      bookingParams.set("checkoutMonth", co.month);
+      bookingParams.set("checkoutYear", co.year);
+      bookingParams.set("checkOut", checkOut);
+      bookingParams.set("toDate", checkOut);
+      bookingParams.set("date_to", checkOut);
+      bookingParams.set("nights", String(diff));
+      bookingParams.set("numGuests", String(guests));
+      bookingParams.set("numAdults", String(guests));
+      bookingParams.set("Children", "0");
+      bookingParams.set("rooms", "1");
+      bookingTab.location.replace(bookingUrl.toString());
+    } catch (availabilityError) {
+      bookingTab.close();
+      setError(availabilityError instanceof Error ? availabilityError.message : "Could not check availability. Please try again.");
+    } finally {
+      setIsChecking(false);
+    }
   };
 
   const handleCheckInChange = (date: Date | null) => {
@@ -233,10 +265,11 @@ export function BookingBar({ dark }: BookingBarProps) {
           <div className="flex flex-col items-end gap-2">
             <button
               onClick={handleSearch}
+              disabled={isChecking}
               className="bg-[#C9A84C] text-[#111111] px-10 py-4 rounded-full font-medium text-[16px] hover:bg-[#b8943f] transition-colors whitespace-nowrap w-full md:w-auto"
               data-testid="button-check-availability"
             >
-              Check Availability
+              {isChecking ? "Checking Availability…" : "Check Availability"}
             </button>
             {error && (
               <p className="text-red-500 text-[12px] font-medium text-right" data-testid="text-booking-error">{error}</p>

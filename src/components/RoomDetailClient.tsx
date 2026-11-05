@@ -9,16 +9,19 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { CheckCircle, Users, Maximize, IndianRupee } from "lucide-react";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store";
+import { useHotelMateRooms } from "@/hooks/useHotelMateRooms";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Breadcrumb } from "@/components/sections/Breadcrumb";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function RoomDetailClient() {
+export function RoomDetailClient({ roomId }: { roomId?: string }) {
   const params = useParams();
   const hotel = useSelector((state: RootState) => state.data.hotel);
-  const room = hotel.rooms.find((r) => r.id === params.id?.toString().replace("-room", ""));
+  const { data, isPending, isError, error, refetch } = useHotelMateRooms();
+  const routeRoomId = roomId ?? params.id?.toString().replace(/-room$/, "");
+  const room = data?.rooms.find((item) => item.id === routeRoomId || String(item.apiId) === routeRoomId);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
@@ -34,7 +37,9 @@ export function RoomDetailClient() {
         <Navbar />
         <main className="flex-1 pt-20 flex items-center justify-center">
           <div className="text-center">
-            <h1 className="font-display text-[48px] text-[#111111] uppercase">Room Not Found</h1>
+            <h1 className="font-display text-[48px] text-[#111111] uppercase">{isPending ? "Loading Room" : isError ? "Room Details Unavailable" : "Room Not Found"}</h1>
+            {isError && <p className="text-[#707072] mt-4">{error instanceof Error ? error.message : "Live room details could not be loaded."}</p>}
+            {isError && <button onClick={() => refetch()} className="text-[#C9A84C] mt-4">Try again</button>}
             <Link href="/rooms" className="text-[#C9A84C] mt-4 inline-block">View all rooms</Link>
           </div>
         </main>
@@ -56,49 +61,43 @@ export function RoomDetailClient() {
               name: room.name,
               description: room.description,
               image: room.image,
-              offers: {
-                "@type": "Offer",
-                price: room.price.replace(/[^0-9.]/g, ""),
-                priceCurrency: "INR",
-                availability: "https://schema.org/InStock",
-                url: hotel.bookingEngineUrl,
-              },
+              ...(room.price !== null ? { offers: { "@type": "Offer", price: room.price, priceCurrency: room.currency, availability: room.isAvailable === false ? "https://schema.org/SoldOut" : "https://schema.org/InStock", url: hotel.bookingEngineUrl } } : {}),
             }),
           }}
         />
         <Breadcrumb />
 
         <section className="relative w-full h-[60vh] overflow-hidden">
-          <img src={room.image} alt={room.name} className="absolute inset-0 w-full h-full object-cover" style={{ filter: "brightness(0.45)" }} />
+          {room.image && <img src={room.image} alt={room.name} className="absolute inset-0 w-full h-full object-cover" style={{ filter: "brightness(0.45)" }} />}
           <div className="absolute inset-0 flex flex-col justify-center items-center text-center z-10 px-8">
             <p className="text-[#C9A84C] text-[12px] uppercase tracking-[0.4em] mb-6">{room.type}</p>
             <h1 className="font-display text-[64px] md:text-[100px] text-white uppercase leading-[0.85]">{room.name}</h1>
-            <p className="text-white/80 text-[18px] max-w-lg mt-6 font-medium">{room.price.startsWith("₹") ? `From ${room.price} / night` : "Rates available on enquiry"}</p>
+            <p className="text-white/80 text-[18px] max-w-lg mt-6 font-medium">{room.formattedPrice ? `${room.formattedPrice} / night${room.pricePlan ? ` | ${room.pricePlan}` : ""}` : "Check rates for your selected dates"}</p>
           </div>
         </section>
 
         <section className="py-16 px-4 md:px-8 bg-[#f5f5f5]">
           <div className="max-w-screen-xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className={`grid grid-cols-1 gap-4 ${room.size ? "md:grid-cols-3" : "md:grid-cols-2"}`}>
               <div className="detail-item flex items-center gap-4 p-6 bg-white border border-[#e5e5e5]">
                 <IndianRupee size={24} className="text-[#C9A84C] flex-shrink-0" />
                 <div>
-                  <p className="text-[#707072] text-[11px] uppercase tracking-wider font-medium">{room.price.startsWith("₹") ? "From" : "Rates"}</p>
-                  <p className="text-[#111111] font-display text-[24px]">{room.price}{room.price.startsWith("₹") && <span className="text-[#707072] text-[13px] font-medium">/night</span>}</p>
+                  <p className="text-[#707072] text-[11px] uppercase tracking-wider font-medium">{room.pricePlan ?? "Rate"}</p>
+                  <p className="text-[#111111] font-display text-[24px]">{room.formattedPrice ?? "Check dates"}<span className="text-[#707072] text-[13px] font-medium">{room.formattedPrice ? "/night" : ""}</span></p>
                 </div>
               </div>
-              <div className="detail-item flex items-center gap-4 p-6 bg-white border border-[#e5e5e5]">
+              {room.size && <div className="detail-item flex items-center gap-4 p-6 bg-white border border-[#e5e5e5]">
                 <Maximize size={24} className="text-[#C9A84C] flex-shrink-0" />
                 <div>
                   <p className="text-[#707072] text-[11px] uppercase tracking-wider font-medium">Stay Details</p>
                   <p className="text-[#111111] font-display text-[24px]">{room.size}</p>
                 </div>
-              </div>
+              </div>}
               <div className="detail-item flex items-center gap-4 p-6 bg-white border border-[#e5e5e5]">
                 <Users size={24} className="text-[#C9A84C] flex-shrink-0" />
                 <div>
                   <p className="text-[#707072] text-[11px] uppercase tracking-wider font-medium">Occupancy</p>
-                  <p className="text-[#111111] font-display text-[24px]">{room.occupancy}</p>
+                  <p className="text-[#111111] font-display text-[24px]">{room.occupancy ?? "Not listed"}</p>
                 </div>
               </div>
             </div>
@@ -135,26 +134,32 @@ export function RoomDetailClient() {
           </div>
         </section>
 
+        {room.ratePlans.length > 0 && <section className="py-16 px-4 md:px-8">
+          <div className="max-w-screen-xl mx-auto">
+            <p className="text-[#C9A84C] text-[12px] uppercase tracking-[0.4em] mb-4">Live pricing</p>
+            <h2 className="font-display text-[42px] md:text-[56px] text-[#111111] uppercase leading-[0.9] mb-8">RATE PLANS</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {room.ratePlans.map((plan) => (
+                <div key={`${plan.name}-${plan.amount}`} className="flex items-center justify-between gap-4 p-5 bg-[#f5f5f5] border border-[#e5e5e5]">
+                  <span className="text-[#111111] font-medium text-[14px]">{plan.name}</span>
+                  <span className="font-display text-[24px] text-[#C9A84C]">{new Intl.NumberFormat("en-IN", { style: "currency", currency: plan.currencyCode, maximumFractionDigits: 0 }).format(plan.amount)}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>}
+
         <section className="py-24 px-4 md:px-8 bg-[#f5f5f5]">
           <div className="max-w-screen-xl mx-auto">
             <p className="text-[#C9A84C] text-[12px] uppercase tracking-[0.4em] mb-4">Gallery</p>
             <h2 className="font-display text-[52px] md:text-[68px] text-[#111111] uppercase leading-[0.9] mb-12">PHOTOS</h2>
-            <div className="aspect-[16/9] overflow-hidden bg-[#e5e5e5] mb-4">
-              <img src={room.image} alt={room.name} className="w-full h-full object-cover" />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {room.images.map((image, index) => (
+                <div key={`${room.apiId}-image-${index}`} className="aspect-[4/3] overflow-hidden bg-[#e5e5e5]">
+                  <img src={image} alt={`${room.name} photo ${index + 1}`} className="w-full h-full object-cover" loading="lazy" />
+                </div>
+              ))}
             </div>
-            <p className="text-[#707072] text-[13px] font-medium italic">More photos coming soon. Contact us for a video walkthrough.</p>
-            {/*
-              Full gallery grid — drop in real image paths here:
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-                <div className="aspect-[4/3] overflow-hidden bg-[#e5e5e5]">
-                  <img src="/rooms/ROOMID-photo-1.jpg" alt="" className="w-full h-full object-cover" />
-                </div>
-                <div className="aspect-[4/3] overflow-hidden bg-[#e5e5e5]">
-                  <img src="/rooms/ROOMID-photo-2.jpg" alt="" className="w-full h-full object-cover" />
-                </div>
-                ...
-              </div>
-            */}
           </div>
         </section>
       </main>

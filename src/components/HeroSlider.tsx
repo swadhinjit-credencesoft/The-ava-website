@@ -17,7 +17,6 @@ export function HeroSlider() {
       .fromTo(".hero-title",  { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 1.2, stagger: 0.12, ease: "power4.out" }, "-=0.4")
       .fromTo(".hero-sub",    { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease: "power3.out" }, "-=0.5")
       .fromTo(".hero-ctas",   { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, "-=0.5")
-      .fromTo(".hero-badge",  { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.7, ease: "back.out(1.5)" }, "-=0.4")
       .fromTo(".hero-bar",    { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, "-=0.3");
 
     gsap.to(".hero-inner", {
@@ -115,16 +114,6 @@ export function HeroSlider() {
         </div>
 
         <div className="pb-10 hidden md:flex items-center justify-end border-t border-white/10 pt-6" />
-      </div>
-
-      {/* Right side: gold badge */}
-      <div className="hero-badge absolute right-8 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center gap-3" style={{ zIndex: 10 }}>
-        <div className="flex flex-col items-center text-center bg-[#C9A84C]/10 border border-[#C9A84C]/30 px-5 py-6 backdrop-blur-sm">
-          <span className="font-display text-[42px] text-[#C9A84C] leading-none">7</span>
-          <span className="text-white/60 text-[10px] uppercase tracking-[0.25em] mt-1 max-w-[80px]">Acres of Private Estate</span>
-        </div>
-        <div className="w-px h-16 bg-white/20" />
-        <div className="w-2 h-2 rounded-full bg-[#C9A84C]" />
       </div>
 
       {/* Scroll indicator */}

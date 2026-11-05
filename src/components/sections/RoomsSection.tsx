@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useSelector } from "react-redux";
-import { RootState } from "@/store";
+import { useHotelMateRooms } from "@/hooks/useHotelMateRooms";
 
 export function RoomsSection() {
-  const hotel = useSelector((state: RootState) => state.data.hotel);
+  const { data, isPending, isError } = useHotelMateRooms();
+  const rooms = data?.rooms ?? [];
   return (
     <section className="py-32 px-4 md:px-8">
       <div className="max-w-screen-2xl mx-auto">
@@ -17,20 +17,24 @@ export function RoomsSection() {
           <Link href="/rooms" className="hidden md:flex bg-[#f5f5f5] text-[#111111] px-8 py-4 rounded-full font-medium text-[14px] hover:bg-[#e5e5e5] transition-colors" data-testid="button-all-rooms">View All</Link>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-          {hotel.rooms.map((room) => (
+          {isPending && Array.from({ length: 4 }, (_, index) => (
+            <div key={`room-loading-${index}`} className="aspect-[4/3] bg-[#e5e5e5] animate-pulse" />
+          ))}
+          {isError && <p className="md:col-span-2 text-center py-12 text-[#707072]">Live room details are temporarily unavailable.</p>}
+          {!isPending && !isError && rooms.map((room) => (
             <div key={room.id} className="room-reveal group relative overflow-hidden">
               <div className="aspect-[4/3] overflow-hidden">
-                <img src={room.image} alt={room.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+                {room.image && <img src={room.image} alt={room.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />}
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-8 flex items-end justify-between">
                 <div>
-                  <p className="text-white/50 text-[10px] uppercase tracking-widest">{room.type}</p>
+                  {room.type && <p className="text-white/50 text-[10px] uppercase tracking-widest">{room.type}</p>}
                   <h3 className="font-display text-[36px] text-white uppercase leading-tight mt-1">{room.name}</h3>
                 </div>
                 <div className="flex items-center gap-3">
-                  {room.price && <span className="bg-[#C9A84C] text-[#111111] px-3 py-1 rounded-full text-[11px] font-bold">{room.price}{room.price.startsWith("₹") && <span className="font-medium">/night</span>}</span>}
-                  <Link href={`/rooms/${room.id}-room`} className="bg-white text-[#111111] px-6 py-3 rounded-full font-medium text-[12px] opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300" data-testid={`button-room-${room.id}`}>
+                  {room.formattedPrice && <span className="bg-[#C9A84C] text-[#111111] px-3 py-1 rounded-full text-[11px] font-bold">{room.formattedPrice}<span className="font-medium">/night</span></span>}
+                  <Link href={`/rooms/detail?room=${encodeURIComponent(room.id)}`} className="bg-white text-[#111111] px-6 py-3 rounded-full font-medium text-[12px] opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300" data-testid={`button-room-${room.id}`}>
                     View Room
                   </Link>
                 </div>

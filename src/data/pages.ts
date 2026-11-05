@@ -32,7 +32,7 @@ const cdn = "https://bookonelocal.in/cdn";
 export const pages: Record<string, PageContent> = {
   "/rooms": {
     breadcrumb: [{ label: "Home", href: "/" }, { label: "Stay" }],
-    hero: { image: `${cdn}/2026-04-02-073101502-DSC08801.jpg`, label: "Stay at The Mountain", title: "STAY WITH US", subtitle: "Mountain-view rooms, private jacuzzi stays and a bungalow villa in Karjat" },
+    hero: { image: `${cdn}/2026-04-02-073101502-DSC08801.jpg`, label: "Stay at The Mountain", title: "STAY WITH US", subtitle: "Live room details, rates and availability for your selected dates" },
     cta: { label: "Ready to Book?", title: "PLAN YOUR STAY", buttons: [
       { label: hotelData.phone, href: "tel:+919833866655", variant: "gold", testId: "button-rooms-call" },
       { label: "Book Now", href: hotelData.bookingEngineUrl, variant: "white", testId: "button-rooms-book" }

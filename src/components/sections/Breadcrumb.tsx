@@ -9,7 +9,10 @@ export function Breadcrumb() {
   const pathname = usePathname();
   const pages = useSelector((state: RootState) => state.data.pages);
   const page = pages[pathname];
-  const items = page?.breadcrumb || [{ label: "Home", href: "/" }];
+  const defaultItems: { label: string; href?: string }[] = pathname === "/gallery"
+    ? [{ label: "Home", href: "/" }, { label: "Gallery" }]
+    : [{ label: "Home", href: "/" }];
+  const items = page?.breadcrumb || defaultItems;
   return (
     <div className="px-8 py-4 bg-[#f5f5f5] border-b border-[#e5e5e5]">
       <p className="text-[#707072] text-[13px] font-medium">

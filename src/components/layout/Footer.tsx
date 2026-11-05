@@ -25,6 +25,7 @@ export function Footer() {
         <div className="flex flex-col gap-3">
           <h4 className="font-medium text-[13px] uppercase tracking-[0.25em] text-white mb-2">Quick Links</h4>
           {hotel.nav.map((item) => <Link key={item.href} href={item.href} className="text-white/50 text-[13px] font-medium hover:text-white transition-colors w-fit">{item.label}</Link>)}
+          <Link href="/gallery" className="text-white/50 text-[13px] font-medium hover:text-white transition-colors w-fit">Gallery</Link>
         </div>
 
         <div className="flex flex-col gap-3">

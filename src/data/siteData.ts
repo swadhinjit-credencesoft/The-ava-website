@@ -1,11 +1,9 @@
-import { rooms } from "./rooms";
 import { amenities } from "./amenities";
 import { features } from "./features";
 import { touristPlaces } from "./touristPlaces";
 import { distances } from "./distances";
 import { events } from "./events";
 import { nav } from "./nav";
-import { roomInclusions } from "./roomInclusions";
 
 export const hotelData = {
   name: "The Mountain Resort Karjat",
@@ -18,8 +16,6 @@ export const hotelData = {
   website: "www.themountainresorts.com",
   bookingEngineUrl: "https://bookone.io/the-mountain-by-redwings?bookingEngine=true",
   description: "A private 7-acre mountain estate in Karjat for destination weddings, celebration weekends, and luxury stays. The Mountain Resort by Redwings brings together mountain views, open lawns, comfortable accommodation, poolside experiences and in-house dining.",
-  rooms,
-  roomInclusions,
   features,
   amenities,
   touristPlaces,
