@@ -54,7 +54,7 @@ export default async function ExploreArticleLayout({ children, params }: { child
         publisher: {
           "@type": "Organization",
           name: "The Mountain Resort Karjat",
-          logo: { "@type": "ImageObject", url: `${siteUrl}/favicon.svg` },
+          logo: { "@type": "ImageObject", url: `${siteUrl}/logo.png` },
         },
         isPartOf: { "@type": "WebSite", name: "The Mountain Resort", url: siteUrl },
       }

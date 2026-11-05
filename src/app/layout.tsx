@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
   openGraph: { title: siteTitle, description: siteDescription, url: siteUrl, type: "website", locale: "en_IN", siteName: "The Mountain Resort Karjat", images: [{ url: heroImage, width: 1200, height: 900, alt: "The Mountain Resort Karjat by Redwings" }] },
   twitter: { card: "summary_large_image", title: siteTitle, description: siteDescription, images: [heroImage] },
-  icons: { icon: "/favicon.svg", apple: "/favicon.svg" },
+  icons: { icon: "/logo.png", apple: "/logo.png" },
 };
 
 export const viewport: Viewport = { width: "device-width", initialScale: 1.0, maximumScale: 1.0 };
@@ -45,6 +45,7 @@ const hotelSchema = {
   ],
   contactPoint: { "@type": "ContactPoint", telephone: "+919833866655", contactType: "reservations", email: "reservation@themountainresorts.com", availableLanguage: ["English", "Hindi", "Marathi"] },
   image: heroImage,
+  logo: `${siteUrl}/logo.png`,
 };
 
 const websiteSchema = { "@context": "https://schema.org", "@type": "WebSite", name: "The Mountain Resort Karjat", alternateName: "The Mountain Resort in Karjat, By Redwings", url: siteUrl, description: siteDescription, inLanguage: "en-IN" };

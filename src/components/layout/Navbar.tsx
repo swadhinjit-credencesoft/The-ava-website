@@ -39,10 +39,11 @@ export function Navbar() {
       <div className="flex-1 flex items-center justify-between px-4 md:px-8">
         {/* Logo */}
         <Link href="/" className="hover:opacity-80 transition-opacity flex items-center" data-testid="link-home-logo">
-          <span className={`flex flex-col leading-none ${scrolled ? "text-[#111111]" : "text-white"}`}>
-            <span className="font-display text-[21px] md:text-[25px] tracking-[0.06em]">THE MOUNTAIN</span>
-            <span className="text-[9px] md:text-[10px] tracking-[0.28em] mt-1 text-[#C9A84C]">KARJAT · BY REDWINGS</span>
-          </span>
+          <img
+            src="/logo.png"
+            alt="Venkats The Mountain by Redwings"
+            className="h-[58px] w-[190px] md:h-[72px] md:w-[220px] object-contain drop-shadow-[0_1px_2px_rgba(0,0,0,0.45)]"
+          />
         </Link>
 
         {/* Desktop Center Nav */}
