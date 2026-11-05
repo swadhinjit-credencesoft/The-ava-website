@@ -23,32 +23,69 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = { width: "device-width", initialScale: 1.0, maximumScale: 1.0 };
 
-const hotelSchema = {
+const schemaGraph = {
   "@context": "https://schema.org",
-  "@type": "Hotel",
-  name: "The Mountain Resort Karjat",
-  alternateName: "The Mountain Resort in Karjat, By Redwings",
-  description: siteDescription,
-  url: siteUrl,
-  telephone: "+919833866655",
-  email: "reservation@themountainresorts.com",
-  checkinTime: "13:00",
-  checkoutTime: "11:00",
-  acceptsReservations: true,
-  address: { "@type": "PostalAddress", streetAddress: "Survey No. 120, 144 & 145, Wavarle, Vadvihir, Khalapur", addressLocality: "Karjat", addressRegion: "Maharashtra", postalCode: "410201", addressCountry: "IN" },
-  amenityFeature: [
-    { "@type": "LocationFeatureSpecification", name: "Free Wi-Fi" },
-    { "@type": "LocationFeatureSpecification", name: "Free Parking" },
-    { "@type": "LocationFeatureSpecification", name: "Outdoor Swimming Pool" },
-    { "@type": "LocationFeatureSpecification", name: "In-House Dining" },
-    { "@type": "LocationFeatureSpecification", name: "Private Jacuzzi Room" },
+  "@graph": [
+    {
+      "@type": "Hotel",
+      "@id": `${siteUrl}/#hotel`,
+      name: "The Mountain Resort Karjat",
+      alternateName: "The Mountain Resort in Karjat, By Redwings",
+      description: siteDescription,
+      url: siteUrl,
+      telephone: "+919833866655",
+      email: "reservation@themountainresorts.com",
+      checkinTime: "13:00",
+      checkoutTime: "11:00",
+      acceptsReservations: true,
+      parentOrganization: { "@id": `${siteUrl}/#organization` },
+      address: { "@type": "PostalAddress", streetAddress: "Survey No. 120, 144 & 145, Wavarle, Vadvihir, Khalapur", addressLocality: "Karjat", addressRegion: "Maharashtra", postalCode: "410201", addressCountry: "IN" },
+      areaServed: [
+        { "@type": "City", name: "Karjat" },
+        { "@type": "City", name: "Mumbai" },
+        { "@type": "City", name: "Pune" },
+      ],
+      amenityFeature: [
+        { "@type": "LocationFeatureSpecification", name: "Free Wi-Fi" },
+        { "@type": "LocationFeatureSpecification", name: "Free Parking" },
+        { "@type": "LocationFeatureSpecification", name: "Outdoor Swimming Pool" },
+        { "@type": "LocationFeatureSpecification", name: "In-House Dining" },
+        { "@type": "LocationFeatureSpecification", name: "Private Jacuzzi Room" },
+      ],
+      contactPoint: { "@type": "ContactPoint", telephone: "+919833866655", contactType: "reservations", email: "reservation@themountainresorts.com", availableLanguage: ["English", "Hindi", "Marathi"] },
+      image: heroImage,
+      logo: `${siteUrl}/logo.png`,
+      hasMap: "https://maps.google.com/?q=The+Mountain+Resort+Karjat+Wavarle",
+      sameAs: ["https://instagram.com/themountain.karjat"],
+      potentialAction: {
+        "@type": "ReserveAction",
+        target: "https://bookone.io/the-mountain-by-redwings?bookingEngine=true",
+        name: "Check availability and reserve a stay",
+      },
+    },
+    {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      name: "The Mountain Resort by Redwings",
+      url: siteUrl,
+      logo: { "@type": "ImageObject", url: `${siteUrl}/logo.png` },
+      telephone: "+919833866655",
+      email: "reservation@themountainresorts.com",
+      address: { "@type": "PostalAddress", streetAddress: "Survey No. 120, 144 & 145, Wavarle, Vadvihir, Khalapur", addressLocality: "Karjat", addressRegion: "Maharashtra", postalCode: "410201", addressCountry: "IN" },
+      sameAs: ["https://instagram.com/themountain.karjat"],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      name: "The Mountain Resort Karjat",
+      alternateName: "The Mountain Resort in Karjat, By Redwings",
+      url: siteUrl,
+      description: siteDescription,
+      inLanguage: "en-IN",
+      publisher: { "@id": `${siteUrl}/#organization` },
+    },
   ],
-  contactPoint: { "@type": "ContactPoint", telephone: "+919833866655", contactType: "reservations", email: "reservation@themountainresorts.com", availableLanguage: ["English", "Hindi", "Marathi"] },
-  image: heroImage,
-  logo: `${siteUrl}/logo.png`,
 };
-
-const websiteSchema = { "@context": "https://schema.org", "@type": "WebSite", name: "The Mountain Resort Karjat", alternateName: "The Mountain Resort in Karjat, By Redwings", url: siteUrl, description: siteDescription, inLanguage: "en-IN" };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
@@ -57,8 +94,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(hotelSchema) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }} />
       </head>
       <body suppressHydrationWarning><Providers>{children}</Providers></body>
     </html>

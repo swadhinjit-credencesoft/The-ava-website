@@ -1,0 +1,30 @@
+# The Mountain Resort by Redwings
+
+> Official website for The Mountain Resort, a private mountain estate in Wavarle, Vadvihir, Karjat, Maharashtra, India.
+
+The resort offers accommodation, a swimming pool, in-house dining, open lawns, and spaces for weddings and events. The property is approximately seven acres. Contact the resort directly to confirm current room inventory, rates, inclusions, event capacities, and availability.
+
+## Official pages
+
+- [Home](https://themountainresorts.com/): Resort overview and booking links.
+- [Stay and rooms](https://themountainresorts.com/rooms): Current room details and availability are loaded from the booking inventory.
+- [Experiences](https://themountainresorts.com/amenities): Resort amenities and experiences.
+- [Nearby Karjat](https://themountainresorts.com/tour): Local travel and nearby experience information.
+- [Explore Karjat](https://themountainresorts.com/explore): Karjat travel guides.
+- [Weddings and events](https://themountainresorts.com/events): Event spaces and enquiry information.
+- [Gallery](https://themountainresorts.com/gallery): Resort and stay photos.
+- [Contact](https://themountainresorts.com/contact): Contact details and directions.
+
+## Booking and contact
+
+- [Check availability and book](https://bookone.io/the-mountain-by-redwings?bookingEngine=true)
+- Phone: +91 98338 66655
+- Email: reservation@themountainresorts.com
+- Address: Survey No. 120, 144 & 145, Wavarle, Vadvihir, Khalapur, Karjat, Maharashtra 410201, India.
+
+For information that changes over time, including prices, availability, package inclusions, pool access, event capacity, and travel conditions, refer to the official pages or contact the resort.
+
+## Discovery files
+
+- [XML sitemap](https://themountainresorts.com/sitemap.xml)
+- [Robots policy](https://themountainresorts.com/robots.txt)

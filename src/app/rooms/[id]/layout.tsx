@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
+import { roomRouteSlugs } from "@/data/roomRoutes";
 
 const siteUrl = "https://themountainresorts.com";
-const roomRouteSlugs = ["standard", "cliff-view", "family", "glass-jacuzzi", "bungalow"];
 
 export async function generateStaticParams() {
   return roomRouteSlugs.map((id) => ({ id: `${id}-room` }));

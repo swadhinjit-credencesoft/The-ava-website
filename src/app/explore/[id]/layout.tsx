@@ -46,7 +46,7 @@ export default async function ExploreArticleLayout({ children, params }: { child
         "@type": "BlogPosting",
         headline: article.title,
         description: article.excerpt,
-        image: `${siteUrl}${article.image}`,
+        image: article.image,
         url: articleUrl,
         inLanguage: "en-IN",
         about: "Karjat travel",
