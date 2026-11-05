@@ -12,8 +12,10 @@ export function Footer() {
       <div className="max-w-screen-2xl mx-auto px-8 md:px-16 pt-20 pb-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 border-b border-white/10">
         <div className="flex flex-col gap-6">
           <div>
-            <img src="/logo.png" alt="Venkats The Mountain by Redwings" className="w-[220px] h-[92px] object-contain bg-white rounded-sm p-1" />
-            <p className="text-[#C9A84C] text-[11px] uppercase tracking-[0.3em] mt-2">KARJAT · BY REDWINGS</p>
+            <Link href="/" className="inline-flex rounded-md bg-[#f7f5ed] p-2 shadow-sm hover:opacity-90 transition-opacity" aria-label="The Mountain Resort Karjat home">
+              <img src="/logo.png" alt="Venkats The Mountain by Redwings" className="w-[240px] h-[100px] object-contain" />
+            </Link>
+            <p className="text-[#C9A84C] text-[11px] uppercase tracking-[0.3em] mt-3">KARJAT · MAHARASHTRA</p>
           </div>
           <p className="text-white/50 text-[13px] leading-relaxed">A private 7-acre mountain estate in Karjat for destination weddings, celebration weekends and relaxed stays near Mumbai and Pune.</p>
           <div className="flex gap-3">
