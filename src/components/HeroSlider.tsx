@@ -1,15 +1,33 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { homeHeroPosterUrl, homeHeroVideoUrl } from "@/data/media";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function HeroSlider() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        void video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    }, { threshold: 0.01 });
+
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
 
   useGSAP(() => {
     const tl = gsap.timeline({ delay: 0.3 });
@@ -49,9 +67,9 @@ export function HeroSlider() {
 
       {/* Resort hero video with a still image available while it loads */}
       <video
-        src="https://bookonelocal.in/cdn/The+Mountain+Resort+home.mp4"
-        poster="https://bookonelocal.in/cdn/DSC08846.avif"
-        autoPlay
+        ref={videoRef}
+        src={homeHeroVideoUrl}
+        poster={homeHeroPosterUrl}
         muted
         loop
         playsInline

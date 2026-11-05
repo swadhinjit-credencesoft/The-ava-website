@@ -1,21 +1,41 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Link from "next/link";
+import { aboutVideoUrl, homeHeroPosterUrl } from "@/data/media";
 
 export function AboutSection() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        void video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    }, { rootMargin: "200px 0px", threshold: 0.01 });
+
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="py-32 px-4 md:px-16 max-w-screen-2xl mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div className="relative">
           <div className="aspect-[3/4] overflow-hidden">
             <video
-              src="https://bookonelocal.in/cdn/homehero.MP4"
-              poster="https://bookonelocal.in/cdn/DSC08846.avif"
-              autoPlay
+              ref={videoRef}
+              src={aboutVideoUrl}
+              poster={homeHeroPosterUrl}
               muted
               loop
               playsInline
-              preload="metadata"
+              preload="none"
               aria-hidden="true"
               className="w-full h-full object-cover"
             />
