@@ -49,7 +49,7 @@ export function HeroSlider() {
 
       {/* Resort hero video with a still image available while it loads */}
       <video
-        src="https://bookonelocal.in/cdn/Mountain+Resort+Montage.mp4"
+        src="https://bookonelocal.in/cdn/The+Mountain+Resort+home.mp4"
         poster="https://bookonelocal.in/cdn/DSC08846.avif"
         autoPlay
         muted
