@@ -50,7 +50,7 @@ export default function ContactPage() {
           <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
               { icon: MapPin, title: "Address", content: "Survey No. 120, 144 & 145, Wavarle, Vadvihir\nKhalapur, Karjat, Maharashtra 410201", href: "https://maps.google.com/?q=The+Mountain+Resort+Karjat+Wavarle" },
-              { icon: Phone, title: "Phone", content: `${hotel.phone}\n${hotel.phoneAlt}`, href: `tel:${hotel.phone.replace(/\s/g, "")}` },
+              { icon: Phone, title: "Phone", content: hotel.phone, href: `tel:${hotel.phone.replace(/\s/g, "")}` },
               { icon: Mail, title: "Email", content: hotel.email, href: `mailto:${hotel.email}` },
               { icon: Clock, title: "Support Hours", content: "24 Hours\n7 Days a Week", href: null },
             ].map((card) => (

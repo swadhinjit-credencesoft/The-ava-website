@@ -11,7 +11,6 @@ export const hotelData = {
   location: "Survey No. 120, 144 & 145, Wavarle, Vadvihir, Khalapur, Karjat, Maharashtra 410201",
   highway: "A private 7-acre mountain estate in Karjat, near Mumbai and Pune",
   phone: "+91 9833866655",
-  phoneAlt: "+91 9152111737",
   email: "reservation@themountainresorts.com",
   website: "www.themountainresorts.com",
   bookingEngineUrl: "https://bookone.io/the-mountain-by-redwings?bookingEngine=true",

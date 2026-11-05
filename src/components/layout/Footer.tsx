@@ -36,7 +36,7 @@ export function Footer() {
         <div className="flex flex-col gap-5">
           <h4 className="font-medium text-[13px] uppercase tracking-[0.25em] text-white mb-2">Contact Us</h4>
           <div className="flex items-start gap-3"><MapPin size={15} className="text-[#C9A84C] mt-0.5 flex-shrink-0" /><p className="text-white/50 text-[13px] leading-relaxed">Survey No. 120, 144 &amp; 145, Wavarle, Vadvihir<br />Khalapur, Karjat, Maharashtra 410201</p></div>
-          <div className="flex items-center gap-3"><Phone size={15} className="text-[#C9A84C] flex-shrink-0" /><div className="flex flex-col gap-1"><a href="tel:+919833866655" className="text-[#C9A84C] text-[13px] font-medium hover:text-white transition-colors">{hotel.phone}</a><a href="tel:+919152111737" className="text-white/50 text-[13px] font-medium hover:text-white transition-colors">{hotel.phoneAlt}</a></div></div>
+          <div className="flex items-center gap-3"><Phone size={15} className="text-[#C9A84C] flex-shrink-0" /><a href={`tel:${hotel.phone.replace(/\s/g, "")}`} className="text-[#C9A84C] text-[13px] font-medium hover:text-white transition-colors">{hotel.phone}</a></div>
           <div className="flex items-center gap-3"><Mail size={15} className="text-[#C9A84C] flex-shrink-0" /><a href={`mailto:${hotel.email}`} className="text-white/50 text-[13px] font-medium hover:text-white transition-colors break-all">{hotel.email}</a></div>
           <div className="flex items-center gap-3"><Clock size={15} className="text-[#C9A84C] flex-shrink-0" /><span className="text-white/50 text-[13px] font-medium">Reservations &amp; event enquiries</span></div>
         </div>
