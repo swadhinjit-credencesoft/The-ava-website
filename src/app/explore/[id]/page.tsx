@@ -8,6 +8,26 @@ import { Footer } from "@/components/layout/Footer";
 import { CtaStrip } from "@/components/sections/CtaStrip";
 import { exploreArticles } from "@/data/explore";
 
+function formatArticleContent(content: string) {
+  return content
+    .split(/\n\s*\n/)
+    .map((block) => {
+      const trimmed = block.trim();
+      if (!trimmed) return "";
+
+      const headingMatch = trimmed.match(/^(<h2>.*?<\/h2>)([\s\S]*)$/);
+      if (headingMatch) {
+        const [, heading, body] = headingMatch;
+        if (!body.trim() || body.trim().startsWith("<p>")) return `${heading}${body}`;
+        return `${heading}<p>${body.trim()}</p>`;
+      }
+
+      return trimmed.startsWith("<p>") ? trimmed : `<p>${trimmed}</p>`;
+    })
+    .filter(Boolean)
+    .join("\n");
+}
+
 export default function ExploreArticlePage() {
   const { id } = useParams() as { id: string };
   const article = exploreArticles.find((a) => a.id === id);
@@ -27,7 +47,7 @@ export default function ExploreArticlePage() {
     );
   }
 
-  const contentHtml = article.content
+  const contentHtml = formatArticleContent(article.content)
     .replace(/<a /g, '<a class="text-[#C9A84C] underline hover:opacity-80 transition-opacity" ')
     .replace(/<h2>/g, '<h2 class="font-display text-[28px] text-[#111111] uppercase mt-12 mb-4">')
     .replace(/<b>/g, '<b class="font-medium text-[#111111]">')

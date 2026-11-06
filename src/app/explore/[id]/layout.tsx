@@ -50,6 +50,8 @@ export default async function ExploreArticleLayout({ children, params }: { child
         url: articleUrl,
         inLanguage: "en-IN",
         about: "Karjat travel",
+        articleSection: article.category,
+        keywords: [article.category, "Karjat", "The Mountain Resort"],
         author: { "@type": "Organization", name: "The Mountain Resort Karjat", url: siteUrl },
         publisher: {
           "@type": "Organization",
