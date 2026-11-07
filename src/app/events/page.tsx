@@ -26,13 +26,63 @@ interface EventFormData {
   message: string;
 }
 
+function buildWhatsAppUrl(data: EventFormData) {
+  const text = [
+    `*New Event & Wedding Enquiry - The Mountain Resort Karjat*`,
+    ``,
+    `*Name:* ${data.name.trim()}`,
+    `*Phone:* ${data.phone.trim()}`,
+    `*Email:* ${data.email.trim()}`,
+    `*Event Type:* ${data.eventType}`,
+    `*Event Date:* ${data.date}`,
+    `*Estimated Guests:* ${data.guests}`,
+    ...(data.message?.trim() ? [`*Special Requests:* ${data.message.trim()}`] : []),
+  ].join("\n");
+
+  return `https://wa.me/919833866655?text=${encodeURIComponent(text)}`;
+}
+
+function buildEmailUrl(data: EventFormData, hotelEmail: string) {
+  const subject = `Event Enquiry: ${data.eventType} - ${data.name.trim()} (${data.date})`;
+  const body = [
+    `Hello The Mountain Resort Team,`,
+    ``,
+    `I would like to enquire about hosting an event at The Mountain Resort Karjat. Here are my details:`,
+    ``,
+    `Name: ${data.name.trim()}`,
+    `Phone: ${data.phone.trim()}`,
+    `Email: ${data.email.trim()}`,
+    `Event Type: ${data.eventType}`,
+    `Event Date: ${data.date}`,
+    `Estimated Guests: ${data.guests}`,
+    `Special Requests: ${data.message?.trim() || "None"}`,
+    ``,
+    `Looking forward to hearing from you.`,
+  ].join("\n");
+
+  return `mailto:${hotelEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
 export default function EventsPage() {
   const hotel = useSelector((state: RootState) => state.data.hotel);
   const containerRef = useRef<HTMLDivElement>(null);
-  const { register, handleSubmit, reset, formState: { isSubmitSuccessful } } = useForm<EventFormData>();
+  const [submittedData, setSubmittedData] = useState<EventFormData | null>(null);
+  const { register, handleSubmit, reset } = useForm<EventFormData>();
 
-  const onSubmit = (_data: EventFormData) => {
-    reset();
+  const onSubmit = (data: EventFormData) => {
+    setSubmittedData(data);
+  };
+
+  const sendViaWhatsApp = (data: EventFormData) => {
+    setSubmittedData(data);
+    const url = buildWhatsAppUrl(data);
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
+  const sendViaEmail = (data: EventFormData) => {
+    setSubmittedData(data);
+    const url = buildEmailUrl(data, hotel.email);
+    window.location.href = url;
   };
 
   useGSAP(() => {
@@ -158,10 +208,71 @@ export default function EventsPage() {
             <div id="event-enquiry" className="bg-[#f5f5f5] p-8 md:p-12 border border-[#e5e5e5] scroll-mt-24">
               <h3 className="font-display text-[32px] text-[#111111] uppercase mb-8">EVENT ENQUIRY</h3>
               
-              {isSubmitSuccessful ? (
-                <div className="bg-white border border-[#cacacb] p-6 text-center">
-                  <p className="text-[#C9A84C] text-[15px] font-bold uppercase tracking-wider mb-2">Thank You!</p>
-                  <p className="text-[#707072] text-[14px] font-medium">We have received your event details and our sales team will contact you shortly.</p>
+              {submittedData ? (
+                <div className="bg-white border border-[#cacacb] p-8 md:p-10 text-center flex flex-col items-center gap-6">
+                  <div className="w-14 h-14 rounded-full bg-[#f7f5ed] flex items-center justify-center text-[#C9A84C]">
+                    <CheckCircle size={32} />
+                  </div>
+                  <div>
+                    <p className="text-[#C9A84C] text-[12px] uppercase tracking-[0.3em] font-semibold mb-2">Details Confirmed</p>
+                    <h4 className="font-display text-[32px] md:text-[36px] text-[#111111] uppercase leading-tight">Send Your Enquiry</h4>
+                    <p className="text-[#707072] text-[14px] font-medium mt-2 max-w-md mx-auto">
+                      Thank you, <strong className="text-[#111111]">{submittedData.name}</strong>. Choose how you would like to connect with our events team:
+                    </p>
+                  </div>
+
+                  <div className="w-full bg-[#f9f9f9] border border-[#e5e5e5] p-5 text-left text-[13px] text-[#707072] flex flex-col gap-2 rounded-lg">
+                    <div className="flex justify-between border-b border-[#e5e5e5] pb-2">
+                      <span className="font-medium text-[#111111]">Event Type:</span>
+                      <span className="text-[#111111] font-semibold">{submittedData.eventType}</span>
+                    </div>
+                    <div className="flex justify-between border-b border-[#e5e5e5] pb-2">
+                      <span className="font-medium text-[#111111]">Event Date:</span>
+                      <span className="text-[#111111] font-semibold">{submittedData.date}</span>
+                    </div>
+                    <div className="flex justify-between border-b border-[#e5e5e5] pb-2">
+                      <span className="font-medium text-[#111111]">Estimated Guests:</span>
+                      <span className="text-[#111111] font-semibold">{submittedData.guests}</span>
+                    </div>
+                    <div className="flex justify-between border-b border-[#e5e5e5] pb-2">
+                      <span className="font-medium text-[#111111]">Phone:</span>
+                      <span className="text-[#111111] font-semibold">{submittedData.phone}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="font-medium text-[#111111]">Email:</span>
+                      <span className="text-[#111111] font-semibold">{submittedData.email}</span>
+                    </div>
+                  </div>
+
+                  <div className="w-full flex flex-col sm:flex-row gap-3 pt-2">
+                    <a
+                      href={buildWhatsAppUrl(submittedData)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 flex items-center justify-center gap-2 bg-[#25D366] text-white py-4 px-6 rounded-full font-medium text-[15px] hover:bg-[#22c35e] transition-all shadow-sm"
+                      data-testid="button-event-whatsapp-option"
+                    >
+                      <MessageCircle size={20} /> Send via WhatsApp
+                    </a>
+                    <a
+                      href={buildEmailUrl(submittedData, hotel.email)}
+                      className="flex-1 flex items-center justify-center gap-2 bg-[#111111] text-white py-4 px-6 rounded-full font-medium text-[15px] hover:bg-[#333] transition-all shadow-sm"
+                      data-testid="button-event-email-option"
+                    >
+                      <Mail size={20} /> Send via Email
+                    </a>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSubmittedData(null);
+                      reset();
+                    }}
+                    className="text-[#707072] text-[13px] underline hover:text-[#111111] mt-2 transition-colors cursor-pointer"
+                  >
+                    Edit details or submit another enquiry
+                  </button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
@@ -256,13 +367,40 @@ export default function EventsPage() {
                     />
                   </div>
 
-                  <button
-                    type="submit"
-                    className="bg-[#111111] text-white py-4 rounded-full font-medium text-[15px] hover:bg-[#333] transition-colors mt-2"
-                    data-testid="button-event-submit"
-                  >
-                    Submit Enquiry
-                  </button>
+                  <div className="flex flex-col gap-3 mt-2">
+                    <button
+                      type="submit"
+                      className="bg-[#111111] text-white py-4 rounded-full font-medium text-[15px] hover:bg-[#333] transition-colors cursor-pointer"
+                      data-testid="button-event-submit"
+                    >
+                      Submit Enquiry
+                    </button>
+
+                    <div className="flex items-center gap-3 my-1">
+                      <div className="h-px bg-[#cacacb] flex-1" />
+                      <span className="text-[11px] uppercase tracking-wider text-[#707072] font-semibold">Or Send Directly Via</span>
+                      <div className="h-px bg-[#cacacb] flex-1" />
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <button
+                        type="button"
+                        onClick={handleSubmit((data) => sendViaWhatsApp(data))}
+                        className="flex items-center justify-center gap-2 bg-[#25D366] text-white py-3.5 px-4 rounded-full font-medium text-[14px] hover:bg-[#22c35e] transition-colors cursor-pointer"
+                        data-testid="button-direct-whatsapp"
+                      >
+                        <MessageCircle size={18} /> WhatsApp
+                      </button>
+                      <button
+                        type="button"
+                        onClick={handleSubmit((data) => sendViaEmail(data))}
+                        className="flex items-center justify-center gap-2 bg-white border border-[#111111] text-[#111111] py-3.5 px-4 rounded-full font-medium text-[14px] hover:bg-[#f5f5f5] transition-colors cursor-pointer"
+                        data-testid="button-direct-email"
+                      >
+                        <Mail size={18} /> Email
+                      </button>
+                    </div>
+                  </div>
                 </form>
               )}
             </div>

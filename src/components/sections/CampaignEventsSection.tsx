@@ -5,7 +5,7 @@ import Link from "next/link";
 export function CampaignEventsSection() {
   return (
     <section className="relative w-full overflow-hidden" style={{ height: "75vh" }}>
-      <img src="https://bookonelocal.in/cdn/DSC08831.avif" alt="Private wedding celebration space at The Mountain Resort" className="absolute inset-0 w-full h-full object-cover" style={{ filter: "brightness(0.35)" }} />
+      <img src="/eventhall.avif" alt="Private wedding celebration space at The Mountain Resort" className="absolute inset-0 w-full h-full object-cover" style={{ filter: "brightness(0.35)" }} />
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-8" style={{ zIndex: 10 }}>
         <p className="text-[#C9A84C] text-[11px] uppercase tracking-[0.5em] mb-6">The Mountain Resort · By Redwings</p>
         <h2 className="font-display text-[56px] md:text-[96px] text-white uppercase leading-[0.85]">WEDDINGS &amp;<br />CELEBRATIONS</h2>

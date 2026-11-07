@@ -23,6 +23,6 @@ export const eventVenues = [
     name: "Private Event Spaces",
     capacity: "20 to 100 guests",
     description: "Private spaces for intimate rituals, family gatherings, corporate meetings, and dining.",
-    image: `${cdn}/DSC08831.avif`,
+    image: "/eventhall.avif",
   },
 ];

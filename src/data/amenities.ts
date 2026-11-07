@@ -9,5 +9,5 @@ export const amenities = [
   { name: "Free Wi-Fi", description: "Stay connected in your room and around the resort.", image: `${cdn}/2026-04-02-073101502-DSC08801.jpg` },
   { name: "Free Parking", description: "On-site parking is available for resort guests.", image: `${cdn}/DSC08758.avif` },
   { name: "Family & Group Stays", description: "Choose from family rooms and a private three-bedroom bungalow villa for larger groups.", image: `${cdn}/2026-04-02-073125239-DSC08769.jpg` },
-  { name: "Celebration Spaces", description: "Plan intimate gatherings, corporate offsites and large celebrations in dedicated event spaces.", image: `${cdn}/DSC08831.avif` }
+  { name: "Celebration Spaces", description: "Plan intimate gatherings, corporate offsites and large celebrations in dedicated event spaces.", image: "/eventhall.avif" }
 ];
