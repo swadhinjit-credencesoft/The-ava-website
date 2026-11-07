@@ -1,11 +1,11 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useForm } from "react-hook-form";
-import { CheckCircle, Phone, Mail } from "lucide-react";
+import { CheckCircle, Phone, Mail, MessageCircle } from "lucide-react";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { Navbar } from "@/components/layout/Navbar";
