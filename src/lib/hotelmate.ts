@@ -126,11 +126,15 @@ function normalizeRoom(room: RecordValue, propertyImages: string[], currency: st
     return (count !== null && count <= 0) || row.stopSellOBE === true || row.stopSellOTA === true || ["closed", "unavailable", "stop sell"].includes(status);
   });
 
+  const resolvedType = (typeof room.businessProductName === "string" && room.businessProductName.trim())
+    ? room.businessProductName
+    : (roomName.toLowerCase().includes("bung") || roomName.toLowerCase().includes("villa") ? "Private Villa" : "Resort Stay");
+
   return {
     id: roomSlug(roomName, room.id),
     apiId: typeof room.id === "number" || typeof room.id === "string" ? room.id : roomName,
     name: roomName,
-    type: typeof room.businessProductName === "string" ? room.businessProductName : "",
+    type: resolvedType,
     description: cleanDescription(room.description),
     image: combinedImages[0] ?? "",
     images: combinedImages,

@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   };
 }
 
-export default async function ExploreArticleLayout({ children, params }: { children: React.ReactNode; params: Promise<{ id: string }> }) {
+export default async function ExploreArticleLayout({ children, params }: { children: React.ReactNode; params: Promise<any> }) {
   const { id } = await params;
   const article = exploreArticles.find((a) => a.id === id);
   const articleUrl = article ? `${siteUrl}/explore/${article.id}` : "";
