@@ -70,9 +70,9 @@ export default function TourPage() {
                 <h2 className="font-display text-[52px] md:text-[68px] text-[#111111] uppercase leading-[0.9] mb-12">DISTANCES<br />FROM HOTEL</h2>
                 <div className="flex flex-col">
                   {hotel.distances.map((d, i) => (
-                    <div key={d.place} className={`distance-row flex items-center justify-between py-4 border-b border-[#cacacb] ${i % 2 === 0 ? "" : "bg-white/50"}`}>
+                    <div key={d.place} className={`distance-row flex items-center justify-between py-4 border-b border-[#cacacb] ${i % 2 === 0 ? "" : "bg-white/50 px-3"}`}>
                       <span className="font-medium text-[15px] text-[#111111]">{d.place}</span>
-                      <span className="font-display text-[24px] text-[#C9A84C]">{d.distance}</span>
+                      <span className="font-display text-[22px] text-[#C9A84C] ml-4 text-right">{d.distance}</span>
                     </div>
                   ))}
                 </div>
@@ -82,14 +82,45 @@ export default function TourPage() {
                 <p className="text-[#C9A84C] text-[12px] uppercase tracking-[0.4em] mb-2">Travel Info</p>
                 <h3 className="font-display text-[42px] text-[#111111] uppercase leading-tight">HOW TO REACH</h3>
                 {[
-                  { title: "By Air", items: ["Plan your route from Mumbai or Pune airports", "Check current flight and onward transfer options"] },
-                  { title: "By Train", items: ["Karjat Junction Railway Station - approximately 4 to 7 km", "Arrange onward transport to the resort"] },
-                  { title: "By Road", items: ["Karjat is approximately 75 km from Mumbai", "Karjat is approximately 100 km from Pune; check live route conditions"] },
+                  {
+                    title: "From Karjat Railway Station",
+                    items: [
+                      "Karjat Junction is approx. 4 to 7 km from the resort.",
+                      "Key Landmark: Baba Dairy House.",
+                      "Route: Reach Borgaon Phata -> Turn RIGHT and go straight 400 m -> Turn RIGHT and go straight 200 m -> Turn LEFT and go straight 400 m -> Arrive at The Mountain Resort."
+                    ]
+                  },
+                  {
+                    title: "From Panvel / Mumbai via Chowk",
+                    items: [
+                      "Drive via Panvel and Chowk (approx. 3.5 km from Chowk).",
+                      "Key Landmark: Meridian Petrol Pump.",
+                      "Route: At Borgaon Phata, take a LEFT turn & straight 500 m -> Turn RIGHT and go straight 200 m -> Turn LEFT & straight 400 m -> Arrive at The Mountain Resort."
+                    ]
+                  },
+                  {
+                    title: "By Road from Mumbai & Pune",
+                    items: [
+                      "From Mumbai: Approx. 75 km via Mumbai-Pune Expressway / Old Highway exit at Chowk/Khalapur.",
+                      "From Pune: Approx. 100 km via Expressway; take Khalapur / Karjat exit towards Chowk.",
+                      "Follow signs to Borgaon Phata towards Wavarle."
+                    ]
+                  },
+                  {
+                    title: "By Air",
+                    items: [
+                      "Mumbai Chhatrapati Shivaji Maharaj International Airport (BOM) ~75 km.",
+                      "Pune International Airport (PNQ) ~100 km.",
+                      "Pre-paid cabs and station trains available directly to Karjat."
+                    ]
+                  },
                 ].map((section) => (
-                  <div key={section.title} className="bg-white p-6 border border-[#cacacb]">
-                    <h4 className="font-display text-[24px] text-[#111111] uppercase mb-4">{section.title}</h4>
-                    {section.items.map((item) => (
-                      <p key={item} className="text-[#707072] text-[14px] font-medium py-2 border-b border-[#f0f0f0] last:border-b-0">{item}</p>
+                  <div key={section.title} className="bg-white p-6 border border-[#cacacb] rounded-lg">
+                    <h4 className="font-display text-[22px] text-[#111111] uppercase mb-4 text-[#C9A84C]">{section.title}</h4>
+                    {section.items.map((item, idx) => (
+                      <p key={idx} className="text-[#707072] text-[14px] font-medium py-2.5 border-b border-[#f0f0f0] last:border-b-0 leading-relaxed">
+                        {item}
+                      </p>
                     ))}
                   </div>
                 ))}

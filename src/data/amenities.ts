@@ -1,13 +1,97 @@
 const cdn = "https://bookonelocal.in/cdn";
+const unsplash = "https://images.unsplash.com";
 
-export const amenities = [
-  { name: "Outdoor Swimming Pool", description: "Enjoy the resort pool during your stay. Access hours depend on your stay or event booking.", image: `${cdn}/DSC08837.avif` },
-  { name: "Private Jacuzzi", description: "Unwind in the private jacuzzi in the distinctive Glass Jacuzzi Room.", image: `${cdn}/2026-04-02-082005702-DSC08852.jpg` },
-  { name: "Mountain Views", description: "Take in the surrounding mountain scenery from the private estate.", image: "/mountainview.avif" },
-  { name: "Open Event Lawns", description: "Host ceremonies and celebrations across manicured lawns and dedicated function zones.", image: `${cdn}/DSC08849.avif` },
-  { name: "In-House Dining", description: "Enjoy buffet dining and hospitality on the estate, with curated menus for celebrations.", image: "/event.avif" },
-  { name: "Free Wi-Fi", description: "Stay connected in your room and around the resort.", image: `${cdn}/2026-04-02-073101502-DSC08801.jpg` },
-  { name: "Free Parking", description: "On-site parking is available for resort guests.", image: `${cdn}/DSC08758.avif` },
-  { name: "Family & Group Stays", description: "Choose from family rooms and a private three-bedroom bungalow villa for larger groups.", image: `${cdn}/2026-04-02-073125239-DSC08769.jpg` },
-  { name: "Celebration Spaces", description: "Plan intimate gatherings, corporate offsites and large celebrations in dedicated event spaces.", image: "/eventhall.avif" }
+export interface Amenity {
+  name: string;
+  category: "Activities" | "Amenities" | "Facilities" | "Entertainment";
+  description: string;
+  image: string;
+  highlight?: string;
+}
+
+export const amenities: Amenity[] = [
+  {
+    name: "Boating",
+    category: "Activities",
+    highlight: "Water Recreation",
+    description: "Enjoy peaceful pedal and paddle boating experiences surrounded by lush Karjat mountain landscapes.",
+    image: `${unsplash}/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80`,
+  },
+  {
+    name: "Trekking",
+    category: "Activities",
+    highlight: "Outdoor Adventure",
+    description: "Explore scenic nature trails and mountain trekking routes with panoramic views of the surrounding Western Ghats.",
+    image: `${unsplash}/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1200&q=80`,
+  },
+  {
+    name: "Indoor & Outdoor Games",
+    category: "Activities",
+    highlight: "Sports & Fun",
+    description: "Engage in friendly matches with badminton, cricket, carrom, table tennis, and a variety of lawn board games.",
+    image: `${unsplash}/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200&q=80`,
+  },
+  {
+    name: "Rain Dance",
+    category: "Activities",
+    highlight: "Party & Beats",
+    description: "Cool off under high-pressure water sprinkler showers accompanied by rhythmic party tracks on our dedicated rain dance arena.",
+    image: `${unsplash}/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=80`,
+  },
+  {
+    name: "Swimming Pool",
+    category: "Amenities",
+    highlight: "Mountain View Pool",
+    description: "Take a refreshing dip in our sparkling outdoor swimming pool overlooking rolling hills and open skies.",
+    image: `${cdn}/DSC08837.avif`,
+  },
+  {
+    name: "Bungalow Private Jacuzzi",
+    category: "Amenities",
+    highlight: "Private Luxury",
+    description: "Indulge in pure relaxation with a private, temperature-controlled jacuzzi built into our premium Bungalow Villa suite.",
+    image: `${cdn}/2026-04-02-082005702-DSC08852.jpg`,
+  },
+  {
+    name: "Sunset Point View",
+    category: "Facilities",
+    highlight: "Scenic Golden Hour",
+    description: "Witness magical golden-hour sunsets as the sun dips behind the Karjat mountain ranges from our curated vantage points.",
+    image: "/mountainview.avif",
+  },
+  {
+    name: "Lawn Area",
+    category: "Facilities",
+    highlight: "7-Acre Greenery",
+    description: "Expansive manicured open lawns ideal for destination weddings, morning yoga, evening cocktail parties, and group games.",
+    image: `${cdn}/DSC08849.avif`,
+  },
+  {
+    name: "Deck Area",
+    category: "Facilities",
+    highlight: "Lounging & Views",
+    description: "Spacious wooden view deck designed for stargazing, sunset high tea, and open-air conversation with mountain vistas.",
+    image: `${unsplash}/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1200&q=80`,
+  },
+  {
+    name: "Gazebo",
+    category: "Facilities",
+    highlight: "Outdoor Cabanas",
+    description: "Charming sheltered garden gazebos providing peaceful shade, reading nooks, and intimate outdoor dining corners.",
+    image: `${unsplash}/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80`,
+  },
+  {
+    name: "Music Speaker with Mic",
+    category: "Entertainment",
+    highlight: "Karaoke & Events",
+    description: "Professional high-output audio system and wireless microphones available for karaoke, private parties, and wedding functions.",
+    image: `${unsplash}/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1200&q=80`,
+  },
+  {
+    name: "In-House Restaurant",
+    category: "Amenities",
+    highlight: "Fresh Dining",
+    description: "Savor delectable multi-cuisine menus, lavish buffet spreads, barbecue setups, and customized celebration banquet dining.",
+    image: "/event.avif",
+  },
 ];

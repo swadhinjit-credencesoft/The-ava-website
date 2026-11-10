@@ -2,6 +2,7 @@ import { amenities } from "./amenities";
 import { features } from "./features";
 import { touristPlaces } from "./touristPlaces";
 import { distances } from "./distances";
+import { directions } from "./directions";
 import { events } from "./events";
 import { nav } from "./nav";
 
@@ -19,6 +20,7 @@ export const hotelData = {
   amenities,
   touristPlaces,
   distances,
+  directions,
   events,
   nav,
 };

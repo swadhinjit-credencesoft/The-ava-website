@@ -31,8 +31,25 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col gap-3">
-          <h4 className="font-medium text-[13px] uppercase tracking-[0.25em] text-white mb-2">Resort Experiences</h4>
-          {["Free Parking", "Outdoor Swimming Pool", "Free Wi-Fi", "In-House Dining", "Room Service", "Private Jacuzzi Room", "Wedding Lawns", "Poolside Celebrations", "Bungalow Villa", "Mountain Views"].map((f) => <span key={f} className="text-white/50 text-[13px] font-medium">{f}</span>)}
+          <h4 className="font-medium text-[13px] uppercase tracking-[0.25em] text-white mb-2">Activities &amp; Facilities</h4>
+          {[
+            "Boating",
+            "Trekking",
+            "Indoor & Outdoor Games",
+            "Rain Dance",
+            "Swimming Pool",
+            "Bungalow Private Jacuzzi",
+            "Sunset Point View",
+            "Lawn Area",
+            "Deck Area",
+            "Gazebo",
+            "Music Speaker with Mic",
+            "In-House Restaurant",
+          ].map((f) => (
+            <span key={f} className="text-white/50 text-[13px] font-medium">
+              {f}
+            </span>
+          ))}
         </div>
 
         <div className="flex flex-col gap-5">
