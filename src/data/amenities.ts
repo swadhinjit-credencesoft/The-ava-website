@@ -43,7 +43,7 @@ export const amenities: Amenity[] = [
     category: "Amenities",
     highlight: "Mountain View Pool",
     description: "Take a refreshing dip in our sparkling outdoor swimming pool overlooking rolling hills and open skies.",
-    image: `${cdn}/DSC08837.avif`,
+    image: "/poolprivate.jpeg",
   },
   {
     name: "Bungalow Private Jacuzzi",
