@@ -7,7 +7,7 @@ export function RestaurantSection() {
     <section className="py-32 px-4 md:px-8 max-w-screen-2xl mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
         <div className="relative overflow-hidden aspect-[4/3] lg:aspect-auto lg:min-h-[500px]">
-          <img src="https://bookonelocal.in/cdn/DSC08812.avif" alt="Dining and hospitality at The Mountain Resort" className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000" loading="lazy" />
+          <img src="/event.avif" alt="Dining and hospitality at The Mountain Resort" className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000" loading="lazy" />
         </div>
         <div className="bg-[#f5f5f5] p-12 md:p-20 flex flex-col justify-center gap-8">
           <div><p className="text-[#C9A84C] text-[11px] uppercase tracking-[0.5em] mb-4">Dining</p><h2 className="sec-title font-display text-[52px] md:text-[68px] text-[#111111] uppercase leading-[0.88]">DINING &amp;<br />HOSPITALITY</h2></div>

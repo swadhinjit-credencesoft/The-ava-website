@@ -15,7 +15,7 @@ export const amenities: Amenity[] = [
     category: "Activities",
     highlight: "Water Recreation",
     description: "Enjoy peaceful pedal and paddle boating experiences surrounded by lush Karjat mountain landscapes.",
-    image: `${unsplash}/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80`,
+    image: '/poolprivate.jpeg',
   },
   {
     name: "Trekking",
@@ -43,7 +43,7 @@ export const amenities: Amenity[] = [
     category: "Amenities",
     highlight: "Mountain View Pool",
     description: "Take a refreshing dip in our sparkling outdoor swimming pool overlooking rolling hills and open skies.",
-    image: "/poolprivate.jpeg",
+    image: "/swimming.png",
   },
   {
     name: "Bungalow Private Jacuzzi",
