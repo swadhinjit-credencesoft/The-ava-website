@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Meetings & Events — The AVA Chikkamagaluru",
-  description: "2500+ Sq.Ft pillarless ballroom for weddings, corporate events & celebrations on NH 173, Chikkamagaluru.",
+  description: "7000+ Sq.Ft main event space & 2700+ Sq.Ft banquet space for weddings, corporate events & celebrations on NH 173, Chikkamagaluru.",
   alternates: {
     canonical: "/events",
   },
   openGraph: {
     title: "Events — The AVA Hotel Chikkamagaluru",
-    description: "2500+ sq.ft pillarless ballroom for weddings, corporate meets & celebrations.",
+    description: "7000+ Sq.Ft main event space & 2700+ Sq.Ft banquet space for weddings, corporate meets & celebrations.",
     url: "https://hoteltheava.com/events",
     type: "website",
     siteName: "The AVA Hotel",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Events — The AVA Hotel Chikkamagaluru",
-    description: "2500+ sq.ft pillarless ballroom for weddings, corporate meets & celebrations.",
+    description: "7000+ Sq.Ft main event space & 2700+ Sq.Ft banquet space for weddings, corporate meets & celebrations.",
     images: ["/wedding.avif"],
   },
 };

@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -17,6 +18,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function RoomsPage() {
   const hotel = useSelector((state: RootState) => state.data.hotel);
+  const roomsLoading = useSelector((state: RootState) => state.data.roomsLoading);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
@@ -47,35 +49,65 @@ export default function RoomsPage() {
         </section>
 
         <section className="py-24 px-4 md:px-8">
-          <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-            {hotel.rooms.map((room) => (
-              <div key={room.id} className="room-card flex flex-col">
-                <div className="relative aspect-[4/3] overflow-hidden bg-[#f5f5f5] group">
-                  <img src={room.image} alt={room.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
-                  <div className="absolute top-4 left-4 flex gap-2">
-                    <span className="bg-[#C9A84C] text-[#111111] px-4 py-1 rounded-full text-[11px] font-medium uppercase tracking-wider">{room.type}</span>
-                    {room.price && <span className="bg-white text-[#111111] px-4 py-1 rounded-full text-[11px] font-bold">{room.price}</span>}
+          <div className="max-w-screen-2xl mx-auto">
+            {hotel.rooms.length === 0 && roomsLoading ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                {[1, 2, 3, 4].map((n) => (
+                  <div key={n} className="flex flex-col animate-pulse">
+                    <div className="aspect-[4/3] bg-[#f0f0f0] rounded-sm" />
+                    <div className="pt-8 space-y-4">
+                      <div className="h-8 bg-[#f0f0f0] w-3/4 rounded" />
+                      <div className="h-4 bg-[#f0f0f0] w-full rounded" />
+                      <div className="h-4 bg-[#f0f0f0] w-2/3 rounded" />
+                    </div>
                   </div>
-                </div>
-                <div className="pt-8 flex flex-col gap-5 flex-1">
-                  <h2 className="font-display text-[42px] text-[#111111] uppercase leading-tight">{room.name}</h2>
-                  <p className="text-[#707072] text-[15px] leading-relaxed font-medium">{room.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {room.features.map((f) => (
-                      <span key={f} className="border border-[#cacacb] text-[#111111] px-4 py-1.5 rounded-full text-[12px] font-medium">{f}</span>
-                    ))}
-                  </div>
-                  <div className="mt-auto pt-4 flex gap-3 flex-wrap">
-                    <a href={`/rooms/${room.id}-room`} className="border border-[#cacacb] text-[#111111] px-8 py-4 rounded-full font-medium text-[15px] hover:border-[#111111] transition-colors inline-block" data-testid={`button-view-${room.id}`}>
-                      View Details
-                    </a>
-                    <a href={hotel.bookingEngineUrl} target="_blank" rel="noopener noreferrer" className="bg-[#111111] text-white px-8 py-4 rounded-full font-medium text-[15px] hover:bg-[#333] transition-colors inline-block" data-testid={`button-book-${room.id}`}>
-                      Book Now
-                    </a>
-                  </div>
-                </div>
+                ))}
               </div>
-            ))}
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                {hotel.rooms.map((room) => (
+                  <div key={room.id} className="room-card flex flex-col">
+                    <div className="relative aspect-[4/3] overflow-hidden bg-[#f5f5f5] group">
+                      <img src={room.image} alt={room.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+                      <div className="absolute top-4 left-4 flex gap-2">
+                        <span className="bg-[#C9A84C] text-[#111111] px-4 py-1 rounded-full text-[11px] font-medium uppercase tracking-wider">{room.type}</span>
+                        {room.price && <span className="bg-white text-[#111111] px-4 py-1 rounded-full text-[11px] font-bold">{room.price}</span>}
+                      </div>
+                    </div>
+                    <div className="pt-8 flex flex-col gap-5 flex-1">
+                      <h2 className="font-display text-[42px] text-[#111111] uppercase leading-tight">{room.name}</h2>
+                      <p className="text-[#707072] text-[15px] leading-relaxed font-medium">{room.description}</p>
+                      <div className="flex flex-wrap gap-2">
+                        {room.features.map((f) => (
+                          <span key={f} className="border border-[#cacacb] text-[#111111] px-4 py-1.5 rounded-full text-[12px] font-medium">{f}</span>
+                        ))}
+                      </div>
+                      {room.plans && room.plans.length > 0 && (
+                        <div className="pt-3 pb-1 border-t border-[#e5e5e5] space-y-1.5">
+                          <p className="text-[10px] font-bold text-[#707072] uppercase tracking-wider">Available Plans:</p>
+                          <div className="flex flex-wrap gap-2">
+                            {room.plans.map((p) => (
+                              <span key={p.code} className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#f5f5f5] rounded-full text-xs text-[#222]">
+                                <span className="font-semibold text-[#111]">{p.name}:</span>
+                                <span className="font-bold text-[#C9A84C]">{p.formattedPrice}</span>
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                      <div className="mt-auto pt-4 flex gap-3 flex-wrap">
+                        <Link href={`/rooms/${room.slug || room.id}-room`} className="border border-[#cacacb] text-[#111111] px-8 py-4 rounded-full font-medium text-[15px] hover:border-[#111111] transition-colors inline-block" data-testid={`button-view-${room.id}`}>
+                          View Details
+                        </Link>
+                        <a href={hotel.bookingEngineUrl} target="_blank" rel="noopener noreferrer" className="bg-[#111111] text-white px-8 py-4 rounded-full font-medium text-[15px] hover:bg-[#333] transition-colors inline-block" data-testid={`button-book-${room.id}`}>
+                          Book Now
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </section>
 

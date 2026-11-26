@@ -31,7 +31,7 @@ export const pages: Record<string, PageContent> = {
   "/rooms": {
     breadcrumb: [{ label: "Home", href: "/" }, { label: "Rooms" }],
     hero: {
-      image: "/quardroom.webp",
+      image: "/estateview.jpeg",
       label: "Accommodation",
       title: "STAY WITH US",
       subtitle: "Four categories of luxury rooms, each designed for comfort and elegance",
@@ -116,7 +116,7 @@ export const pages: Record<string, PageContent> = {
       brightness: 0.4,
       label: "The AVA",
       title: "MEETINGS & EVENTS",
-      subtitle: "2500+ Sq.Ft pillarless ballroom for your most memorable occasions",
+      subtitle: "7000+ Sq.Ft main event space and 2700+ Sq.Ft banquet space for your most memorable occasions",
     },
     cta: {
       label: "",

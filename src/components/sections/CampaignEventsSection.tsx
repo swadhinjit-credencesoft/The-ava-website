@@ -7,7 +7,7 @@ export function CampaignEventsSection() {
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-8" style={{ zIndex: 10 }}>
         <p className="text-[#C9A84C] text-[11px] uppercase tracking-[0.5em] mb-6">The AVA</p>
         <h2 className="font-display text-[56px] md:text-[96px] text-white uppercase leading-[0.85]">MEETINGS &amp;<br />EVENTS</h2>
-        <p className="text-white/70 text-[17px] max-w-lg mt-6 font-medium">2500+ Sq.Ft pillarless ballroom for weddings, corporate meets &amp; celebrations</p>
+        <p className="text-white/70 text-[17px] max-w-lg mt-6 font-medium">7000+ Sq.Ft main event space &amp; 2700+ Sq.Ft banquet space for weddings, corporate meets &amp; celebrations</p>
         <a
           href="https://www.theroyalshalimar.com/"
           target="_blank"

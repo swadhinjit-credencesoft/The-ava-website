@@ -1,14 +1,14 @@
 export const events = {
   heading: "Meetings & Events",
-  description: "The AVA offers personalized services and amenities to host meetings, conferences, seminars and other business gatherings, birthday parties, sangeets, mehendi, baby showers, etc. With more than 2500 Sqft of event spaces including a pillarless ballroom.",
+  description: "The AVA offers personalized services and expansive venues for grand weddings, receptions, conferences, seminars, corporate gatherings, and family celebrations. Featuring a 7000+ Sqft main event space and 2700+ Sqft banquet space with a premium pillarless layout.",
   features: [
-    "2500+ Sqft Pillarless Ballroom",
-    "Conference Room",
-    "Meeting Facilities",
-    "Birthday Parties",
-    "Sangeet & Mehendi Events",
-    "Baby Showers",
-    "24 Hours Support"
+    "7000+ Sqft Main Event Space",
+    "2700+ Sqft Pillarless Banquet Space",
+    "Conference & Seminar Facilities",
+    "Grand Weddings & Receptions",
+    "Sangeet & Mehendi Celebrations",
+    "Birthday Parties & Gatherings",
+    "24 Hours Dedicated Event Support"
   ],
   image: "/wedding.avif"
 };

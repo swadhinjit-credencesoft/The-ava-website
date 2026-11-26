@@ -57,10 +57,10 @@ export default function EventsPage() {
           <div className="max-w-screen-xl mx-auto px-4 md:px-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
               {[
-                { number: "2500", suffix: "+", label: "Sq.Ft Event Hall" },
-                { number: "500", suffix: "+", label: "Guest Capacity" },
-                { number: "24", suffix: "/7", label: "Event Support" },
-                { number: "100", suffix: "%", label: "Pillarless Hall" },
+                { number: "7000", suffix: "+", label: "Sq.Ft Main Event Space" },
+                { number: "2700", suffix: "+", label: "Sq.Ft Banquet Space" },
+                { number: "800", suffix: "+", label: "Guest Capacity" },
+                { number: "100", suffix: "%", label: "Pillarless Layout" },
               ].map((s) => (
                 <div key={s.label} className="event-stat flex flex-col items-center justify-center py-10 px-4 bg-white border border-[#e5e5e5] text-center">
                   <span className="font-display text-[48px] md:text-[64px] text-[#111111] leading-none">
@@ -84,7 +84,8 @@ export default function EventsPage() {
 
               <div className="flex flex-col gap-4 mt-4">
                 {[
-                  "2500+ Sq.Ft pillarless ballroom layout",
+                  "7000+ Sq.Ft expansive main event space for grand gatherings",
+                  "2700+ Sq.Ft pillarless banquet space with versatile layouts",
                   "Elegant state-of-the-art lighting & sound options",
                   "Custom catering menus (Veg & Non-veg options)",
                   "Dedicated event coordinator for flawless execution",

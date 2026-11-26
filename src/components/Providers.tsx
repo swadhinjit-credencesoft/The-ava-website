@@ -7,6 +7,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/toaster";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { LiveRoomsSync } from "@/components/LiveRoomsSync";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const [queryClient] = useState(() => new QueryClient());
@@ -15,6 +16,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
+          <LiveRoomsSync />
           {children}
           <WhatsAppButton />
           <Toaster />

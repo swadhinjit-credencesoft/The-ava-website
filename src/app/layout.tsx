@@ -66,7 +66,7 @@ const hotelSchema = {
   url: siteUrl,
   telephone: "+917899738550",
   email: "bookings@theavahotel.com",
-  priceRange: "₹2,499 – ₹3,999",
+  priceRange: "₹2,500 – ₹6,800",
   checkinTime: "12:00",
   checkoutTime: "11:00",
   acceptsReservations: "True",
