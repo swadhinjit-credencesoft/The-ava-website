@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { rooms } from "@/data/rooms";
 
-const siteUrl = "https://theavahotel.in";
+const siteUrl = "https://hoteltheava.com";
 
 export async function generateStaticParams() {
   return rooms.map((room) => ({ id: `${room.id}-room` }));

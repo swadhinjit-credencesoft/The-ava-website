@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 import { RootState } from "@/store";
 import { setCheckIn, setCheckOut, setGuests } from "@/store/slices/bookingSlice";
 import { Calendar, Users } from "lucide-react";
@@ -62,7 +61,8 @@ export function BookingBar({ dark }: BookingBarProps) {
       rooms: "1",
     });
 
-    window.open(`${hotel.bookingEngineUrl}&${params.toString()}`, "_blank", "noopener,noreferrer");
+    const baseUrl = hotel.bookingEngineUrl.split("?")[0];
+    window.open(`${baseUrl}?${params.toString()}`, "_blank", "noopener,noreferrer");
   };
 
   const handleCheckInChange = (date: Date | null) => {

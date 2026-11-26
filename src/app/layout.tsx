@@ -4,7 +4,7 @@ import { Providers } from "@/components/Providers";
 
 const siteTitle = "The AVA Hotel Chikkamagaluru | Luxury Rooms on NH 173 near Mudigere";
 const siteDescription = "Boutique hotel in Chikkamagaluru on NH 173. AC rooms, 24-hr checkout, restaurant, near Mullayanagiri treks and the Sringeri–Hornadu temple circuit. Book direct for best rates.";
-const siteUrl = "https://theavahotel.in";
+const siteUrl = "https://hoteltheava.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

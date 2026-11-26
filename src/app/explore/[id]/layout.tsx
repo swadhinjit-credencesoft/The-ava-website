@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { exploreArticles } from "@/data/explore";
 
-const siteUrl = "https://theavahotel.in";
+const siteUrl = "https://hoteltheava.com";
 
 export async function generateStaticParams() {
   return exploreArticles.map((article) => ({ id: article.id }));

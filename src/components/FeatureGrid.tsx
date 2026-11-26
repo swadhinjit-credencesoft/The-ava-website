@@ -36,7 +36,7 @@ export function FeatureGrid() {
     <div ref={containerRef} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
       {features.map((feature, idx) => {
         // Dynamically get the icon component from lucide-react
-        // @ts-ignore - dynamic access
+        // @ts-expect-error - dynamic access
         const IconComponent = Icons[feature.icon] || Icons.CheckCircle;
         
         return (

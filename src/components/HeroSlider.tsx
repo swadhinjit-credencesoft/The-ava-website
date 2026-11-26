@@ -57,6 +57,7 @@ export function HeroSlider() {
         loop
         playsInline
         preload="auto"
+        poster="/estateview.jpeg"
         className="hero-video absolute inset-0 w-full h-[120%] object-cover"
         style={{ filter: "brightness(0.95) saturate(1.05)" }}
       >

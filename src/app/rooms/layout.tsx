@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Rooms & Suites — The AVA Hotel Chikkamagaluru",
     description: "Quad, Premium, Estate View & Executive rooms. King beds, AC, breakfast included. Book direct for best rates.",
-    url: "https://theavahotel.in/rooms",
+    url: "https://hoteltheava.com/rooms",
     type: "website",
     siteName: "The AVA Hotel",
     images: [{ url: "/premiumroom.webp", width: 1200, height: 900, alt: "Premium Room at The AVA Hotel Chikkamagaluru" }],

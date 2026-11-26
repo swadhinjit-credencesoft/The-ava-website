@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Explore Chikkamagaluru — Travel Guides | The AVA Hotel",
     description: "Mullayanagiri trek, Sringeri temples, Bhadra safari, Belur-Halebidu — expert travel guides for your Chikkamagaluru stay.",
-    url: "https://theavahotel.in/explore",
+    url: "https://hoteltheava.com/explore",
     type: "website",
     siteName: "The AVA Hotel",
     images: [{ url: "/tour.jpg", width: 1200, height: 900, alt: "Explore Chikkamagaluru — travel guides by The AVA Hotel" }],

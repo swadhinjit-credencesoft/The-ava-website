@@ -13,7 +13,7 @@ const faqs = [
 ];
 
 function FaqItem({ q, a }: { q: string; a: string }) {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   return (
     <div className="border-b border-[#e5e5e5]">
       <button
@@ -50,7 +50,7 @@ export function FaqSection() {
           <p className="text-[#C9A84C] text-[11px] uppercase tracking-[0.5em] mb-4">Got Questions?</p>
           <h2 className="font-display text-[52px] md:text-[68px] text-[#111111] uppercase leading-[0.88] mb-6">FREQUENTLY<br />ASKED</h2>
           <p className="text-[#707072] text-[15px] leading-relaxed font-medium mb-10">
-            Can't find your answer here? Reach out to us directly — we respond within minutes.
+            Can&apos;t find your answer here? Reach out to us directly — we respond within minutes.
           </p>
           <a href="tel:+917899738550" className="bg-[#111111] text-white px-8 py-4 rounded-full font-medium text-[14px] hover:bg-[#333] transition-colors inline-flex items-center gap-2" data-testid="button-faq-call">
             <Phone size={14} /> +91 7899738550

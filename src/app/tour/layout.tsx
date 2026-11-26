@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Tour & Nearby — The AVA Hotel Chikkamagaluru",
     description: "Mullayanagiri, Bhadra Sanctuary, Sringeri temple circuit & more — all accessible from The AVA on NH 173.",
-    url: "https://theavahotel.in/tour",
+    url: "https://hoteltheava.com/tour",
     type: "website",
     siteName: "The AVA Hotel",
     images: [{ url: "/tour.jpg", width: 1200, height: 900, alt: "Tour & nearby attractions from The AVA Hotel Chikkamagaluru" }],

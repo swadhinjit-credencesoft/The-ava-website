@@ -27,7 +27,17 @@ export default function ExploreArticlePage() {
     );
   }
 
-  const contentHtml = article.content
+  const paragraphs = article.content
+    .split(/\n\n+/)
+    .map((block) => {
+      const trimmed = block.trim();
+      if (!trimmed) return "";
+      if (trimmed.startsWith("<h2>")) return trimmed;
+      return `<p>${trimmed}</p>`;
+    })
+    .join("\n");
+
+  const contentHtml = paragraphs
     .replace(/<a /g, '<a class="text-[#C9A84C] underline hover:opacity-80 transition-opacity" ')
     .replace(/<h2>/g, '<h2 class="font-display text-[28px] text-[#111111] uppercase mt-12 mb-4">')
     .replace(/<b>/g, '<b class="font-medium text-[#111111]">')

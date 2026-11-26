@@ -1,6 +1,6 @@
 "use client";
 
-import { Star, ExternalLink } from "lucide-react";
+import { Star } from "lucide-react";
 
 const awards = [
   { icon: Star, label: "Loved by Our Guests", sub: "Read reviews on Google →", href: "https://search.google.com/local/reviews?q=The+AVA+Hotel+Haandi+Chikkamagaluru" },

@@ -14,7 +14,8 @@ const variants = {
 export function CtaStrip() {
   const pathname = usePathname();
   const pages = useSelector((state: RootState) => state.data.pages);
-  const page = pages[pathname];
+  const normalizedPath = pathname ? pathname.replace(/\/$/, "") || "/" : "/";
+  const page = pages[normalizedPath] || pages[pathname];
   const { label, title, buttons } = page?.cta || { label: "", title: "", buttons: [] };
   return (
     <section className="py-20 px-4 md:px-8 bg-[#111111]">

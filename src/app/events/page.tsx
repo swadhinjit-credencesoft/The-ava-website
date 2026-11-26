@@ -30,7 +30,11 @@ export default function EventsPage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { register, handleSubmit, reset, formState: { isSubmitSuccessful } } = useForm<EventFormData>();
 
-  const onSubmit = (_data: EventFormData) => {
+  const onSubmit = (data: EventFormData) => {
+    const text = encodeURIComponent(`Hello The AVA, I would like to enquire for an event:\nName: ${data.name}\nPhone: ${data.phone}\nEmail: ${data.email || 'N/A'}\nType: ${data.eventType}\nDate: ${data.date || 'TBD'}\nGuests: ${data.guests || 'N/A'}\nNotes: ${data.message || 'None'}`);
+    if (typeof window !== "undefined") {
+      window.open(`https://wa.me/917899738550?text=${text}`, "_blank", "noopener,noreferrer");
+    }
     reset();
   };
 

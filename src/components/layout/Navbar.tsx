@@ -14,16 +14,17 @@ export function Navbar() {
   const mobileMenuOpen = useSelector((state: RootState) => state.navigation.mobileMenuOpen);
   const hotel = useSelector((state: RootState) => state.data.hotel);
   const isHome = location === "/";
-  const [scrolled, setScrolled] = useState(!isHome);
+  const [hasScrolledPast, setHasScrolledPast] = useState(false);
+  const scrolled = !isHome || hasScrolledPast;
 
   useEffect(() => {
-    setScrolled(window.scrollY > 80 || !isHome);
-  }, [isHome]);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 80 || !isHome);
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
+    if (!isHome) return;
+    const onScroll = () => {
+      const past = window.scrollY > 80;
+      setHasScrolledPast((prev) => (prev !== past ? past : prev));
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, [isHome]);
 
   const handleLinkClick = () => {

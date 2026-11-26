@@ -8,7 +8,8 @@ import { RootState } from "@/store";
 export function Breadcrumb() {
   const pathname = usePathname();
   const pages = useSelector((state: RootState) => state.data.pages);
-  const page = pages[pathname];
+  const normalizedPath = pathname ? pathname.replace(/\/$/, "") || "/" : "/";
+  const page = pages[normalizedPath] || pages[pathname];
   const items = page?.breadcrumb || [{ label: "Home", href: "/" }];
   return (
     <div className="px-8 py-4 bg-[#f5f5f5] border-b border-[#e5e5e5]">

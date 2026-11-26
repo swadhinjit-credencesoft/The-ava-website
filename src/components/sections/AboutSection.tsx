@@ -21,10 +21,10 @@ export function AboutSection() {
             <h2 className="font-display text-[56px] md:text-[76px] text-[#111111] uppercase leading-[0.88]">A RETREAT<br />LIKE NO OTHER</h2>
           </div>
           <p className="reveal-up text-[#707072] text-[16px] leading-relaxed font-medium">
-            Nestled on NH 173 between Chikkamagaluru and Mudigere, The AVA sits at the heart of Karnataka's legendary coffee and pepper plantations. Wake to panoramic views of the Western Ghats and discover nature at its most magnificent.
+            Nestled on NH 173 between Chikkamagaluru and Mudigere, The AVA sits at the heart of Karnataka&apos;s legendary coffee and pepper plantations. Wake to panoramic views of the Western Ghats and discover nature at its most magnificent.
           </p>
           <p className="reveal-up text-[#707072] text-[16px] leading-relaxed font-medium">
-            From the towering peaks of Mullayangiri to the sacred shrines of Dharmastala and Hornadu, our location places you at the centre of Karnataka's most treasured destinations — accessible yet blissfully secluded.
+            From the towering peaks of Mullayangiri to the sacred shrines of Dharmastala and Hornadu, our location places you at the centre of Karnataka&apos;s most treasured destinations — accessible yet blissfully secluded.
           </p>
           <div className="reveal-up flex gap-4 flex-wrap">
             <Link href="/rooms" className="bg-[#111111] text-white px-8 py-4 rounded-full font-medium text-[15px] hover:bg-[#333] transition-colors" data-testid="button-about-rooms">Our Rooms</Link>

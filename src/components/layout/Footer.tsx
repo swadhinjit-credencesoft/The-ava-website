@@ -13,15 +13,16 @@ export function Footer() {
         <div className="flex flex-col gap-6">
           <div>
             <h3 className="font-display text-[36px] text-white uppercase leading-tight">
-              THE AVA            </h3>
+              THE AVA
+            </h3>
             <p className="text-[#C9A84C] text-[11px] uppercase tracking-[0.3em] mt-2">♔ Haandi · Karnataka</p>
           </div>
           <p className="text-white/50 text-[13px] leading-relaxed">
-            NH 173 Mangalore–Kadur Highway, between Chikkamagaluru and Mudigere. A peaceful luxury resort amidst Karnataka's finest coffee highlands.
+            NH 173 Mangalore–Kadur Highway, between Chikkamagaluru and Mudigere. A peaceful luxury resort amidst Karnataka&apos;s finest coffee highlands.
           </p>
           <div className="flex gap-3">
-            <a href="https://facebook.com/PLACEHOLDER" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 text-[11px] font-bold hover:border-[#C9A84C] hover:text-[#C9A84C] transition-colors" aria-label="Facebook">Fb</a>
-            <a href="https://instagram.com/PLACEHOLDER" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 text-[11px] font-bold hover:border-[#C9A84C] hover:text-[#C9A84C] transition-colors" aria-label="Instagram">Ig</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 text-[11px] font-bold hover:border-[#C9A84C] hover:text-[#C9A84C] transition-colors" aria-label="Facebook">Fb</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 text-[11px] font-bold hover:border-[#C9A84C] hover:text-[#C9A84C] transition-colors" aria-label="Instagram">Ig</a>
           </div>
         </div>
 
@@ -75,7 +76,7 @@ export function Footer() {
       </div>
 
       <div className="max-w-screen-2xl mx-auto px-8 md:px-16 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
-        <p className="text-white/30 text-[12px]">Designed and Developed By CredenceSoft, Powered By BookOne..</p>
+        <p className="text-white/30 text-[12px]">Designed and Developed By CredenceSoft, Powered By BookOne.</p>
         <p className="text-white/20 text-[10px] uppercase tracking-widest">NH 173, Haandi, Chikkamagaluru, Karnataka 577111</p>
       </div>
     </footer>

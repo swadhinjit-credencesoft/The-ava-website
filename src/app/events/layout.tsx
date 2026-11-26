@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Events — The AVA Hotel Chikkamagaluru",
     description: "2500+ sq.ft pillarless ballroom for weddings, corporate meets & celebrations.",
-    url: "https://theavahotel.in/events",
+    url: "https://hoteltheava.com/events",
     type: "website",
     siteName: "The AVA Hotel",
     images: [{ url: "/wedding.avif", width: 1200, height: 900, alt: "Wedding & events at The AVA Hotel Chikkamagaluru" }],

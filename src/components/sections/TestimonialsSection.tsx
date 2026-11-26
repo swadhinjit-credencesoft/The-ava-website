@@ -23,7 +23,7 @@ export function TestimonialsSection() {
               <div className="flex gap-1">
                 {[...Array(t.rating)].map((_, j) => <span key={j} className="text-[#C9A84C] text-[15px]">★</span>)}
               </div>
-              <p className="text-[#707072] text-[14px] leading-relaxed font-medium italic flex-1">"{t.review}"</p>
+              <p className="text-[#707072] text-[14px] leading-relaxed font-medium italic flex-1">&ldquo;{t.review}&rdquo;</p>
               <div className="flex items-center gap-3 pt-5 border-t border-[#e5e5e5]">
                 <div className="w-10 h-10 rounded-full bg-[#C9A84C] flex items-center justify-center text-[#111111] font-bold text-[15px] flex-shrink-0">{t.name.charAt(0)}</div>
                 <div>

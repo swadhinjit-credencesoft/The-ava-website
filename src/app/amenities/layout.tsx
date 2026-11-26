@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Amenities — The AVA Hotel Chikkamagaluru",
     description: "In-house restaurant, free WiFi, bonfire, travel desk & more at The AVA near Mudigere.",
-    url: "https://theavahotel.in/amenities",
+    url: "https://hoteltheava.com/amenities",
     type: "website",
     siteName: "The AVA Hotel",
     images: [{ url: "/avadining.jpg", width: 1200, height: 900, alt: "Dining at The AVA Hotel Chikkamagaluru" }],

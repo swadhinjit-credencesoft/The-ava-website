@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact — The AVA Hotel Chikkamagaluru",
     description: "Get directions, call us, or send an enquiry. NH 173, Haandi, Chikkamagaluru, Karnataka 577111.",
-    url: "https://theavahotel.in/contact",
+    url: "https://hoteltheava.com/contact",
     type: "website",
     siteName: "The AVA Hotel",
     images: [{ url: "/shalimarhomeimg.png", width: 1200, height: 900, alt: "Contact The AVA Hotel Chikkamagaluru" }],

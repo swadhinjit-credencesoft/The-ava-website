@@ -1,4 +1,34 @@
+# ==============================================================================
+# The AVA Hotel (hoteltheava.com) - Production robots.txt
+# Luxury boutique hotel on NH 173, Haandi, Chikkamagaluru, Karnataka
+# ==============================================================================
+
 User-agent: *
 Allow: /
+Disallow: /_next/
+Disallow: /api/
+Disallow: /out/
 
-Sitemap: https://theavahotel.in/sitemap.xml
+# Explicit media & static crawler access for Googlebot
+User-agent: Googlebot
+Allow: /
+Allow: /*.js$
+Allow: /*.css$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.webp$
+Allow: /*.avif$
+Allow: /*.svg$
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Canonical Host
+Host: https://hoteltheava.com
+
+# XML Sitemap
+Sitemap: https://hoteltheava.com/sitemap.xml

@@ -83,7 +83,7 @@ export default function RoomsPage() {
           <div className="max-w-screen-xl mx-auto">
             <div className="text-center mb-16">
               <p className="text-[#C9A84C] text-[12px] uppercase tracking-[0.4em] mb-4">All Rooms Include</p>
-              <h2 className="font-display text-[56px] md:text-[72px] text-[#111111] uppercase leading-[0.9]">WHAT'S INCLUDED</h2>
+              <h2 className="font-display text-[56px] md:text-[72px] text-[#111111] uppercase leading-[0.9]">WHAT&apos;S INCLUDED</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {hotel.roomInclusions.map((inc) => (

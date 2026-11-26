@@ -16,7 +16,7 @@ export const hotelData = {
   phone: "+91 7899738550",
   phoneAlt: "+91 8618141466",
   email: "bookings@theavahotel.com",
-  website: "www.theavahotel.in",
+  website: "www.hoteltheava.com",
   bookingEngineUrl: "https://bookone.io/Hotel-The-Royal-Shalimar-Boutique-Stay?bookingEngine=true",
   description: "A boutique stay on NH 173 between Chikkamagaluru and Mudigere, surrounded by coffee and pepper plantations in the heart of Karnataka's Western Ghats. The AVA offers premium rooms, estate views, an in-house restaurant serving Karnataka and continental cuisine, and a convenient base for exploring Mullayangiri, Bhadra Wildlife Sanctuary, Dharmastala, and more.",
   rooms,

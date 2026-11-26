@@ -65,7 +65,7 @@ export const pages: Record<string, PageContent> = {
   "/tour": {
     breadcrumb: [{ label: "Home", href: "/" }, { label: "Tour & Nearby" }],
     hero: {
-      image: "kailash-reddy-ku-UUxOngp3p4w-unsplash.jpg",
+      image: "/kailash-reddy-ku-UUxOngp3p4w-unsplash.jpg",
       label: "Western Ghats",
       title: "EXPLORE NEARBY",
       subtitle: "Discover Karnataka's most treasured landscapes and landmarks",
